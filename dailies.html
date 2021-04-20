@@ -141,7 +141,7 @@ return;
   const yyyy = da.getFullYear();
   const m = da.getMonth() + 1;
   const d = da.getDate();
-  alert("Go to: https://www.gocomics.com/" + element.value + "/" + yyyy + "/" + m + "/" + d + "/");
+  window.location.href("Go to: https://www.gocomics.com/" + element.value + "/" + yyyy + "/" + m + "/" + d + "/");
 }
 
 function submitcheck(element)
