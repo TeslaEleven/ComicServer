@@ -96,7 +96,7 @@ body, html {
 <p> - RSS - <div>
 Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p><p>- View - <div>
 Launches GoComics or Arcamax.</div>
-<form method="post" action="dailies#rssgen" onSubmit="return submitcheck(this); name="rssgen" >
+<form method="post" action="dailies#rssgen" onSubmit="return submitcheck(this);" name="rssgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
   <input type="submit" name="submitbutton" value="Generate!" onClick="clic(comicname);">
 </form>
