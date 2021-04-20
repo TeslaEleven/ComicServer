@@ -141,10 +141,10 @@ return;
   let d = new Date(ts);
   utc = d.getTime() + (d.getTimezoneOffset() * 60000);
   offset = -6;
-  d = new Date(utc + (3600000*offset));
-  const yyyy = date.getFullYear();
-  const m = date.getMonth() + 1;
-  const d = date.getDate();
+  da = new Date(utc + (3600000*offset));
+  const yyyy = da.getFullYear();
+  const m = da.getMonth() + 1;
+  const d = da.getDate();
   alert(`Go to: https://www.gocomics.com/${element.value}/${yyyy}/${m}/${d}/`);
 }
 
