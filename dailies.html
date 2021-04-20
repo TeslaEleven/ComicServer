@@ -141,7 +141,7 @@ return;
   let d = new Date(ts);
   utc = d.getTime() + (d.getTimezoneOffset() * 60000);
   offset = -6;
-  da = new Date(utc + (3600000*offset));
+  var da = new Date(utc + (3600000*offset));
   const yyyy = da.getFullYear();
   const m = da.getMonth() + 1;
   const d = da.getDate();
