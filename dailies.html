@@ -96,7 +96,31 @@ body, html {
 <p> - RSS - <div>
 Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p><p>- View - <div>
 Launches GoComics or Arcamax.</div>
-<embed src="https://www.comicsrss.com" style="width:100%;height:50vh;"/>
+<form method="post" action="rssgenerator" onSubmit="return submitcheck(this);" >
+  <input type="text" name="comicname" placeholder="Comic name" required>
+  <input type="submit" name="submitbutton" value="Generate!" onClick="clic(comicname);">
+</form>
+<script>
+function clic(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  alert("Generated RSS Feed: https://www.comicsrss.com/rss/" + element.value.toLowerCase() + ".rss");
+}
+
+function submitcheck(element)
+{
+  alert("The action to execute is " + element.action);
+  return false;
+}
+</script>
 </body>
 </div>
 </div>
