@@ -137,15 +137,11 @@ return;
 if(element.value === "‎"){
 return;
 }
-  let ts = Date.now();
-  let d = new Date(ts);
-  utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-  offset = -6;
-  var da = new Date(utc + (3600000*offset));
+  var da = new Date();
   const yyyy = da.getFullYear();
   const m = da.getMonth() + 1;
   const d = da.getDate();
-  alert(`Go to: https://www.gocomics.com/${element.value}/${yyyy}/${m}/${d}/`);
+  alert("Go to: https://www.gocomics.com/" + element.value + "/" + yyyy + "/" + m + "/" + d + "/"`);
 }
 
 function submitcheck(element)
