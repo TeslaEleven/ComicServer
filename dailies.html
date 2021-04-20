@@ -116,7 +116,6 @@ return;
 
 function submitcheck(element)
 {
-  alert("The action to execute is " + element.action);
   return false;
 }
 </script>
@@ -124,7 +123,7 @@ function submitcheck(element)
 Launches GoComics or Arcamax.</div>
 <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
-  <input type="submit" name="submitbutton" value="Generate!" onClick="klik(comicname);">
+  <input type="submit" name="submitbutton" value="Launch!" onClick="klik(comicname);">
 </form>
 <script>
 function klik(element)
@@ -146,12 +145,11 @@ return;
   const yyyy = date.getFullYear();
   const m = date.getMonth() + 1;
   const d = date.getDate();
-  window.location.href("https://www.gocomics.com/" + element.value + "/" + yyyy + "/" + m + "/" + d + "/");
+  window.location.replace("https://www.gocomics.com/" + element.value + "/" + yyyy + "/" + m + "/" + d + "/");
 }
 
 function submitcheck(element)
 {
-  alert("The action to execute is " + element.action);
   return false;
 }
 </script>
