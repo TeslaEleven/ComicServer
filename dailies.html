@@ -94,8 +94,7 @@ body, html {
 <div class="bg-text">
 <h1>Daily Comics</h1>
 <p> - RSS - <div>
-Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p><p>- View - <div>
-Launches GoComics or Arcamax.</div>
+Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p>
 <form method="post" action="dailies#rssgen" onSubmit="return submitcheck(this);" name="rssgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
   <input type="submit" name="submitbutton" value="Generate!" onClick="clic(comicname);">
@@ -113,6 +112,41 @@ if(element.value === "‎"){
 return;
 }
   alert("Generated RSS Feed: https://www.comicsrss.com/rss/" + element.value.toLowerCase() + ".rss");
+}
+
+function submitcheck(element)
+{
+  alert("The action to execute is " + element.action);
+  return false;
+}
+</script>
+<p>- View - <div>
+Launches GoComics or Arcamax.</div>
+<form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="comicname" placeholder="Comic name" required>
+  <input type="submit" name="submitbutton" value="Generate!" onClick="klik(comicname);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  let ts = Date.now();
+  let d = new Date(ts);
+  utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+  offset = -6;
+  d = new Date(utc + (3600000*offset));
+  const yyyy = date.getFullYear();
+  const m = date.getMonth() + 1;
+  const d = date.getDate();
+  window.location.href("https://www.gocomics.com/" + element.value + "/" + yyyy + "/" + m + "/" + d + "/");
 }
 
 function submitcheck(element)
