@@ -1,4 +1,11 @@
 <script>
-var myWebSocket = new WebSocket("wss://comicserver.org"); 
-myWebSocket.close();
+var uri = "wss://comicserver.org";
+var socket = new WebSocket(uri);
+socket.onclose = function (e){
+    console.log(connection closed);
+};
+window.addEventListener("unload", function () {
+    if(socket.readyState == WebSocket.OPEN)
+        socket.close();
+});
 </script>
