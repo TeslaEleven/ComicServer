@@ -1,11 +1,9 @@
 <script>
+console.log("if you're looking at this, u ah SUPRA!!");
 var uri = "wss://comicserver.org";
 var socket = new WebSocket(uri);
-socket.onclose = function (e){
-    console.log(connection closed);
+socket.close();
+socket.onclose = () => {
+console.log('blub is closedddd');
 };
-window.addEventListener("unload", function () {
-    if(socket.readyState == WebSocket.OPEN)
-        socket.close();
-});
 </script>
