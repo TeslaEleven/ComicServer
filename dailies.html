@@ -2,6 +2,7 @@
 <html>
 <head>
 <link href="./fonts/comic.css" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:image" content="https://comicserver.org/img/Logos/ComicServer/logo.png">
     <meta property="og:image:type" content="image/png">
@@ -97,7 +98,7 @@ body, html {
 Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p>
 <form method="post" action="dailies#rssgen" onSubmit="return submitcheck(this);" name="rssgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
-  <input type="submit" name="submitbutton" value="Generate!" onClick="clic(comicname);">
+  <input type="submit" name="submitbutton" class="btn btn-info" value="Generate!" onClick="clic(comicname);">
 </form>
 <script>
 function clic(element)
@@ -123,7 +124,7 @@ function submitcheck(element)
 Launches GoComics or Arcamax.</div>
 <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
-  <input type="submit" name="submitbutton" value="Launch!" onClick="klik(comicname);">
+  <input type="submit" name="submitbutton" class="btn btn-success" value="Launch!" onClick="klik(comicname);">
 </form>
 <script>
 function klik(element)
