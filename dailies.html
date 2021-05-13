@@ -100,6 +100,7 @@ Copy link and open. Please download/use an RSS reader to use this. Get updates 
   <input type="text" name="comicname" placeholder="Comic name" required>
   <input type="submit" name="submitbutton" class="btn btn-info" value="Generate!" onClick="clic(comicname);">
 </form>
+    <div id="rssresult"></div>
 <script>
 function clic(element)
 {
@@ -112,7 +113,7 @@ return;
 if(element.value === "‎"){
 return;
 }
-  alert("Generated RSS Feed: https://www.comicsrss.com/rss/" + element.value.toLowerCase() + ".rss");
+  document.getElementById("rssresult").innerHTML =  element.value.toLowerCase();
 }
 
 function submitcheck(element)
