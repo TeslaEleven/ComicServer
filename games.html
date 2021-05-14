@@ -37,10 +37,14 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+    
+h1 {
+  font-size: 55px;
+}
 
 /* Position text in the middle of the page/image */
 .bg-text {
-  background-color: #3699EC; /* Black w/opacity/see-through */
+  background-color: #415EC8; /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   border: 3px solid #3699EC;
@@ -55,12 +59,12 @@ body, html {
 }
 .topnav {
   overflow: hidden;
-  background-color: #3699EC;
+  background-color: #2D333B;
 }
 .footer {
   text-align: center;
   overflow: hidden;
-  background-color: #000;
+  background-color: #2D333B;
   color: white;
 }
 
@@ -78,8 +82,10 @@ body, html {
 }
 
 .topnav a.active {
-  background-color: #4E5D94;
+  background-color: #3B424C;
   color: white;
+}
+.csdiv {
 }
 </style>
 </head>
@@ -98,7 +104,7 @@ body, html {
 </div>
 <div class="footer">
 <p>&copy; 2020<script>new Date().getFullYear()>2020&&document.write("-"+new Date().getFullYear());</script>, ComicServer.
-<hr><a target="_blank" href="./resources">Resources</a> | <a target="_blank" href="https://bot.comicserver.org">Discord Bot</a> | <select class="btn btn-info" name="forma" onchange="location = this.value;">
+<hr><a target="_blank" href="./resources">Resources</a> | <a target="_blank" href="https://bot.comicserver.org">Discord Bot</a> | <select class="btn btn-check" name="forma" onchange="location = this.value;">
  <option value="./">ComicServer</option>
  <option value="https://brawlcon.com">BrawlCon</option>
 </select></p>
