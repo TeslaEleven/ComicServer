@@ -1,13 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
 <link href="./css/style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://comicserver.org/fonts/comic.css" rel="stylesheet">
 <meta property="og:image" content="https://comicserver.org/img/Logos/ComicServer/logo.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="500">
     <meta property="og:image:height" content="500">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://comicserver.org/birthday"/>
-    <meta property="og:title" content="Birthday | ComicServer" />
-    <meta property="og:description" content="ComicServer special announcement!" />
+    <meta property="og:url" content="https://comicserver.org/"/>
+    <meta property="og:title" content="ComicServer" />
+    <meta property="og:description" content="ComicServer is the best website for comic strips" />
+<title>ComicServer</title>
 <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/logo.png" />
-<script>
-window.location.replace("./birthday");
-</script>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Comic Neue, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("https://comicserver.org/img/Coolio.png");
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    
+h1 {
+  font-size: 55px;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: #415EC8; /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #3699EC;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #2D333B;
+}
+.alertation {
+  overflow: hidden;
+  background-color: #FF0000;
+  text-align: center;
+  color: white
+}
+.footer {
+  text-align: center;
+  overflow: hidden;
+  background-color: #2D333B;
+  color: white;
+}
+
+.topnav a {
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3B424C;
+  color: white;
+}
+.csdiv {
+}
+</style>
+</head>
+<body>
+<body oncontextmenu="return false;">
+<div class="alertation">We are having our first birthday on the 29th!</div>
+<div class="topnav">
+  <a class="active" href="./">Home</a> |
+  <a href="./dailies">Daily Comics</a> |
+  <a href="./games">Games</a> |
+  <a href="./media">Media</a>
+</div>
+<div class="bg-image"></div>
+<div class="bg-text">
+    <img src="./img/Logos/ComicServer/horiz.svg" width=68% />
+    <p>Welcome, to the best comic strip organization you will find!</p>
+  <div class="csdiv">
+    </div>
+</body>
+</div>
+<div class="footer">
+<p>&copy; 2020<script>new Date().getFullYear()>2020&&document.write("-"+new Date().getFullYear());</script>, ComicServer.
+<hr><a target="_blank" href="./resources">Resources</a> | <a target="_blank" href="https://bot.comicserver.org">Discord Bot</a> | <select class="btn btn-info" name="forma" onchange="location = this.value;">
+ <option value="./">ComicServer</option>
+ <option value="https://brawlcon.com">BrawlCon</option>
+</select></p>
+</div>
+</html>
