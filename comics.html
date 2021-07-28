@@ -49,7 +49,7 @@ display: none;
 Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p>
 <form class="center" method="post" action="dailies#rssgen" onSubmit="return submitcheck(this);" name="rssgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
-  <input type="submit" name="submitbutton" class="btn btn-info" value="Generate!" class="hidden" onClick="clic(comicname);">
+  <input type="submit" name="submitbutton" class="btn btn-info hidden" value="Generate!" onClick="clic(comicname);">
 </form>
     <div id="rssresult"></div>
 <script>
@@ -76,7 +76,7 @@ function submitcheck(element)
 Launches our custom comic viewer.</div>
 <form class="center" method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
-  <input type="submit" name="submitbutton" class="btn btn-success" class="hidden" value="Launch!" onClick="klik(comicname);">
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" value="Launch!" onClick="klik(comicname);">
 </form>
 <script>
 function klik(element)
