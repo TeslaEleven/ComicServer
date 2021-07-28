@@ -45,7 +45,7 @@ display: none;
 }
 </style>
 <h1 class="center">Comic Manager</h1>
-<p class="center"> - RSS - <div>
+<p class="center"> - RSS - <div class="center">
 Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p>
 <form class="center" method="post" action="dailies#rssgen" onSubmit="return submitcheck(this);" name="rssgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
@@ -72,7 +72,7 @@ function submitcheck(element)
   return false;
 }
 </script>
-<p class="center">- View - <div>
+<p class="center">- View - <div class="center">
 Launches our custom comic viewer.</div>
 <form class="center" method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
