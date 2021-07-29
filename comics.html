@@ -31,6 +31,27 @@
        stylesheet.setAttribute('href', url);
     }
     </script>
+<select id="btnpick" class="btn btn-primary" onChange="setBtnSettings(value)"> 
+<option disabled selected="selected">Button Settings</option>
+<option value="yes">Enabled (recommended for Safari)</option>
+<option value="no">Disabled</option>
+</select>
+    <script>
+    function setBtnSettings(yesno){
+       if(yesno === "yes") {
+       var element = document.getElementById("rss-sub");
+       element.classList.remove("hidden");
+       var element = document.getElementById("view-sub");
+       element.classList.remove("hidden");
+       }
+       if(yesno === "no") {
+       var element = document.getElementById("rss-sub");
+       element.classList.add("hidden");
+       var element = document.getElementById("view-sub");
+       element.classList.add("hidden");
+       }
+       }
+    </script>
   </nav>
   <style>
 .hidden {
@@ -49,7 +70,7 @@ display: none;
 Copy link and open. Please download/use an RSS reader to use this. Get updates daily!</p>
 <form class="center" method="post" action="dailies#rssgen" onSubmit="return submitcheck(this);" name="rssgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
-  <input type="submit" name="submitbutton" class="btn btn-info hidden" value="Generate!" onClick="clic(comicname);">
+  <input type="submit" name="submitbutton" class="btn btn-info hidden" id="rss-sub" value="Generate!" onClick="clic(comicname);">
 </form>
     <div id="rssresult"></div>
 <script>
@@ -76,7 +97,7 @@ function submitcheck(element)
 Launches our custom comic viewer.</div>
 <form class="center" method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
   <input type="text" name="comicname" placeholder="Comic name" required>
-  <input type="submit" name="submitbutton" class="btn btn-success hidden" value="Launch!" onClick="klik(comicname);">
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" value="Launch!" id="view-sub" onClick="klik(comicname);">
 </form>
 <script>
 function klik(element)
