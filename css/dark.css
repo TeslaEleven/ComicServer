@@ -1216,6 +1216,10 @@ pre code {
   order: 13;
 }
 
+.cmt-text {
+color: white;
+}
+
 .order-0 {
   order: 0;
 }
