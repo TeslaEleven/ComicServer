@@ -17038,6 +17038,7 @@ footer .pull-center {
 .card .card-title {
   margin-top: 0.625rem;
   font-family: 'Comfortaa'
+  color: white;
 }
 
 .card .card-title:last-child {
