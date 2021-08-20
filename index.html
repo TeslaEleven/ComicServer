@@ -1,67 +1,76 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComicServer</title>
-    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
-    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/dark.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="https://comicserver.org">ComicServer</a>
-            <a class="nav-link" href="https://comicserver.org/comics">Comics</a>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    </div>
-<select class="btn btn-success" onChange="setStyleSheet(value)"> 
-<option disabled selected="selected">Theme</option>
-<option value = "https://comicserver.org/css/light.css">Light</option>
-<option value = "https://comicserver.org/css/dark.css">Dark</option>
-<option value = "https://comicserver.org/css/material.css">Material</option>
-<option value = "">Raw</option>
-</select>
-    <script>
-    function setStyleSheet(url){
-       var stylesheet = document.getElementById("stylesheet");
-       stylesheet.setAttribute('href', url);
-    }
-    </script>
-  </nav>
-  <style>
-.hidden {
-display: none;
-}
-</style>
-</head>
-<body>
+
+<!DOCTYPE html>
+<html>
+  <head>
+<link href="https://comicserver.org/fonts/comic.css" rel="stylesheet">
+<meta property="og:image" content="https://comicserver.org/img/Logos/ComicServer/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="404 | ComicServer" />
+    <meta property="og:description" content="Page not found." />
+<title>404</title>
+<link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/logo.png" />
+<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+<html>
 <style>
-  .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+body, html {
+  height: 100%;
+  margin: 0;
 }
-.alertt {
-position: relative;
-padding: 0.75rem 1.25rem;
-margin-bottom: 1rem;
-border: 1px solid transparent;
-border-radius: 0.25rem;
-background-color: #3699EC
+
+.bgimg {
+  background-image: url('https://comicserver.org/img/CSBANNER.png');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: Comic Neue;
+  font-size: 25px;
 }
-.centerr {
-  text-align:center
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
 }
 </style>
+  </head>
 <body>
-<div class="alertt" style="text-align:center">After one whole year of laughs, ComicServer is not being maintained anymore, as we've hit a roadblock in developing further. We have deleted some unused features and pages (like Media, Games, and Embed strips) to ensure this website will need no further update.</div>
-<div class="logo center"></div>
-<p class="centerr">Go to the comics page to start reading!</p>
+<body oncontextmenu="return false;">
+<div class="bgimg">
+  <div class="topleft">
+    <img src = "https://comicserver.org/img/Logos/ComicServer/logo.png" width=10% />
+  </div>
+  <div class="middle">
+    <h1>404 - Page Not Found</h1>
+    <hr>
+    <p><a href="https://comicserver.org">Home</a></p>
+    <p><a href="#" onclick="history.back(); return false;">Back</a></p>
+  </div>
+</div>
+
 </body>
-<hr><p class="centerr">2020<script>new Date().getFullYear()>2020&&document.write("-"+new Date().getFullYear());</script></p><div class="centerr"><a target="_blank" href="https://app.comicserver.org">Webapp</a><div class="centerr"><a target="_blank" href="https://bot.comicserver.org">Discord Bot</a></p>
+</html>
 </html>
