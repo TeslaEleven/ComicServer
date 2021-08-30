@@ -22,9 +22,19 @@
 <option disabled selected="selected">Theme</option>
 <option value = "https://comicserver.org/css/light.css">Light</option>
 <option value = "https://comicserver.org/css/dark.css">Dark</option>
-<option value = "https://comicserver.org/css/material.css">Material</option>
-<option value = "">Raw</option>
 </select>
+<script>
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+darkThemeMq.addListener(e => {
+ if (e.matches) {
+  var sheeet = document.getElementById("stylesheet");
+  sheeet.setAttribute('href', 'https://comicserver.org/css/dark.css');
+ } else {
+  var sheet = document.getElementById("stylesheet");
+  sheet.setAttribute('href', 'https://comicserver.org/css/light.css');
+  }
+});
+</script>
     <script>
     function setStyleSheet(url){
        var stylesheet = document.getElementById("stylesheet");
