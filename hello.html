@@ -1,0 +1,110 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicServer</title>
+    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/dark.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://comicserver.org">ComicServer</a>
+            <a class="nav-link" href="https://comicserver.org/comics">Comics</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    </div>
+<select class="btn btn-success" onChange="setStyleSheet(value)"> 
+<option disabled selected="selected">Theme</option>
+<option value = "https://comicserver.org/css/light.css">Light</option>
+<option value = "https://comicserver.org/css/dark.css">Dark</option>
+</select>
+<script>
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+darkThemeMq.addListener(e => {
+ if (e.matches) {
+  var sheeet = document.getElementById("stylesheet");
+  sheeet.setAttribute('href', 'https://comicserver.org/css/dark.css');
+ } else {
+  var sheet = document.getElementById("stylesheet");
+  sheet.setAttribute('href', 'https://comicserver.org/css/light.css');
+  }
+});
+</script>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+  </nav>
+  <style>
+.hidden {
+display: none;
+}
+</style>
+</head>
+<body>
+<style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.alertt {
+position: relative;
+padding: 0.75rem 1.25rem;
+margin-bottom: 1rem;
+border: 1px solid transparent;
+border-radius: 0.25rem;
+background-color: #3699EC
+}
+.centerr {
+  text-align:center
+}
+</style>
+<body>
+<div class="alertt" style="text-align:center">
+ <p>The ComicServer service has been shut down. it will be officially terminated in:</p>
+<p id="ctdwn-terminate"></p>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("16 Mar 2022").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("ctdwn-terminate").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("ctdwn-terminate").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script></div>
+<div class="logo center"></div>
+<p class="centerr">Go to the comics page to start reading!</p>
+</body>
+<hr><p class="centerr">2020<script>new Date().getFullYear()>2020&&document.write("-"+new Date().getFullYear());</script></p><div class="centerr"><a target="_blank" href="https://app.comicserver.org">Webapp</a><div class="centerr"><a target="_blank" href="https://bot.comicserver.org">Discord Bot</a></p>
+</html>
