@@ -1,5 +1,3 @@
-HTML CSS JSResult Skip Results Iframe
-EDIT ON
 (function() {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
     function(callback) {
