@@ -4813,7 +4813,7 @@ tbody.collapse.show {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #960014;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 0.25rem;
@@ -15475,7 +15475,7 @@ small,
 .footer-big h4 a,
 .media .media-heading,
 .media .media-heading a {
-  color: #000000;
+  color: white;
   text-decoration: none;
 }
 
