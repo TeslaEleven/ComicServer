@@ -6,6 +6,10 @@
 
 /* Layout helpers
 ----------------------------------*/
+body {
+background: black;
+}
+
 .ui-helper-hidden {
 	display: none;
 }
@@ -1311,4 +1315,10 @@ a.ui-button:active,
 .ui-widget-shadow {
 	-webkit-box-shadow: -7px -7px 7px #cccccc;
 	box-shadow: -7px -7px 7px #cccccc;
+}
+.logo {
+content: url("https://comicserver.org/img/Logos/ComicServer/lighthoriz.png");
+}
+.cstitle {
+color: white;
 }
