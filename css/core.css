@@ -1,0 +1,152 @@
+.button-1 {
+  border: 2px solid #eee;
+  border-radius: 5px;
+}
+* {
+  box-sizing: border-box;
+}
+.btn {
+border: none;
+background-color: inherit;
+padding: 14px 28px;
+cursor: pointer;
+display: inline-block;
+}
+
+h1 {
+  font-size: 55px;
+}
+.logo {
+content: url("https://comicserver.github.io/Site/img/Logos/ComicServer/darkhoriz.png");
+}
+/* Position text in the middle of the page/image */
+.cents {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  font-family: Comfortaa;
+}
+.centes {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  font-family: Comfortaa;
+}
+.centestn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  font-family: Comfortaa;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #2D333B;
+}
+.footer {
+  text-align: center;
+  overflow: hidden;
+  background-color: #2D333B;
+  color: white;
+}
+.versions {
+  text-align: center;
+  overflow: hidden;
+  color: white;
+}
+.etcetera {
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  font-family: Comfortaa;
+}
+.topnav a {
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3B424C;
+  color: white;
+}
+.csdiv {
+}
+.logo {
+content: url("https://comicserver.github.io/Site/img/Logos/ComicServer/darkhoriz.png")
+}
+:root {
+  --bg: #212529;
+  --fcolorl: #000;
+  --fcolord: #fff;
+}
+.container {
+  
+}
+body {
+width: 50%;
+align-items: center;
+align-content: center;
+margin-left: auto;
+margin-right: auto;
+background-color: var(--bg);
+border-radius: 10px;
+}
+.centerrr {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+text-align:center;
+font-family: Comfortaa;
+color: white;
+font-size: 2vw;
+height: 100px
+}
+.centeer {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+text-align:center;
+font-family: Comfortaa;
+color: white;
+font-size: 2vw;
+}
+.centerrrr {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+text-align:center;
+font-family: Comfortaa;
+color: black;
+font-size: 2vw;
+border: 1px solid #eee;
+border-radius: 5px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  font-family: Comfortaa;
+}
+a {text-decoration:none}
+a:link {color: white;}
+a:visited {color: white;}
+a:hover {color: white;}
+a:active {color: white;}
+.footer {
+color: white;
+font-family: Comfortaa;
+}
