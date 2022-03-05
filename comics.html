@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComicServer</title>
     <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
-    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/dark.css"/>
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.github.io/Site/css/dark.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -28,10 +28,10 @@ const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
 darkThemeMq.addListener(e => {
  if (e.matches) {
   var sheeet = document.getElementById("stylesheet");
-  sheeet.setAttribute('href', 'https://comicserver.org/css/dark.css');
+  sheeet.setAttribute('href', 'https://comicserver.github.io/Site/css/dark.css');
  } else {
   var sheet = document.getElementById("stylesheet");
-  sheet.setAttribute('href', 'https://comicserver.org/css/light.css');
+  sheet.setAttribute('href', 'https://comicserver.github.io/Site/css/light.css');
   }
 });
 </script>
