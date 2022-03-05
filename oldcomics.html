@@ -13,7 +13,7 @@
     <meta property="og:title" content="Comics | ComicServer" />
     <meta property="og:description" content="Comic strips supplied by ComicServer" />
 <title>Comics | ComicServer</title>
-<link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/logo.png" />
+<link rel="shortcut icon" href="https://comicserver.github.io/Site/img/Logos/ComicServer/logo.png" />
 <style>
 body, html {
   height: 100%;
@@ -27,7 +27,7 @@ body, html {
 
 .bg-image {
   /* The image used */
-  background-image: url("https://comicserver.org/img/Coolio.png");
+  background-image: url("https://comicserver.github.io/Site/img/Coolio.png");
 
   /* Full height */
   height: 100%; 
@@ -92,8 +92,8 @@ h1 {
 <body>
 <body oncontextmenu="return false;">
 <div class="topnav">
-  <a href="./">Home</a> |
-  <a class="active" href="./comics">Comics</a> |
+  <a href="./oldversion">Home</a> |
+  <a class="active" href="./oldcomics">Comics</a> |
 </div>
 <div class="bg-image"></div>
 <div class="bg-text">
@@ -146,7 +146,7 @@ return;
   const yyyy = da.getFullYear();
   const m = da.getMonth() + 1;
   const d = da.getDate();
-  var urlstring = "https://app.comicserver.org/" + element.value;
+  var urlstring = "https://www.comicserver.org/search/" + element.value;
   window.open(urlstring, '_blank');
 }
 function submitcheck(element)
@@ -159,6 +159,6 @@ function submitcheck(element)
 </div>
 <div class="footer">
 <p>2020<script>new Date().getFullYear()>2020&&document.write("-"+new Date().getFullYear());</script></p>
-<hr><a target="_blank" href="https://app.comicserver.org">Webapp</a> | <a target="_blank" href="https://bot.comicserver.org">Discord Bot</a></p>
+<hr><a target="_blank" href="https://www.comicserver.org">Webapp</a> | <a target="_blank" href="https://bot.comicserver.org">Discord Bot</a></p>
 </div>
 </html>
