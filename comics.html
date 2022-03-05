@@ -20,8 +20,8 @@
     </div>
 <select class="btn btn-success" onChange="setStyleSheet(value)"> 
 <option disabled selected="selected">Theme</option>
-<option value = "https://comicserver.org/css/light.css">Light</option>
-<option value = "https://comicserver.org/css/dark.css">Dark</option>
+<option value = "https://comicserver.github.io/Site/css/light.css">Light</option>
+<option value = "https://comicserver.github.io/Site/css/dark.css">Dark</option>
 </select>
 <script>
 const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -125,7 +125,7 @@ return;
   const yyyy = da.getFullYear();
   const m = da.getMonth() + 1;
   const d = da.getDate();
-  var urlstring = "https://app.comicserver.org/" + element.value;
+  var urlstring = "https://www.comicserver.org/" + element.value;
   window.open(urlstring, '_blank');
 }
 
