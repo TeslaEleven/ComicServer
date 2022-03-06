@@ -17,7 +17,7 @@ h1 {
   font-size: 55px;
 }
 .logo {
-content: url("https://comicserver.github.io/Site/img/Logos/ComicServer/darkhoriz.png");
+content: url("https://assets.comicserver.org/img/Logos/ComicServer/darkhoriz.png");
 }
 /* Position text in the middle of the page/image */
 .cents {
@@ -82,7 +82,7 @@ content: url("https://comicserver.github.io/Site/img/Logos/ComicServer/darkhoriz
 .csdiv {
 }
 .logo {
-content: url("https://comicserver.github.io/Site/img/Logos/ComicServer/darkhoriz.png")
+content: url("https://assets.comicserver.org/img/Logos/ComicServer/darkhoriz.png")
 }
 :root {
   --bg: #212529;
