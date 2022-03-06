@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicServer Bot</title>
+    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/dark.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://bot.comicserver.org">ComicServer Bot</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    </div>
+<select class="btn btn-success" onChange="setStyleSheet(value)"> 
+<option disabled selected="selected">Theme</option>
+<option value = "https://comicserver.org/css/light.css">Light</option>
+<option value = "https://comicserver.org/css/dark.css">Dark</option>
+<option value = "https://comicserver.org/css/material.css">Material</option>
+<option value = "">Raw</option>
+</select>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+  </nav>
+  <style>
+.hidden {
+display: none;
+}
+</style>
+</head>
+<body>
+<style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+    <div class="logo center"></div>
+<h2 style="text-align:center">Discord Bot</h3>
+<div style="text-align:center;">
+<strong><a class="btn btn-success" href="./invite" disabled>Invite</a></strong>
+<strong><a class="btn btn-success" href="./dash" disabled>Dashboard</a></strong>
+<br>
+</div><br>
+<h3>Important</h1>
+<p>This bot is for comic STRIPS only. Full list of comics is <a href="https://gocomics.com/comics/a-to-z">here.</a> We also wanted to point out, when typing a comic name, type it as one word and with <b>no</b> special characters like & and $. An example is <b>calvinandhobbes</b>, one word and no special characters.</p>
+<h3>Definitions</h1>
+<p><b>codename - This is just the comic name. This needs to be one word.
+<p><b>prefix</b> - <b>cs!</b></p>
+<h3>Commands</h1>
+<p><b>help</b> - All the commands!</p>
+<p><b>rss</b> - RSS for comic strips.</p>
+<p><b>media</b> - Comic media (videos).</p>
+<p><b>comic [codename]</b> - Today's daily comic!</p>
+<p><b>search [codename] [query]</b> - Search each comic (cs! search <comic> <search></p>
+<p><b>search-global [query]</b> - Search all of the comics on GoComics (cs!search-global <search>)</p>
+<p><b>site</b> - A link to our site.</p>
+<p><b>stats</b> - ComicServer bot stats!</p>
+<p><b>kingdom [codename]</b> - Get comics from Comics Kingdom</p>
+<p><b>version</b> - Current bot version.</p>
+<p><b>transcript [codename] [yyyy] [m] [d]</b> - Get a comic's transcript!</p>
+<p><b>date [codename]</b> - Selected date from comic (yyyy m d).</p>
+<p><b>random [codename]</b> - Random comic for your choice!</p>
+<p><b>ago [codename] [years ago]</b> - Get a comic strip from a selected amount of years ago!</p>
+</body>
+</html>
