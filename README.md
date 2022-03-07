@@ -1,6 +1,8 @@
 # ComicServer Direct & Legacy
 
 This website showcases 3 different versions and sites as an archival project for legacy Wel3Com and Con Co. services.
+<br>
+It also acts as a backend for Cesium-Series (Modern ComicServer) releases.
 
 <a href="https://assets.comicserver.org/oldversion">Smokebomb (ComicServer v3)</a>
 <br>
