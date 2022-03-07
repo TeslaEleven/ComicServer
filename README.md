@@ -1,3 +1,14 @@
-# ComicServer Direct
+# ComicServer Direct & Legacy
 
-This ghIO site is being actively maintained as an asset delivery service for the ComicServer website. Included with this site is ComicServer Smokebomb (v3) and ComicServer Slate (v4), though, these arn't actively maintained as of November 2021.
+This website showcases 3 different versions and sites as an archival project for legacy Wel3Com and Con Co. services.
+
+<a href="https://assets.comicserver.org/oldversion">Smokebomb (ComicServer v3)</a>
+<br>
+<a href="https://assets.comicserver.org/oldversion">ComicServer Discord Bot (Site and bot, externally)</a>
+<br>
+<a href="https://assets.comicserver.org/hello">Slate (ComicServer v4)</a>
+<br>
+<a href="https://assets.comicserver.org/brawlcon">BrawlCon (v3.7)</a>
+<br>
+<a href="https://assets.comicserver.org/brawlconbot">BrawlCon Discord Bot (Site only)</a>
+<br>
