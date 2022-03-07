@@ -14,3 +14,5 @@ It also acts as a backend for Cesium-Series (Modern ComicServer) releases.
 <br>
 <a href="https://assets.comicserver.org/brawlconbot">BrawlCon Discord Bot (Site only)</a>
 <br>
+<br>
+<a href="https://www.comicserver.org/">ComicServer (v5.4, Cesium/Valley)</a>
