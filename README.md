@@ -1,6 +1,7 @@
 # ComicServer Direct & Legacy
 
-This website showcases 3 different versions and sites as an archival project for legacy Wel3Com and Con Co. services.
+This is an archival project with BrawlCon services as well as 8 ComicServer releases.
+Another part of this site is the backend for the updated version of ComicServer.
 <br>
 It also acts as a backend for Cesium-Series (Modern ComicServer) releases.
 
