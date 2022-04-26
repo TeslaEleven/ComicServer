@@ -1,0 +1,578 @@
+<style type="text/css">     
+#txtDate {
+  position: relative;
+  top: -7px;
+  margin-right: 5px;
+}
+
+.hidden { 
+  display: none; 
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.centerr {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 27%;
+}
+.centerree {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+<link rel="shortcut icon" href="https://assets.comicserver.org/img/Logos/ComicServer/cslogo.png" />
+<title><%= csDate %></title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<a href="/">
+<img class="logo centerr"></a>
+<div id="alert"></div>
+<div>
+<div class="container-comic">
+<img src="<%= csImage %>" class="center">
+<h1 class="footer centerree" style="font-size:2vw;"><%= csDate %></h2>
+<div class="centerr">
+<style>
+.ui-datepicker,
+.ui-datepicker table,
+.ui-datepicker tr,
+.ui-datepicker td,
+.ui-datepicker th {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-spacing: 0;
+}
+
+.ui-datepicker {
+  display: none;
+  width: 338px;
+  padding: 10px;
+  cursor: default;
+  text-transform: uppercase;
+  font-family: Comfortaa;
+  font-size: 24px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 5px;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+
+.ui-datepicker:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+	filter: blur(10px);
+	margin: -20px;
+}
+
+.ui-datepicker-header {
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.ui-datepicker-title {
+  text-align: center;
+}
+.ui-datepicker-month {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Comfortaa;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 7px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+
+.ui-datepicker-month:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+	margin: -20px;
+}
+
+.ui-datepicker-year {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Comfortaa;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 7px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+.ui-datepicker-year:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+	margin: -20px;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  position: absolute;
+  top: -2px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.ui-datepicker-prev {
+  left: 0;
+  padding-left: 0;
+  display: none;
+}
+
+.ui-datepicker-next {
+  right: 0;
+  padding-right: 0;
+  display: none;
+}
+
+.ui-datepicker-prev span,
+.ui-datepicker-next span {
+  display: none;
+  width: 5px;
+  height: 10px;
+  text-indent: -9999px;
+}
+
+.ui-datepicker-prev span {
+  background-position: 0px 0px;
+  display: none;
+}
+
+.ui-datepicker-next span {
+  background-position: -5px 0px;
+}
+
+.ui-datepicker-prev-hover span {
+  background-position: 0px -10px;
+}
+
+.ui-datepicker-next-hover span {
+  background-position: -5px -10px;
+}
+
+.ui-datepicker-calendar th {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-weight: normal;
+  color: #a8a8a8;
+}
+
+.ui-datepicker-calendar td {
+  padding: 0 7px;
+  text-align: center;
+  line-height: 26px;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+  display: block;
+  width: 29px;
+  height: 22px;
+  outline: none;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+  color: #7ba5f0;
+  border: 1px solid #7ba5f0;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+  color: #a8a8a8;
+  border: 1px solid #a8a8a8;
+}
+
+.ui-datepicker-other-month .ui-state-default {
+  color: #ccc;
+}
+
+.ui-datepicker table {
+  margin: 0 auto;
+}
+.formbtn {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Comfortaa;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 7px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+.formbtn:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+	margin: -20px;}
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input class="formbtn" type="text" name="SelectedDate" placeholder="Comic date" value="Comic Date" id="txtDate" required readonly="readonly">
+  <input type="submit" name="submitbutton" class="button-1" value="Go" id="dp-clicker" onClick="klik(SelectedDate);">
+</form>
+<script type="text/javascript">
+$(function () {
+$("#txtDate").datepicker({
+  changeMonth: true,
+  changeYear: true,
+  dateFormat: 'yy/mm/dd',
+  minDate: '+0m',
+  maxDate: '+1m'
+});
+});
+</script>
+</div>
+</div>
+</div>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `/tomorrow/<%= comic %>/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+</div>
+</div>
+  <style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+.alert {
+	width: auto;
+	height: auto;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+
+.alert:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+	filter: blur(10px);
+	margin: -20px;
+}
+.logo {
+content: url("https://assets.comicserver.org/img/Logos/ComicServer/darkhoriz.png")
+}
+</style>
+</div>
+<p class="footer centerr">Comics &copy AMU and KFS | <a href="/versions">Cesium</a><!-- | <a href="#" onclick="snowStorm.toggleSnow();return false">Snow</a> --></p>
+</body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+a:link {color: white;}
+a:visited {color: white;}
+a:hover {color: white;}
+a:active {color: white;}
+.footer {
+color: white;
+font-family: Comfortaa;
+}
+.button-2 {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Comfortaa;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+
+.button-2:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(10px);
+	margin: -20px;
+}
+
+.button-1 {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Comfortaa;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 7px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+.button-1:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+	margin: -20px;}
+}
+</style>
+  <style>
+  body {
+	background: url("https://assets.comicserver.org/img/csbanner2.png") no-repeat;
+	background-attachment: fixed; 
+	background-size: cover;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	height: 100;
+}
+
+.container {
+	width: 50rem;
+	height: 30rem;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+
+.container-comic {
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.container-nameplate {
+	width: 50rem;
+	height: 30rem;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+
+.container:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+	filter: blur(10px);
+	margin: -20px;
+}
+
+.container-comic:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+	filter: blur(10px);
+	margin: -20px;
+}
+
+.container-nameplate:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+	filter: blur(10px);
+	margin: -20px;
+}
+</style>
+<!-- <script src="https://assets.comicserver.org/js/csnow.js"></script> -->
+</html>
