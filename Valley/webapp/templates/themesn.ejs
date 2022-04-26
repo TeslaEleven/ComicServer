@@ -1,0 +1,54 @@
+<style>
+.logo {
+content: url("https://assets.comicserver.org/img/Logos/ComicServer/darkhoriz.png")
+}
+:root {
+  --bg: #212529;
+}
+body {
+width: 50%;
+align-items: center;
+align-content: center;
+margin-left: auto;
+margin-right: auto;
+background-color: var(--bg);
+}
+.centerrr {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+text-align:center;
+font-family: Comfortaa;
+color: white;
+font-size: 2vw;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  font-family: Comfortaa;
+}
+a:link {color: white;}
+a:visited {color: white;}
+a:hover {color: white;}
+a:active {color: white;}
+.footer {
+color: white;
+font-family: Comfortaa;
+}
+</style>
+<script>
+function setComic() {
+const stco = prompt("Please set a comic to start with when you use ComicServer");
+var startcomic = localStorage.getItem("stco")
+if(stco === null || "") {
+return;
+} else if(startcomic !== null) {
+localStorage.setItem("stco", stco)
+window.location.replace("/");
+}
+}
+</script>
+<%- include("datepickerlight") %>

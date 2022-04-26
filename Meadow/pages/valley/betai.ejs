@@ -1,0 +1,160 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="https://comicserver.github.io/Site/img/Logos/ComicServer/cslogo.png" />
+<title>ComicServer</title>
+<style>
+.centerr {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-family: Comfortaa;
+}
+.alerthing {
+background-color: #eee;
+border-radius: 5px;
+font-family: Comfortaa;
+text-align: center;
+}
+.btn {
+border: none;
+background-color: inherit;
+padding: 14px 28px;
+cursor: pointer;
+display: inline-block;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container">
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content" style="border-radius:10px;background-color:#000">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" style="border-radius:10px;color:white">&times;</span>
+        <h1 style="color:white" class="centeer footer">Settings</h1>
+        <h5 class="centeer footer" style="color:white">Startup Comic</h5>
+<form class="center" method="post" action="dailies#viewgen" onsubmit="return submitcheck(this);" name="viewgen" required>
+  <input class="button-1 centerr" type="text" class="formbtn" name="thing" placeholder="Startup Comic" id="txtDate" required="required">
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="onclik(thing);">
+</form>      </div>
+    </div>
+  </div>
+</div>
+<script>
+const fav = localStorage.getItem("fav")
+function onclik(element) {
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+localStorage.setItem("fav", element.value)
+window.location.reload();
+}
+function submitcheck(element) { 
+return false 
+}
+if(fav !== null) {
+window.location.replace("/search/" + fav);
+}
+console.log(fav)
+</script>
+</div></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="https://comicserver.github.io/Site/img/Logos/ComicServer/cslogo.png" />
+<title>ComicServer</title>
+<style>
+.centerr {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-family: Comfortaa;
+}
+.btn {
+border: none;
+background-color: inherit;
+padding: 14px 28px;
+cursor: pointer;
+display: inline-block;
+}
+.ui-loader {
+display:none;
+}
+.button-1 {
+  border: 2px solid #eee;
+  border-radius: 5px;
+}
+.alerthing {
+background-color: #eee;
+border-radius: 5px;
+font-family: Comfortaa;
+text-align: center;
+}
+.comic {
+content: url("https://assets.amuniversal.com/bf66d5005f80012ee3c100163e41dd5b")
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<a onclick="document.getElementById('id01').style.display='block'" href="#" class="footer centeer" style="font-size:2vw"><img class="logo centerr">
+</a>
+<hr></hr>
+  <form class="center" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" name="SelectedDate" placeholder="Comic Name" id="txtDate" required=>
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="clik(SelectedDate);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `search/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+  <form class="center" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" name="FutureDate" placeholder="Future Comic Name" id="txtDate" required=>
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="klik(FutureDate);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `tomorrow/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<!-- | <a href="#" onclick="snowStorm.toggleSnow();return false">Snow</a> --></p>
+<!-- <script src="https://comicserver.github.io/Site/js/snow.js"></script> -->
+<%- include("themesn") %>
