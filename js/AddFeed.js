@@ -12,7 +12,7 @@ function handleGotoFeed() {
         return;
     }
     localStorage.setItem('userFeedURLs', userFeedURLs);
-    window.location.href = 'feed.html';
+    window.location.href = 'feed';
 }
 
 function addFeedURL(url) {
