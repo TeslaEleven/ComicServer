@@ -24,7 +24,7 @@ function handleGotoFeed() {
   var old = localStorage.getItem('oldkey');
   localStorage.setItem('userFeedURLs', old + "," + userFeedURLs);
   }
-    window.location.href = 'feed.html';
+    window.location.href = './';
 }
 
 function addFeedURL(url) {
