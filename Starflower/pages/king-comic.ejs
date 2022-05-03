@@ -1,0 +1,39 @@
+<p onclick="window.location='/'" style="font-size:3em;font-weight:300;text-align:center;text-shadow:.5px .5px #000"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></p>
+<%- include('header') %>
+<title><%= comic %> for <%= month %>/<%= day %>/<%= year %></title>
+<style>
+.comic {
+object-fit: contain;
+width: 90%;
+height:auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+</style>
+<br></br>
+<div id="thing"></div>
+<input type="text" style="font-size:2em;width:100%;text-align:center" name="SelectedDate" placeholder="Comic date" value="<%= comic %> for <%= month %>/<%= day %>/<%= year %>" id="txtDate" required readonly="readonly">
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+onSelect: function(dateText, inst) { 
+window.location = '/k/<%= comic %>/' + dateText;
+}
+});
+});
+const comic = '<%= csImage %>'.replace(/&amp;/g, '&');
+function urlBreak() {
+document.getElementById('thing').innerHTML = "<img class='comic' src='" + comic + "'/>"
+}
+urlBreak()
+console.log(document.body.innerHTML)
+</script>
