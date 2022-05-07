@@ -1,2 +1,2 @@
 # ComicServer Bot (Legacy)
-The Discord bot website! To view an updated and current version of this project, go to https://bot.comicserver.org
+The old Discord bot website (v2). ComicServer Express v4 is scheduled to come out May 29, 2022.
