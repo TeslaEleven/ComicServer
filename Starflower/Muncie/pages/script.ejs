@@ -1,0 +1,155 @@
+<script src="https://assets.comicserver.org/js/rss.js"></script>
+<script>
+var array = ["amazing-spider-man", "arctic-circle", "barney-google-and-snuffy-smith", "beetle-bailey", "beetle-bailey-1", "between-friends", "bizarro", "blondie", "carpe-diem", "crankshaft", "crock", "curtis", "daddy-daze", "dennis-the-menace", "dustin", "edge-city", "flash-forward", "flash-gordon", "funky-winkerbean", "Funny_Online_Animals", "Gearhead_Gertie", "hagar-the-horrible", "hi-and-lois", "Intelligent", "judge-parker", "katzenjammer-kids", "kevin-and-kell", "Macanudo", "mallard-fillmore", "mandrake-the-magician-1", "mark-trail", "Marvin", "mary-worth", "moose-and-molly", "mother-goose-grimm", "mutts", "on-the-fastrack", "pardon-my-planet", "popeye", "popeyes-cartoon-club", "prince-valiant", "pros-cons", "rae-the-doe", "rex-morgan-m-d", "rhymes-with-orange", "safe-havens", "sales", 'sally-forth', "sam-and-silo", "sherman-s-lagoon", "shoe", "six-chix", "slylock-fox-and-comics-for-kids", "take-it-from-the-tinkersons", "brilliant-mind-of-edison-lee", "family-circus", "lockhorns", "pajama-diaries", "phantom", "tiger", "tinas-groove", "todd-the-dinosaur", "zippy-the-pinhead", "zits"];
+function setFav(clicked_id) {
+const name = localStorage.getItem(clicked_id + "s")
+if(name === null) {
+let newname = prompt("Enter the comic\'s name", "");
+if (newname !== null | "") {
+localStorage.setItem(clicked_id + "s", newname)
+document.getElementById(clicked_id).innerHTML = newname;   document.getElementById(clicked_id).setAttribute("onClick", `window.location='/search/${newname}'`);
+  }
+} else {
+return;
+}
+}
+function delFav() {
+let oldname = prompt("Enter the comic\'s slot # for deletion (1-8)", "");
+if(oldname !== null | "") {
+localStorage.removeItem("slot" + oldname + "s")
+document.getElementById("slot" + oldname).innerHTML = 'Slot ' + oldname
+}
+}
+if(localStorage.getItem('slot1s') !== null) {
+const name = localStorage.getItem('slot1s')
+document.getElementById('slot1').innerHTML = name;
+document.getElementById('slot1').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss1').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+}
+if(localStorage.getItem('slot2s') !== null) {
+const name = localStorage.getItem('slot2s')
+document.getElementById('slot2').innerHTML = name;
+document.getElementById('slot2').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss2').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+}
+if(localStorage.getItem('slot3s') !== null) {
+const name = localStorage.getItem('slot3s')
+document.getElementById('slot3').innerHTML = name;
+document.getElementById('slot3').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss3').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();}
+if(localStorage.getItem('slot4s') !== null) {
+const name = localStorage.getItem('slot4s')
+document.getElementById('slot4').innerHTML = name;
+document.getElementById('slot4').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss4').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+}
+if(localStorage.getItem('slot5s') !== null) {
+const name = localStorage.getItem('slot5s')
+document.getElementById('slot5').innerHTML = name;
+document.getElementById('slot5').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss5').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+}
+if(localStorage.getItem('slot6s') !== null) {
+const name = localStorage.getItem('slot6s')
+document.getElementById('slot6').innerHTML = name;
+document.getElementById('slot6').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss6').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+}
+if(localStorage.getItem('slot7s') !== null) {
+const name = localStorage.getItem('slot7s')
+document.getElementById('slot7').innerHTML = name;
+document.getElementById('slot7').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss7').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+}
+if(localStorage.getItem('slot8s') !== null) {
+const name = localStorage.getItem('slot8s')
+document.getElementById('slot8').innerHTML = name;
+document.getElementById('slot8').setAttribute("onClick", `window.location='/search/${name}'`);
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss8').innerHTML = "<img src='" + myObj.items[1].thumbnail + "'/>"
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+}
+//if(localStorage.getItem('recent') !== null) {
+//const name = localStorage.getItem('recent')
+//document.getElementById('ar1').innerHTML = name;
+//document.getElementById('ar1').setAttribute("onClick", `window.location='/search/${name}'`);
+//}
+</script>

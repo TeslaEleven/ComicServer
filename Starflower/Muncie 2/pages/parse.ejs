@@ -1,0 +1,15 @@
+<script>
+const name = '<%= csName %>'
+var format = name.replace(/\s/g,"").toLowerCase();
+if(format === "beetle-bailey") format = "beetle-bailey-1";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById('rss1').innerHTML = myObj.items[0].thumbnail
+  }
+};
+xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.comicsrss.com%2Frss%2F" + format + ".rss", true);
+xmlhttp.send();
+</script>
+<body id="rss1"></body>

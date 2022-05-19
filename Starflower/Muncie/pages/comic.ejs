@@ -1,0 +1,79 @@
+<p onclick="window.location='/'" style="font-size:3em;font-weight:300;text-align:center;text-shadow:.5px .5px #000"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></p>
+<%- include('header') %>
+<title><%= csDate %></title>
+<style>
+.comic {
+object-fit: contain;
+width: 90%;
+height:auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+</style>
+<br></br>
+<img class="comic" src="<%= csImage %>"/>
+<br></br>
+<div id="parler"></div>
+<input type="text" style="font-size:2em;width:100%;text-align:center" name="SelectedDate" placeholder="Comic date" value="<%= csDate %>" id="txtDate" required readonly="readonly">
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/jquery-touchswipe@latest/jquery.touchSwipe.min.js"></script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById("parler").innerHTML = "<div id='parentcolor'><div id='yellowisnotacolor' class='swipe'></div></div>";
+}
+const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+minDate: '<%= csParamsStart %>',
+maxDate: '<%= csParamsEnd %>',
+onSelect: function(dateText, inst) { 
+let ts = Date.now();
+let da = new Date(ts);
+utc = da.getTime() + da.getTimezoneOffset() * 60000;
+offset = -6;
+const date = new Date(utc + 3600000 * offset);
+window.location = '/<%= comic %>/' + dateText;
+}
+});
+$("#yellowisnotacolor").swipe( {
+swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+if(direction === "left") {
+window.location.replace("/<%= comic %>/<%= prevstring %>")
+}         
+if(direction === "right") {
+window.location.replace("/<%= comic %>/<%= nextstring %>")
+}
+if(direction === "down") {
+window.location.replace("/<%= comic %>/random")
+}
+if(direction === "up" && "<%= comic %>" === "garfield") {
+window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+}
+},
+threshold:0
+});
+});
+document.onkeydown = checkKey;
+function checkKey(e) {
+e = e || window.event;
+if (e.keyCode == '40') {
+  window.location.replace("/<%= comic %>/random")
+}
+else if (e.keyCode == '37') {
+  window.location.replace("/<%= comic %>/<%= prevstring %>")
+}
+else if (e.keyCode == '39') {
+  window.location.replace("/<%= comic %>/<%= nextstring %>")
+}
+else if (e.keyCode == '38' && "<%= comic %>" === "garfield") { window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+}
+}
+console.log(document.body.innerHTML)
+</script>

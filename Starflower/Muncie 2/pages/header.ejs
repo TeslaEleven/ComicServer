@@ -1,0 +1,50 @@
+<link rel="icon" class="favicon">
+<div class="main">
+  <select id="selectBox" class="hello" onchange="changeFunc();" style="width:100%;text-align:center">
+    <option disabled selected>Theme</option>
+    <option value="basic">Basic</option>
+    <option value="birch">Birch</option>
+    <option value="blackout">Blackout</option>
+    <option value="blast">Blast</option>
+   </select>
+    <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+        <input class="input" type="text" name="thingy" placeholder="Start with a Comic" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="clik(thingy);">
+      </form>
+      <script>
+      function clik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/load/${element.value}`;
+        window.location.replace(urlstring);
+      }
+      function submitcheck(element)
+      {
+        return false;
+      }
+      </script></div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 75%;
+}
+</style>
+</head>
+<body>
+</body>
+</html>
+<%- include('theme') %>
