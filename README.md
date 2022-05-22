@@ -1,10 +1,10 @@
 # ComicServer Direct & Legacy
 
 This is an archival project with BrawlCon services as well as 8 ComicServer releases.
-Another part of this site is the backend for the updated version of ComicServer.
 <br>
-It also acts as a backend for Cesium-Series (Modern ComicServer) releases.
-
+This site is also the asset backend for the updated version of ComicServer Muncie.
+<br>
+<br>
 <a href="https://assets.comicserver.org/oldversion">Smokebomb (ComicServer v3)</a>
 <br>
 <a href="https://assets.comicserver.org/oldversion">ComicServer Discord Bot (Site and bot, externally)</a>
@@ -15,7 +15,9 @@ It also acts as a backend for Cesium-Series (Modern ComicServer) releases.
 <br>
 <a href="https://assets.comicserver.org/brawlconbot">BrawlCon Discord Bot (Site only)</a>
 <br>
-<a href="https://assets.comicserver.org/releases">Cesium Series Releases</a>
+<a href="https://assets.comicserver.org/Cesium">Cesium Series Releases</a>
+<br>
+<a href="https://assets.comicserver.org/Starflower">Muncie Releases</a>
 <br>
 <br>
-<a href="https://www.comicserver.org/">ComicServer (v6, Muncie)</a>
+<a href="https://www.comicserver.org/">ComicServer (v6.1, Muncie 2)</a>
