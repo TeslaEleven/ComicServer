@@ -7,13 +7,13 @@ This site is also the asset backend for the updated version of ComicServer Munci
 <br>
 <a href="https://assets.comicserver.org/oldversion">Smokebomb (ComicServer v3)</a>
 <br>
-<a href="https://assets.comicserver.org/oldversion">ComicServer Discord Bot (Site and bot, externally)</a>
+<a href="https://assets.comicserver.org/csBot">ComicServer Discord Bot (Site and bot, externally)</a>
 <br>
 <a href="https://assets.comicserver.org/hello">Slate (ComicServer v4)</a>
 <br>
 <a href="https://assets.comicserver.org/brawlcon">BrawlCon (v3.7)</a>
 <br>
-<a href="https://assets.comicserver.org/brawlconbot">BrawlCon Discord Bot (Site only)</a>
+<a href="https://assets.comicserver.org/bot">BrawlCon Discord Bot (Site only)</a>
 <br>
 <a href="https://assets.comicserver.org/Cesium">Cesium Series Releases</a>
 <br>
