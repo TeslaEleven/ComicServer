@@ -1,75 +1,212 @@
-<!DOCTYPE html>
-<html>
-  <head>
-<link href="https://assets.comicserver.org/fonts/comic.css" rel="stylesheet">
-<title>Home</title>
-<link rel="shortcut icon" href="https://assets.comicserver.org/img/Logos/ComicServer/logo.png" />
-  </head>
-<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-<html>
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-.bgimg {
-  background-image: url('https://assets.comicserver.org/img/Coolio.png');
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  color: white;
-  font-family: Comic Neue;
-  font-size: 25px;
-}
-
-.topleft {
-  position: absolute;
-  top: 0;
-  left: 16px;
-}
-
-.bottomleft {
-  position: absolute;
-  bottom: 0;
-  left: 16px;
-}
-
-.middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-hr {
-  margin: auto;
-  width: 40%;
-}
-</style>
-<body>
-<body oncontextmenu="return false;">
-<div class="bgimg">
-  <div class="topleft">
-    <img src = "https://assets.comicserver.org/img/Logos/ComicServer/logo.png" width=10% />
-  </div>
-  <div class="middle">
-    <h1>Legacy Versions</h1>
-    <hr>
-    <p>This website showcases ComicServer v3 - v6</p>
-<p>As well as BrawlCon v2</p>
-<p>And the Discord bots</p>
-    <a href="oldversion">Smokebomb</a><br>
-    <a href="hello">Slate</a><br>
-    <a href="brawlcon">BrawlCon</a><br>
-    <a href="bot">bcBot</a><br>
-    <a href="csBot">csBot (v2)</a><br>
-    <a href="Cesium">Cesium</a><br>
-    <a href="Starflower">Muncie</a><br>
-  </div>
+<title>ComicServer</title>
+<link rel="shortcut icon" href="https://assets.comicserver.org/img/cslogo.png" />
+<p style="font-size:3em;font-weight:300;text-align:center;text-shadow:.5px .5px #000">
+  <span style="color:white">Comic</span><span style="color:#3699EC">server</span> <span style="color:#9e7bb5">Legacy</span></p>
+<div class="main">
+<div onclick="window.location='https://muncie.old.comicserver.org'" class="item">
+<b><span style="float:left">Muncie</span><br> <span class="ver">v6.0.0</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
 </div>
+<hr>
+<div onclick="window.location='https://primrose.old.comicserver.org'" class="item">
+<b><span style="float:left">Cesium/Primrose</span><br> <span class="ver">v5.6.0</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://meadow.old.comicserver.org'" class="item">
+<b><span style="float:left">Cesium/Meadow</span><br> <span class="ver">v5.5.0</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://valley3.old.comicserver.org'" class="item">
+<b><span style="float:left">Cesium/Valley 3</span><br> <span class="ver">v5.4.22</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://valley2.old.comicserver.org'" class="item">
+<b><span style="float:left">Cesium/Valley 2</span><br> <span class="ver">v5.4.1</span>
+<br>
+<span style="font-style:italic">Partially archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://valley.old.comicserver.org'" class="item">
+<b><span style="float:left">Cesium/Valley</span><br> <span class="ver">v5.4.0</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://vista.old.comicserver.org'" class="item">
+<b><span style="float:left">Cesium/Vista</span><br> <span class="ver">v5.3.0</span>
+<br>
+<span style="font-style:italic">Partially archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://old.comicserver.org/slate'" class="item">
+<b><span style="float:left">Slate</span><br> <span class="ver">v4.1.1</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://old.comicserver.org/smoke'" class="item">
+<b><span style="float:left">Smokebomb</span><br> <span class="ver">v3.4.0</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
+</div>
+<hr>
+<div onclick="window.location='https://bot.comicserver.org'" class="item">
+<b><span style="float:left">ComicServer Express</span><br> <span class="ver">v3.1.0</span>
+<br>
+<span style="font-style:italic">Fully archived</span>
+</b>
+</div>
+<div onclick="window.location='https://old.comicserver.org/bot'" class="item">
+<b><span style="float:left">ComicServer Express</span><br> <span class="ver">v2.8.0</span>
+<br>
+<span style="font-style:italic">Only site archived</span>
+</b>
+</div>
+</div>
+<script>
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    document.getElementById('haitchpea').style.fontSize = "5vw";
+    document.getElementById('txt').style.fontSize = "3vw";
+    document.getElementById('favs').style.marginLeft = "auto";
+    document.getElementById('favs').style.marginRight = "auto";
+  }
+</script>
+<meta name="theme-color" content="var(--basic)">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
-</body>
-</html>
+  :root {
+    --basic: #6F00FF;
+    --batext: white;
+    --back: ;
+    --bont: 'Lucida Grande';
+    --ba: #E3EBF8;
+    --ac: "";
+    --bt: ;
+  }
+
+
+  body {
+    background-color: var(--basic);
+    background-image: var(--back);
+    padding: 1% 7px;
+    font-family: var(--bont);
+    color: var(--batext);
+    background-attachment: fixed;
+    background-position: center;
+    height: auto
+  }
+
+  a {
+    color: #5DBB63;
+  }
+
+  input {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-radius: 10px;
+    color: var(--batext);
+    font-family: var(--bont);
+  }
+
+  .main {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 45%;
+    height: auto;
+    vertical-align: middle;
+    border: 1px solid rgba(27, 31, 35, .15);
+    color: var(--batext);
+    font-family: var(--bont);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    position: relative;
+    background-color: inherit;
+    overflow: hidden;
+  }
+
+  .main:before {
+    content: "";
+    background: inherit;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+    filter: blur(15px);
+  }
+
+  h1 {
+    font-family: var(--bont);
+    color: var(--batext);
+    font-size: 2uw;
+  }
+
+.item {
+  font-family: 'Comfortaa';
+  padding: 10px;
+  text-align:left;
+  background-color: inherit;
+  width: auto;
+  height: auto;
+  color: var(--batext);
+	background-color: inherit;
+	overflow: hidden;
+  cursor: pointer;
+}
+.item:before {
+	content: "";
+	background: inherit;
+	filter: blur(60px);
+}
+.ver {
+padding: 2.5px;
+border: 1px solid white;
+border-radius: 3px;
+}
+  .logo {
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
+</style>
