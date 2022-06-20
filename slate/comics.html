@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComicServer</title>
     <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
-    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://assets.comicserver.org/css/dark.css"/>
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://old.comicserver.org/css/dark.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -13,24 +13,24 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="https://assets.comicserver.org/hello">ComicServer</a>
+      <a class="navbar-brand" href="https://old.comicserver.org/slate">ComicServer</a>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     </div>
 <select class="btn btn-success" onChange="setStyleSheet(value)"> 
 <option disabled selected="selected">Theme</option>
-<option value = "https://assets.comicserver.org/css/light.css">Light</option>
-<option value = "https://assets.comicserver.org/css/dark.css">Dark</option>
+<option value = "https://old.comicserver.org/css/light.css">Light</option>
+<option value = "https://old.comicserver.org/css/dark.css">Dark</option>
 </select>
 <script>
 const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
 darkThemeMq.addListener(e => {
  if (e.matches) {
   var sheeet = document.getElementById("stylesheet");
-  sheeet.setAttribute('href', 'https://assets.comicserver.org/css/dark.css');
+  sheeet.setAttribute('href', 'https://old.comicserver.org/css/dark.css');
  } else {
   var sheet = document.getElementById("stylesheet");
-  sheet.setAttribute('href', 'https://assets.comicserver.org/css/light.css');
+  sheet.setAttribute('href', 'https://old.comicserver.org/css/light.css');
   }
 });
 </script>
