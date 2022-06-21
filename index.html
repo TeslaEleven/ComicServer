@@ -2,7 +2,7 @@
 <link rel="shortcut icon" href="https://assets.comicserver.org/img/cslogo.png" />
 <p style="font-size:3em;font-weight:300;text-align:center;text-shadow:.5px .5px #000">
   <span style="color:white">Comic</span><span style="color:#3699EC">server</span> <span style="color:#9e7bb5">Legacy</span></p>
-<div class="main">
+<div class="main" id="main">
 <div onclick="window.location='https://starflower.comicserver.repl.co'" class="item">
 <b><span style="float:left">Muncie</span><br> <span class="ver">v6.0.0</span>
 <br>
@@ -82,11 +82,9 @@
 </div>
 <script>
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    document.getElementById('haitchpea').style.fontSize = "5vw";
-    document.getElementById('txt').style.fontSize = "3vw";
-    document.getElementById('favs').style.marginLeft = "auto";
-    document.getElementById('favs').style.marginRight = "auto";
-  }
+    document.getElementById('main').style.width = "100%";
+    document.getElementById('main').style.maxWidth = "100%";
+}
 </script>
 <meta name="theme-color" content="var(--basic)">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
