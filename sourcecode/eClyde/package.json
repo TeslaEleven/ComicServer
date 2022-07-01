@@ -1,0 +1,27 @@
+{
+  "name": "cse",
+  "version": "3.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "discord-api-types": "^0.27.3",
+    "discord.js": "^13.6.0",
+    "express": "^4.17.3",
+    "html-to-text": "^8.1.0",
+    "node-html-parser": "^5.2.0",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9"
+  },
+  "devDependencies": {
+    "node": "^16.13.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "CesiumUI and CesiumJS LLC",
+  "license": "ISC",
+  "description": "One trillion comics, right in your pocket."
+}

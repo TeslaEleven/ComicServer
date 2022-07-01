@@ -1,0 +1,165 @@
+<title><%= csDate %></title>
+<link rel="icon" class="favicon">
+<div style="height:50%">
+<div class="strip" style="height:auto">
+<div class="strip" style="height:auto"><p class="strip-p" style="font-size:2em;"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></p>
+  
+  <button class="tablinks" onclick="newTab(event, 'S')">Start</button>
+  <button class="tablinks" onclick="newTab(event, 'Co')"><%= csName %></button>
+  <button class="tablinks" onclick="newTab(event, 'C')">Cesium</button>
+</div>
+
+<div id="S" class="main-content">
+  <br><p style="font-size:2em;">Start with a Comic</p></br>
+  <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" name="SelectedDate" placeholder="Comic Name" required>
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="clik(SelectedDate);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `/search/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+  <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" name="FutureDate" placeholder="Future Comic Name" required>
+  <input class="button-1 centerr" type="submit" name="submitbutton" value="Go" onclick="klik(FutureDate);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `/tomorrow/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+</div>
+
+<div id="Co" class="main-content">
+<br></br>
+<img class="comic responsive"/>
+<div style="width: 100%">
+<input type="text" style="font-size:2em;width:100%;text-align:center" name="SelectedDate" placeholder="Comic date" value="<%= csDate %>" id="txtDate" required readonly="readonly">
+<div id="parler"></div>
+</div>
+</div>
+
+<div id="C" class="main-content">
+  <h2>Cesium/Meadow (v5.5)</h2>
+  <textarea wrap="hard" rows="10" cols="50" readonly>After Valley's record breaking streak of 2 months as an unparalleled subversion, Meadow takes it's place. Meadow acts as a refresher to Cesium and ComicServer after the core idea of Cesium (the fluid, colorful design) was lost. Meadow not only picks up Valley's slack, it adds so much more. At first glance this version looks like an update to Cesium/Vista. At second, though, these minor details show up. Meadow brings the fantastic backend of Valley and pairs it with an upgraded Vista-like experience.</textarea>
+</div>
+  
+<script>
+function newTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("main-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+window.onload = function() {
+  newTab(event, 'Co')
+};
+</script>
+<style>
+.comic {
+content: url("<%= csImage %>");
+border: 5px solid #fff;
+border-radius: 3px;
+}
+</style>
+</div>
+</div>
+<%- include("theme") %>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/jquery-touchswipe@latest/jquery.touchSwipe.min.js"></script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById("parler").innerHTML = "<div id='parentcolor'><div id='yellowisnotacolor' class='swipe'></div></div>";
+}
+const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+minDate: '<%= csParamsStart %>',
+maxDate: '<%= csParamsEnd %>',
+onSelect: function(dateText, inst) { 
+let ts = Date.now();
+let da = new Date(ts);
+utc = da.getTime() + da.getTimezoneOffset() * 60000;
+offset = -6;
+const date = new Date(utc + 3600000 * offset);
+window.location = '/<%= comic %>/' + dateText;
+}
+});
+$("#yellowisnotacolor").swipe( {
+swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+if(direction === "left") {
+window.location.replace("/<%= comic %>/<%= prevstring %>")
+}         
+if(direction === "right") {
+window.location.replace("/<%= comic %>/<%= nextstring %>")
+}
+if(direction === "down") {
+window.location.replace("/<%= comic %>/random")
+}
+if(direction === "up" && "<%= comic %>" === "garfield") {
+window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+}
+},
+threshold:0
+});
+});
+document.onkeydown = checkKey;
+function checkKey(e) {
+e = e || window.event;
+if (e.keyCode == '40') {
+  window.location.replace("/<%= comic %>/random")
+}
+else if (e.keyCode == '37') {
+  window.location.replace("/<%= comic %>/<%= prevstring %>")
+}
+else if (e.keyCode == '39') {
+  window.location.replace("/<%= comic %>/<%= nextstring %>")
+}
+else if (e.keyCode == '38' && "<%= comic %>" === "garfield") { window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+}
+}
+</script>
