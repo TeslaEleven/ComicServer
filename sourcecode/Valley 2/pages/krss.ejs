@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<style>
+img {
+display: none;
+}
+</style>
+    <channel>
+        <title>ComicServer RSS - <%= comic %></title>
+        <link>https://comicserver-mobile.comicserver.repl.co/k/<%= comic %>/<%= year %>/<%= mo %>/<%= day %></link>
+        <description>Provided by ComicServer and Andrews McMeel Syndicate</description>
+        <lastBuildDate>Mon, 25 Oct 1982 00:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <language>en</language>
+        <copyright>Copyright Andrews McMeel Syndicate</copyright>
+        <item>
+            <title><![CDATA[<%= comic %> for <%= mo %>/<%= day %>/<%= year %>]]></title>
+            <link>https://comicserver-mobile.comicserver.repl.co/k/<%= comic %>/<%= year %>/<%= mo %>/<%= day %></link>
+            <pubDate>Fri, 29 May 2020 2:00:00 CDT</pubDate>
+            <description><![CDATA[<p>
+	<img src="<%= csImage %>">
+</p>
+<p>
+	<a href="https://comicserver-mobile.comicserver.repl.co">ComicServer Webapp</a>
+</p>
+]]></description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,63 @@
+<title><%= comic %> for <%= month %>/<%= day %>/<%= year %></title>
+<link rel="icon" class="favicon">
+<style>
+.comic {
+content: url("<%= csImage %>");
+object-fit: contain;
+width: 100%;
+}
+</style>
+<div class="strip" style="height:100%">
+<p onclick="window.location.replace('/')" class="strip-p" style="font-size:2em;font-weight:300;padding:5px 7px;"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></p>
+<p id="title">Favorites</p>
+<hr></hr>
+<button id="slot1" onclick="setFav(this.id)">Slot 1</button>
+<div></div>
+<button id="slot2" onclick="setFav(this.id)">Slot 2</button>
+<div></div>
+<button id="slot3" onclick="setFav(this.id)">Slot 3</button>
+<div></div>
+<button id="slot4" onclick="setFav(this.id)">Slot 4</button>
+<div></div>
+<button id="slot5" onclick="setFav(this.id)">Slot 5</button>
+<div></div>
+<button id="slot6" onclick="setFav(this.id)">Slot 6</button>
+<div></div>
+<button id="slot7" onclick="setFav(this.id)">Slot 7</button>
+<div></div>
+<button id="slot8" onclick="setFav(this.id)">Slot 8</button>
+<div></div>
+<button style="color:red" onclick="delFav()">Delete</button>
+<div></div>
+<p>Recents</p>
+<hr>
+<button id="ar1">Auto Recent</button>
+<p style="position:absolute;bottom:0px;text-align:center">&copy Andrews McMeel & King Features</p>
+<br></br>
+<p style="position:absolute;bottom:20px;text-align:center">Cesium/Primrose (v5.6, c2022.4.2)</p>
+</div>
+<div class="namespace">
+<div id="thing"></div>
+<input type="text" style="font-size:2em;width:100%;text-align:center" name="SelectedDate" placeholder="Comic date" value="<%= comic %> for <%= month %>/<%= day %>/<%= year %>" id="txtDate" required readonly="readonly">
+</div>
+</div>
+<%- include("theme") %>
+<%- include("script") %>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/jquery-touchswipe@latest/jquery.touchSwipe.min.js"></script>
+<script>
+const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+onSelect: function(dateText, inst) { 
+window.location = '/k/<%= comic %>/' + dateText;
+}
+});
+const comic = '<%= csImage %>'.replace(/&amp;/g, '&');
+document.getElementById('thing').innerHTML = "<img class='comic' src='" + comic + "'/>"
+});
+</script>

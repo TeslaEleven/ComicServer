@@ -1,0 +1,139 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://assets.amuniversal.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="https://comicserver.github.io/Site/img/Logos/ComicServer/cslogo.png" />
+<title><%= csDate %></title>
+<style>
+.centerr {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-family: Comfortaa;
+}
+.btn {
+border: none;
+background-color: inherit;
+padding: 14px 28px;
+cursor: pointer;
+display: inline-block;
+}
+.ui-loader {
+display:none;
+}
+.button-1 {
+  border: 2px solid #eee;
+  border-radius: 5px;
+}
+.alerthing {
+background-color: #eee;
+border-radius: 5px;
+font-family: Comfortaa;
+text-align: center;
+}
+.comic {
+content: url("<%= csImage %>")
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<a href="/">
+<div class="logo centerr"></div>
+</a>
+<form class="center" method="post" action="dailies#viewgen" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" class="formbtn" name="comic" placeholder="Comic Name">
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="clik(comic);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `/search/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<hr></hr>
+
+<img class="center comic"/>
+<div style="width: 100%">
+<input class="btn centerrr" type="text" name="SelectedDate" placeholder="Comic date" value="<%= csDate %>" id="txtDate" required readonly="readonly">
+</div>
+<div id="parler"></div>
+</div>
+<p class="footer centeer" style="font-size:1vw">Comics &copy AMU and KFS | <a href="/versions">Cesium</a><b id="dsc"></b>
+<!-- | <a href="#" onclick="snowStorm.toggleSnow();return false">Snow</a> --></p>
+<!-- <script src="https://comicserver.github.io/Site/js/snow.js"></script> -->
+<%- include("themesn") %>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/jquery-touchswipe@latest/jquery.touchSwipe.min.js"></script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ document.getElementById("parler").innerHTML = "<div style='width: 50%' class='centerrr' id='parentcolor'><div class='button-1 centerrr' id='yellowisnotacolor'></div> </div>"
+}
+    $(function() {      
+      $("#yellowisnotacolor").swipe( {
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+          if(direction === "left") {
+window.location.replace("/<%= comic %>/<%= prevstring %>")
+}          if(direction === "right") {
+window.location.replace("/<%= comic %>/<%= nextstring %>")
+}          if(direction === "down") {
+window.location.replace("/<%= comic %>/random")
+}
+        },
+         threshold:0
+      });
+    });
+  const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+minDate: '<%= csParamsStart %>',
+maxDate: '<%= csParamsEnd %>',
+onSelect: function(dateText, inst) { 
+window.location = '/<%= comic %>/' + dateText;
+}
+});
+});
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+e = e || window.event;
+if (e.keyCode == '40') {
+  window.location.replace("/<%= comic %>/random")
+}
+else if (e.keyCode == '37') {
+  window.location.replace("/<%= comic %>/<%= prevstring %>")
+}
+else if (e.keyCode == '39') {
+  window.location.replace("/<%= comic %>/<%= nextstring %>")
+}
+}
+</script>
+<script>
+const fav = localStorage.getItem("fav")
+if(fav !== null) {
+document.getElementById("dsc").innerHTML = " | <a href='#' onclick='onclik()'>Delete Startup</a>";
+}
+function onclik(element) {
+localStorage.removeItem("fav")
+document.getElementById("dsc").innerHTML = "";
+}
+</script>

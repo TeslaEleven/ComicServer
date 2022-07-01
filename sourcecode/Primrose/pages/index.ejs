@@ -1,0 +1,84 @@
+<title>ComicServer</title>
+<link rel="icon" class="favicon">
+<div class="strip" style="height:100%">
+<p class="strip-p" style="font-size:2em;font-weight:300"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></p>
+<p id="title">Favorites</p>
+<hr></hr>
+<button id="slot1" onclick="setFav(this.id)">Slot 1</button>
+<div></div>
+<button id="slot2" onclick="setFav(this.id)">Slot 2</button>
+<div></div>
+<button id="slot3" onclick="setFav(this.id)">Slot 3</button>
+<div></div>
+<button id="slot4" onclick="setFav(this.id)">Slot 4</button>
+<div></div>
+<button id="slot5" onclick="setFav(this.id)">Slot 5</button>
+<div></div>
+<button id="slot6" onclick="setFav(this.id)">Slot 6</button>
+<div></div>
+<button id="slot7" onclick="setFav(this.id)">Slot 7</button>
+<div></div>
+<button id="slot8" onclick="setFav(this.id)">Slot 8</button>
+<div></div>
+<button style="color:red" onclick="delFav()">Delete</button>
+<div></div>
+<p>Recents</p>
+<hr>
+<button id="ar1">Auto Recent</button>
+<p style="position:absolute;bottom:0px;text-align:center">&copy Andrews McMeel & King Features</p>
+<br></br>
+<p style="position:absolute;bottom:20px;text-align:center">Cesium/Primrose (v5.6, c2022.4.2)</p>
+</div>
+<div class="namespace">
+  <br><p style="font-size:2em;">Start with a Comic</p></br>
+  <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" name="SelectedDate" placeholder="Comic Name" id="txtDate" required>
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="clik(SelectedDate);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `search/${element.value}`;
+  window.location.replace(urlstring);
+}
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+  <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" name="FutureDate" placeholder="Future Comic Name" id="txtDate" required maxlength="2" disabled>
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="klik(FutureDate);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `tomorrow/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+</div>
+<%- include("theme") %>
+<%- include("script") %>

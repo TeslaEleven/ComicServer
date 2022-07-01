@@ -1,0 +1,57 @@
+<title>ComicServer</title>
+<link rel="shortcut icon" href="https://old.comicserver.org/img/core.png" />
+<%- include('theme') %>
+<p onclick="window.location='/'" style="font-size:3em;font-weight:300;text-align:center;text-shadow:.5px .5px #000"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></p>
+<div class="main">
+  <select id="selectBox" class="hello" onchange="changeFunc();" style="width:100%;text-align:center">
+    <option disabled selected>Theme</option>
+    <option value="basic">Basic</option>
+    <option value="birch">Birch</option>
+    <option value="blackout">Blackout</option>
+    <option value="blast">Blast</option>
+    <option value="auto">Computer Decided</option>
+   </select>
+    <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+        <input class="input" type="text" name="thingy" placeholder="Start with a Comic" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="clik(thingy);">
+      </form>
+      <script>
+      function clik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/load/${element.value}`;
+        window.location.replace(urlstring);
+      }
+      function submitcheck(element)
+      {
+        return false;
+      }
+      </script>
+  <button id="prev" onclick="prevStrip();" style="display:none">Previous</button>
+  <button id="random" onclick="shufStrip();" style="display:none">Shu-ffle</button>
+  <button id="next" onclick="nextStrip();" style="display:none">Next</button>
+</div><h2 id="haitchpea" style="font-size: 2vw;text-align:center;padding:1px"
+class="profd">Error 429: Too Many Requests</h2>
+<p class="proft" style="font-size:1vw;width:50%;margin-left:auto;margin-right:auto" id="txt">
+The Discord API isn't responding at the moment. 
+<br></br>
+We rely on Discord's User API to get public details about the user (specifically UserID & ProfileID) to make a more personalised website experience (At the user's consent). We also sync up comics with the user through Discord. When this problem occurs, we remove the feature to view comics on the home screen. Unfortunately, we have no way of knowing when the service will come back online at the present time. We hope that in the future, we are able to provide a more viable solution.
+<br></br>
+<b>Thanks for understanding.</b>
+</p>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('haitchpea').style.fontSize = "5vw";
+document.getElementById('txt').style.fontSize = "3vw";
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+}
+</script>
