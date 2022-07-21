@@ -1,3 +1,3 @@
 # ComicServer Source
 
-This is a folder of all of the website's source code since v5.3.
+This is a directory full of ComicServer's past. You'll find versions all the way back to v3 in March '21
