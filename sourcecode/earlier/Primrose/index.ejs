@@ -1,0 +1,68 @@
+<title>ComicServer</title>
+<link rel="icon" class="favicon">
+<div style="height:50%">
+<div class="strip" style="height:auto"><p class="strip-p" style="font-size:2em;"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></p>
+</div>
+<br></br>
+<div class="strip" style="height:auto">
+<div id="S" class="main-content">
+  <br></br>
+  <h1>Welcome to Primrose.</h1>
+  <h3>Here are some highlights of this brand-new version:</h3>
+<div style="font-size:1vw">
+  <h4>1. Refreshed backend and frontend</h4>
+  <p>This version remasters every spot of ComicServer, with faster loading times, fewer redirects, and a new UI.</p>
+  <h4>2. UI Change</h4>
+  <p>The new theme, Minuit (or Mute), is meant to be more accepting to mobile, but not unappreciative to desktop like v5.4 (Valley).</p>
+  <h4>3. 2 Years!</h4>
+  <p>Today (May 29th 2022) is the official birthday of ComicServer. Version 6 is our long awaited sequel to Cesium. We felt it would be best to release it today.</p>
+</div>
+<h4>Try it out now:</h4>
+  <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+  <input class="button-1 centerr" type="text" name="SelectedDate" placeholder="Comic Name" id="txtDate" required>
+  <input class="button-1 centerr" type="submit" class="button-1"  name="submitbutton" class="btn btn-success" value="Go" onclick="clik(SelectedDate);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+</div>
+
+<script>
+function newTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("main-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+window.onload = function() {
+  newTab(event, 'S')
+};
+</script>
+</div>
+</div>
+<%- include("theme") %>

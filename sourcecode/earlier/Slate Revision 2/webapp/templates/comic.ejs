@@ -1,0 +1,124 @@
+<%- include("partials/cshead", { title: "Comics" }) %>
+<style type="text/css">     
+        #txtDate
+        {
+            position: relative;
+            top: -7px;
+            margin-right: 5px;
+        }
+</style>
+<div name="alert" id="alert"></div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+      <div class="card-body">
+    <img src="<%= csImage %>" style="width:100%;">
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+      <div class="card-body">
+      <h1 class="card-title" style="font-size:4vw;"><%= csDate %></h1>
+<button class="btn btn-info" onclick="window.location.href='https://app.comicserver.org/<%= comic %>/<%= csParamsStart %>'"><i class="bi bi-chevron-double-left"></i></button>
+<button class="btn" id="prevbutton" onclick="window.location.href='https://app.comicserver.org/<%= comic %>/<%= prevstring %>'"><i class="bi bi-chevron-left"></i></button>
+<a class="btn btn-info" id="ehehehehehehhe" href="https://app.comicserver.org/<%= comic %>/random"><i class="bi bi-shuffle"></i></a>
+<button class="btn" id="nextbutton" onclick="window.location.href='https://app.comicserver.org/<%= comic %>/<%= nextstring %>'"><i class="bi bi-chevron-right"></i></button>
+<button class="btn btn-info" onclick="window.location.href='https://app.comicserver.org/<%= comic %>/<%= csParamsEnd %>'"><i class="bi bi-chevron-double-right"></i></button>
+<form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDate" placeholder="Comic date" value="<%= year %>/<%= month %>/<%= day %>" id="txtDate" required readonly="readonly">
+  <input type="submit" name="submitbutton" class="btn btn-success" value="Get Comic" id="dp-clicker" onClick="klik(SelectedDate);">
+</form>
+<script>
+function transButton() {
+  var element = document.getElementById("hehe");
+  element.classList.remove("hidden");
+}
+function closeButton() {
+  var element = document.getElementById("hehe");
+  element.classList.add("hidden");
+}
+</script>
+<button class="btn btn-info" onclick="transButton()">Transcript</button>
+<div class='alert alert-success hidden alert-dismissible' id="hehe"><a href='#' onclick="closeButton()" class='close' aria-label='close'>&times;</a><%= csTranscript %></div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;" id="comment-section">
+<div class="card-body">
+<h3 class="card-title" style="font-size:3vw;">Comment of the Day</h1>
+<p class="cmt-text" style="font-size:1.2vw;"><%= commentText %></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+        type="text/javascript"></script>
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+        rel="Stylesheet" id="dp-css" type="text/css" />
+    <script type="text/javascript">
+        $(function () {
+            $("#txtDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showOn: 'button',
+                buttonImageOnly: true,
+                buttonImage: 'https://comicserver.org/css/calendar.gif',
+                dateFormat: 'yy/mm/dd',
+                yearRange: '<%= csStartFormatted %>:<%= csEndFormatted %>'
+            });
+        });
+    </script>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value > "<%= csParamsEnd %>") {
+const str = "<div class='alert alert-warning alert-dismissible'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry,</strong> that date exceeds the date of the latest comic strip. The latest strip is <%= csParamsEnd %></div>"
+document.getElementById("alert").innerHTML = str;
+window.location.replace("#alert")
+return;
+}
+if(element.value < "<%= csParamsStart %>") {
+const str = "<div class='alert alert-warning alert-dismissible'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry,</strong> that date is set before the start of the strip. The strip start is <%= csParamsStart %></div>"
+document.getElementById("alert").innerHTML = str;
+window.location.replace("#alert")
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/<%= comic %>/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<br>
+<script>
+if("<%= csParamsEnd %>" < "<%= nextstring %>") {
+function disableNext() {
+  document.getElementById("nextbutton").disabled = true;
+}
+const element = document.getElementById("nextbutton");
+disableNext();
+element.classList.add("btn-disabled");
+} else {
+const element = document.getElementById("nextbutton");
+element.classList.add("btn-info");
+}
+if("<%= csParamsStart %>" > "<%= prevstring %>") {
+function disablePrev() {
+  document.getElementById("prevbutton").disabled = true;
+}
+const element = document.getElementById("prevbutton");
+disablePrev();
+element.classList.add("btn-disabled");
+} else {
+const element = document.getElementById("prevbutton");
+element.classList.add("btn-info");
+}
+</script>
+<%- include("partials/csfoot") %>

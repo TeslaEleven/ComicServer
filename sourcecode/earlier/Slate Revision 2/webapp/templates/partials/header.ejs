@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/light.css"/>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+    </head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://app.comicserver.org">ComicServer Comic Viewer</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+</div>
+</div>
+<select class="btn btn-success" onChange="setStyleSheet(value)"> 
+<option disabled selected="selected">Theme</option>
+<option value = "https://comicserver.org/css/light.css">Light</option>
+<option value = "https://comicserver.org/css/dark.css">Dark</option>
+</select>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+    <select id="btnpick" class="btn btn-primary" onChange="setBtnSettings(value)"> 
+<option disabled selected="selected">Buttons</option>
+<option value="yes">Enabled</option>
+<option value="no">Disabled</option>
+</select>
+    <script>
+    function setBtnSettings(yesno){
+       if(yesno === "yes") {
+       var elementt = document.getElementById("dp-clicker");
+       elementt.classList.remove("hidden");
+       }
+       if(yesno === "no") {
+       var elementt = document.getElementById("dp-clicker");
+       elementt.classList.add("hidden");
+       }
+       }
+    </script>
+  </nav>
+<style>
+.hidden {
+display: none;
+}
+</style>  
+<script>
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+darkThemeMq.addListener(e => {
+ if (e.matches) {
+  var sheeet = document.getElementById("stylesheet");
+  sheeet.setAttribute('href', 'https://comicserver.org/css/dark.css');
+ } else {
+  var sheet = document.getElementById("stylesheet");
+  sheet.setAttribute('href', 'https://comicserver.org/css/light.css');
+  }
+});
+</script>

@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/light.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://app.comicserver.org">ComicServer Comic Viewer</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SearchQuery" placeholder="Search <%= comic %>..." required>
+    <input type="submit" name="submitbutton" class="btn btn-success hidden" id="srch-index" value="Search" onClick="srch(SearchQuery);">
+</form>
+<script>
+function srch(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/search/<%= comic %>/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+      </div>
+    </div>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+       if(url === "") {
+       const dpCssSheet = document.getElementById("dp-css");
+       dpCssSheet.remove();
+       }
+    }
+    </script>
+    <script>
+    function setBtnSettings(yesno){
+       if(yesno === "yes") {
+       var element = document.getElementById("srch-index");
+       element.classList.remove("hidden");
+       var elementt = document.getElementById("dp-clicker");
+       elementt.classList.remove("hidden");
+       }
+       if(yesno === "no") {
+       var element = document.getElementById("srch-index");
+       element.classList.add("hidden");
+       var elementt = document.getElementById("dp-clicker");
+       elementt.classList.add("hidden");
+       }
+       }
+    </script>
+    <script>
+    function setCments(yesno){
+       if(yesno === "yessir") {
+       var element = document.getElementById("comment-section");
+       element.classList.remove("hidden");
+       }
+       if(yesno === "notinthislife") {
+       var element = document.getElementById("comment-section");
+       element.classList.add("hidden");
+       }
+       }
+    </script>
+<select class="btn btn-success" onChange="setCments(value)"> 
+<option disabled selected="selected">Comments</option>
+<option value = "notinthislife">Off</option>
+<option value = "yessir">On</option>
+</select>
+<select class="btn btn-success" onChange="setStyleSheet(value)"> 
+<option disabled selected="selected">Theme</option>
+<option value = "https://comicserver.org/css/light.css">Light</option>
+<option value = "https://comicserver.org/css/dark.css">Dark</option>
+</select>
+<select id="btnpick" class="btn btn-primary" onChange="setBtnSettings(value)"> 
+<option disabled selected="selected">Buttons</option>
+<option value="yes">Enabled</option>
+<option value="no">Disabled</option>
+</select>
+  </nav>
+  <style>
+.hidden {
+display: none;
+}
+</style>
+<script>
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+darkThemeMq.addListener(e => {
+ if (e.matches) {
+  var sheeet = document.getElementById("stylesheet");
+  sheeet.setAttribute('href', 'https://comicserver.org/css/dark.css');
+ } else {
+  var sheet = document.getElementById("stylesheet");
+  sheet.setAttribute('href', 'https://comicserver.org/css/light.css');
+  }
+});
+</script>

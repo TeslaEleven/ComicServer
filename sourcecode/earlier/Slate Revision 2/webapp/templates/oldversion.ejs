@@ -1,0 +1,182 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Comics</title>
+    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png">
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/dark.css">
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+    </head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://app.comicserver.org">ComicServer Comic Viewer</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form method="post" action="dailies#viewgen" onsubmit="return submitcheck(this);" name="viewgen">
+  <input type="text" name="SearchQuery" placeholder="Search the webapp..." required="">
+    <input type="submit" name="submitbutton" class="btn btn-success hidden" id="srch-index" value="Search" onclick="srch(SearchQuery);">
+</form>
+<script>
+function srch(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/search/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+</ul></div>
+</div>
+<select id="themepick" class="btn btn-success" onchange="setStyleSheet(value)"> 
+<option disabled="" selected="selected">Theme</option>
+<option value="https://comicserver.org/css/light.css">Light</option>
+<option value="https://comicserver.org/css/dark.css">Dark</option>
+<option value="https://comicserver.org/css/material.css">Material</option>
+<option value="">Raw</option>
+</select>
+
+    <script>
+    function setBtnSettings(yesno){
+       if(yesno === "yes") {
+       var element = document.getElementById("button-hidden");
+       element.classList.remove("hidden");
+       var elementt = document.getElementById("button-hiddenn");
+       elementt.classList.remove("hidden");
+       var elementtt = document.getElementById("button-hiddennn");
+       elementtt.classList.remove("hidden");
+       var elementttt = document.getElementById("srch-index");
+       elementttt.classList.remove("hidden");
+       }
+       if(yesno === "no") {
+       var element = document.getElementById("button-hidden");
+       element.classList.add("hidden");
+       var elementt = document.getElementById("button-hiddenn");
+       elementt.classList.add("hidden");
+       var elementtt = document.getElementById("button-hiddennn");
+       elementtt.classList.add("hidden");
+       var elementttt = document.getElementById("srch-index");
+       elementttt.classList.add("hidden");
+       }
+       }
+    </script>
+  </nav>
+  <style>
+.hidden {
+display: none;
+}
+</style>
+
+
+<div class="container-sm center" style="margin-top: 25px;">
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+</style>
+  <div class="center logo"></div>
+    <h2 style="text-align:center">Online Comic Viewer</h2>
+<p>GoComics <a target="_blank" href="https://www.gocomics.com/comics/a-to-z">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onsubmit="return submitcheck(this);" name="viewgen">
+  <input type="text" name="SelectedDate" placeholder="Comic name" id="txtDate" required="">
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" id="button-hidden" value="Launch Viewer" onclick="clik(SelectedDate);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<p>Comics Kingdom <a target="_blank" href="https://comicskingdom.com">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onsubmit="return submitcheck(this);" name="viewgen">
+  <input type="text" name="SelectedDatte" placeholder="Comic name" id="txtDate" required="">
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" id="button-hiddenn" value="Launch Viewer" onclick="klik(SelectedDatte);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/k/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<p>Tomorrow's Comic (GoComics only, the initials of your comic or if it's one word, the first 2 letters) <a target="_blank" href="https://licensing.andrewsmcmeel.com">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onsubmit="return submitcheck(this);" name="viewgen">
+  <input type="text" name="SelectedDattte" placeholder="Comic name" id="txtDate" required="">
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" id="button-hiddennn" value="Launch Viewer" onclick="olik(SelectedDattte);">
+</form>
+<script>
+function olik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/tomorrow/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+  </div>
+</div>
+
+Comic images and content copyright Andrews McMeel and the comic author's rightful copyright owners
+
+</body></html>

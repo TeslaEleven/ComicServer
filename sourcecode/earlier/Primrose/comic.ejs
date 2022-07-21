@@ -1,0 +1,109 @@
+<title><%= csDate %></title>
+<link rel="icon" class="favicon">  
+<div style="height:50%">
+<div class="strip" style="height:auto"><button style="font-size:2em;" onclick="window.location.replace('/')"><span style="color:white">Comic</span><span style="color:#3699EC">server</span></button>
+</div>
+<br></br>
+<div class="strip" style="height:auto">
+<div style="width:100%;height:auto;content:url('<%= csImage %>')"></div>
+<div style="width: 100%">
+<input type="text" style="font-size:2em;width:100%;text-align:center" name="SelectedDate" placeholder="Comic date" value="<%= csDate %>" id="txtDate" required readonly="readonly">
+<div id="parler"></div>
+</div>
+
+<script>
+function newTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("main-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+window.onload = function() {
+  newTab(event, 'S')
+};
+</script>
+</div>
+</div>
+<%- include("theme") %>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/jquery-touchswipe@latest/jquery.touchSwipe.min.js"></script>
+<script>
+function newTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("main-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+window.onload = function() {
+  newTab(event, 'Co')
+};
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById("parler").innerHTML = "<div id='parentcolor'><div id='yellowisnotacolor' class='swipe'></div></div>";
+}
+const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+minDate: '<%= csParamsStart %>',
+maxDate: '<%= csParamsEnd %>',
+onSelect: function(dateText, inst) { 
+let ts = Date.now();
+let da = new Date(ts);
+utc = da.getTime() + da.getTimezoneOffset() * 60000;
+offset = -6;
+const date = new Date(utc + 3600000 * offset);
+window.location = '/<%= comic %>/' + dateText;
+}
+});
+$("#yellowisnotacolor").swipe( {
+swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+if(direction === "left") {
+window.location.replace("/<%= comic %>/<%= prevstring %>")
+}         
+if(direction === "right") {
+window.location.replace("/<%= comic %>/<%= nextstring %>")
+}
+if(direction === "down") {
+window.location.replace("/<%= comic %>/random")
+}
+if(direction === "up" && "<%= comic %>" === "garfield") {
+window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+}
+},
+threshold:0
+});
+});
+document.onkeydown = checkKey;
+function checkKey(e) {
+e = e || window.event;
+if (e.keyCode == '40') {
+  window.location.replace("/<%= comic %>/random")
+}
+else if (e.keyCode == '37') {
+  window.location.replace("/<%= comic %>/<%= prevstring %>")
+}
+else if (e.keyCode == '39') {
+  window.location.replace("/<%= comic %>/<%= nextstring %>")
+}
+else if (e.keyCode == '38' && "<%= comic %>" === "garfield") { window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+}
+}
+</script>
+<%- include("theme") %>

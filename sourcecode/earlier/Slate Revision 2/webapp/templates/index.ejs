@@ -1,0 +1,138 @@
+<%- include("partials/csbrowsehead", { title: "Browse Comics" }) %>
+
+<body>
+<div class="container-sm center" style="margin-top: 25px;">
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.alertt {
+position: relative;
+padding: 0.75rem 1.25rem;
+margin-bottom: 1rem;
+border: 1px solid transparent;
+border-radius: 0.25rem;
+background-color: #3699EC
+}
+</style>
+<div class="alertt" style="text-align:center">
+ <p>ComicServer's Dashboard, bot site, and main website have gone away. The service altogether will shut down in:</p>
+<p id="ctdwn-terminate"></p>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("16 Mar 2022").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("ctdwn-terminate").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("ctdwn-terminate").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script></div>
+  <div class="center logo"></div>
+    <h2 style="text-align:center">Online Comic Viewer</h2>
+<p>GoComics <a target="_blank" href="https://www.gocomics.com/comics/a-to-z">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDate" placeholder="Comic name" id="txtDate" required>
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" id="button-hidden" value="Launch Viewer" onClick="clik(SelectedDate);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<p>Comics Kingdom <a target="_blank" href="https://comicskingdom.com">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDatte" placeholder="Comic name" id="txtDate" required>
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" id="button-hiddenn" value="Launch Viewer" onClick="klik(SelectedDatte);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/k/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<p>Tomorrow's Comic (GoComics only, the initials of your comic or if it's one word, the first 2 letters) <a target="_blank" href="https://licensing.andrewsmcmeel.com">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDattte" placeholder="Comic name" id="txtDate" required>
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" id="button-hiddennn" value="Launch Viewer" onClick="olik(SelectedDattte);">
+</form>
+<script>
+function olik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/tomorrow/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+  </div>
+</div>
+
+<%- include("partials/csfoot") %>

@@ -1,0 +1,46 @@
+<%- include("partials/csbrowsehead", { bot, user, path, title: "Browse Comics" }) %>
+
+<body>
+<div class="container-sm center" style="margin-top: 25px;">
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+</style>
+  <div class="center logo"></div>
+    <h2 style="text-align:center">WebApp</h2>
+    <p>Browse all comics at <a href="https://www.gocomics.com/comics/a-to-z">GoComics</a>!</p>
+    <p><b><i>This is a private project, to avoid copyright infringement</i></b></p>
+  <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDate" placeholder="Comic name" id="txtDate" required>
+  <input type="submit" name="submitbutton" class="btn btn-success" value="Launch Viewer" onClick="klik(SelectedDate);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://csapp.wel3com.repl.co/comic/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+  </div>
+</div>
+
+<%- include("partials/csfoot") %>

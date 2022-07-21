@@ -1,0 +1,38 @@
+<%- include("partials/cshead", { bot, user, path, title: "Comic Search" }) %>
+<h1>ComicServer Search Tool</h1>
+<p>Search through your favorite comics!</p>
+<form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDate" placeholder="Search term" value="<%= term %>" id="txtDate" required>
+    <input type="submit" name="submitbutton" class="btn btn-success" value="Search" onClick="klik(SelectedDate);">
+</form>
+<h2>First Result:</h2>
+<div class="card" style=" width:auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+<a href="https://csapp.wel3com.repl.co/comic<%= csLink %>">
+    <img src="<%= csImage %>" style="width:auto;height:auto">
+      <div class="card-body">
+        <h1 class="card-title"><%= csDate %></h1>
+    </a>
+    </div>
+    </div>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://csapp.wel3com.repl.co/search/<%= comic %>/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<%- include("partials/csfoot") %>

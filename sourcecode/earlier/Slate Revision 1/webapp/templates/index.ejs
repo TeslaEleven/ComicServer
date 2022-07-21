@@ -1,0 +1,97 @@
+<%- include("partials/csbrowsehead", { title: "Browse Comics" }) %>
+
+<body>
+<div class="container-sm center" style="margin-top: 25px;">
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+</style>
+  <div class="center logo"></div>
+    <h2 style="text-align:center">Online Comic Viewer</h2>
+<p>GoComics <a target="_blank" href="https://www.gocomics.com/comics/a-to-z">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDate" placeholder="Comic name" id="txtDate" required>
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" value="Launch Viewer" onClick="clik(SelectedDate);">
+</form>
+<script>
+function clik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<p>Comics Kingdom <a target="_blank" href="https://comicskingdom.com">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDatte" placeholder="Comic name" id="txttDate" required>
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" value="Launch Viewer" onClick="klik(SelectedDatte);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/k/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<p>Tomorrow's Comic (GoComics only, the initials of your comic or if it's one word, the first 2 letters) <a target="_blank" href="https://licensing.andrewsmcmeel.com">Browse</a></p>
+  <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDattte" placeholder="Comic name" id="txtttDate" required>
+  <input type="submit" name="submitbutton" class="btn btn-success hidden" value="Launch Viewer" onClick="olik(SelectedDattte);">
+</form>
+<script>
+function olik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/tomorrow/${element.value.replace(" ", "-")}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+  </div>
+</div>
+
+<%- include("partials/csfoot") %>

@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://comicserver.org/css/light.css"/>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+    </head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://app.comicserver.org">ComicServer Comic Viewer</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SearchQuery" placeholder="Search the webapp..." required>
+    <input type="submit" name="submitbutton" class="btn btn-success hidden" id="srch-index" value="Search" onClick="srch(SearchQuery);">
+</form>
+<script>
+function srch(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/search/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+</div>
+</div>
+<select id="themepick" class="btn btn-success" onChange="setStyleSheet(value)"> 
+<option disabled selected="selected">Theme</option>
+<option value = "https://comicserver.org/css/light.css">Light</option>
+<option value = "https://comicserver.org/css/dark.css">Dark</option>
+</select>
+<select id="btnpick" class="btn btn-primary" onChange="setBtnSettings(value)"> 
+<option disabled selected="selected">Buttons</option>
+<option value="yes">Enabled</option>
+<option value="no">Disabled</option>
+</select>
+    <script>
+    function setBtnSettings(yesno){
+       if(yesno === "yes") {
+       var element = document.getElementById("button-hidden");
+       element.classList.remove("hidden");
+       var elementt = document.getElementById("button-hiddenn");
+       elementt.classList.remove("hidden");
+       var elementtt = document.getElementById("button-hiddennn");
+       elementtt.classList.remove("hidden");
+       var elementttt = document.getElementById("srch-index");
+       elementttt.classList.remove("hidden");
+       }
+       if(yesno === "no") {
+       var element = document.getElementById("button-hidden");
+       element.classList.add("hidden");
+       var elementt = document.getElementById("button-hiddenn");
+       elementt.classList.add("hidden");
+       var elementtt = document.getElementById("button-hiddennn");
+       elementtt.classList.add("hidden");
+       var elementttt = document.getElementById("srch-index");
+       elementttt.classList.add("hidden");
+       }
+       }
+    </script>
+  <button class="btn btn-secondary" onclick="window.location.href='https://app.comicserver.org/favorites'">Favorites</button>
+  </nav>
+  <style>
+.hidden {
+display: none;
+}
+</style>

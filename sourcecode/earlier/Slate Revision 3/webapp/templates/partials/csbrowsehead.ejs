@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="shortcut icon" href="https://comicserver.org/img/Logos/ComicServer/cslogo.png" />
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="https://csapp.wel3com.repl.co/light.css"/>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+    <link href="https://csapp.wel3com.repl.co/datepicker.css" rel="Stylesheet" type="text/css" />
+    </head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://csapp.wel3com.repl.co">ComicServer Comic Viewer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SearchQuery" placeholder="Search the webapp..." required>
+    <input type="submit" name="submitbutton" class="btn btn-success" value="Search" onClick="srch(SearchQuery);">
+</form>
+<script>
+function srch(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://csapp.wel3com.repl.co/search/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+</div>
+</div>
+Theme:
+<select id="themepick" class="btn btn-success" onChange="setStyleSheet(value)"> 
+<option selected = "selected" disabled>Choose</option>
+<option value = "https://csapp.wel3com.repl.co/light.css">Light</option>
+<option value = "https://csapp.wel3com.repl.co/dark.css">Dark</option>
+</select>
+  </nav>
+  <%- title === "Dashboard" ? "" : "" %>

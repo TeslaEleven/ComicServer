@@ -1,0 +1,29 @@
+<%- include("partials/csbrowsehead", { title: "Searching All Comics" }) %>
+<h1>Search Tool</h1>
+<p>Search through your favorite comics!</p>
+<form method="post" action="dailies#viewgen" onSubmit="return submitcheck(this);" name="viewgen" >
+  <input type="text" name="SelectedDate" placeholder="Comic date" value="<%= csDate %>" id="txtDate" required readonly="readonly">
+  <input type="submit" name="submitbutton" class="btn btn-success" value="Open" onClick="klik(SelectedDate);">
+</form>
+<script>
+function klik(element)
+{
+if(element.value === ""){
+return;
+}
+if(element.value === " "){
+return;
+}
+if(element.value === "‎"){
+return;
+}
+  var urlstring = `https://app.comicserver.org/${element.value}`;
+  window.location.replace(urlstring);
+}
+
+function submitcheck(element)
+{
+  return false;
+}
+</script>
+<%- include("partials/csfoot") %>

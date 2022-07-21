@@ -1,0 +1,60 @@
+<%- include("partials/favorites", { title: "Comics" }) %>
+<style type="text/css">     
+        #txtDate
+        {
+            position: relative;
+            top: -7px;
+            margin-right: 5px;
+        }
+</style>
+<h1>Favorite Comics</h1>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImageBl %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title">Blondie for <%= ckdate %></h1>
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImagePop %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title">Popeye for <%= ckdate %></h1>
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImageHh %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title">Hagar the Horrible for <%= ckdate %></h1>
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImageBb %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title">Beetle Bailey for <%= ckdate %></h1>
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImageGa %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title"><%= csDateGa %></h1>
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImageGc %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title"><%= csDateGc %></h1>
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImageBn %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title"><%= csDateBn %></h1>
+</div>
+</div>
+<div class="card" style=" width: auto; max-width: 100rem; margin: 2rem; min-width: 10em;">
+    <img src="<%= csImagePe %>" style="width:100%;">
+      <div class="card-body">
+      <h1 class="card-title"><%= csDatePe %></h1>
+</div>
+</div>
+<br>
+<%- include("partials/csfoot") %>

@@ -1,0 +1,20 @@
+<%- include("partials/widget", { bot, user, path, title: "Embed" }) %>
+<style>
+div {
+  background-color: transparent;
+  width: auto;
+  border: 15px solid #4E5D94;
+  padding: 50px;
+  margin: auto;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+</style>
+<div>
+<img src="<%= csImage %>" class='center' style="width:auto;">
+<h1 class="card-title"><%= csDate %></h1>
+</div>
