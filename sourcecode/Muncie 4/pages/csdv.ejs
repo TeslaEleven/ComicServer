@@ -1,0 +1,29 @@
+inv<title>ComicServer</title>
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<div class="mydiv" id="myDiv" style="border:solid 5px var(--ba);border-radius:5px;margin:center;width:50%">
+<h1 style="padding-left: 10px;padding-right: 10px;">The Discord API Isn't Responding.</h1>
+<b style="padding: 10px;">Error 429</b>
+<p style="padding: 10px;">Unfortunately, the Discord API has rate-limited the ComicServer service based on the amount of requests we've given to the API (usually about authorization data). We don't have a perfect fix for this other than to come back in a few minutes (or hours, all depending on the amount of times the website is accessed. We are currently working on a fix for this very tedious problem. But for now, refrain from using the site for a few minutes (at least) after seeing this message.</p>
+</div>
+<style>
+body {
+  display:flex;
+  margin:0;
+  flex-direction:column;
+}
+
+.mydiv {
+  margin:auto;
+}
+</style>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('myDiv').style.width = "100%"
+document.getElementById('myDiv').style.fontSize = "5vw"
+document.getElementById('myDiv').style.border = "none"
+document.getElementById('myDiv').style.padding = "10px"
+
+}
+</script>
+<%- include('theme') %>
+  <%- include('iheader') %>

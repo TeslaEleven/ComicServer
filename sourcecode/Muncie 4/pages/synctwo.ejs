@@ -1,0 +1,28 @@
+<title>ComicServer Sync</title>
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<div class="mydiv" id="myDiv" style="border:solid 5px var(--ba);border-radius:5px;margin:center;width:50%">
+<h1 style="padding-left: 10px;padding-right: 10px;">ComicServer Sync</h1>
+<b style="padding: 10px;">Error</b>
+<p style="padding: 10px;">ComicServer Sync is a new feature implemented to Muncie 4 that gives better access to ComicServer on mobile. To set up, go on a desktop machine, press edit and scan the QR code under ComicServer Sync.</p>
+</div>
+<style>
+body {
+  display:flex;
+  margin:0;
+  flex-direction:column;
+}
+
+.mydiv {
+  margin:auto;
+}
+</style>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('myDiv').style.width = "100%"
+document.getElementById('myDiv').style.fontSize = "5vw"
+document.getElementById('myDiv').style.border = "none"
+document.getElementById('myDiv').style.padding = "10px"
+
+}
+</script>
+<%- include('theme') %>

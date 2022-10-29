@@ -1,0 +1,52 @@
+<title>ComicServer Sync</title>
+<meta property="og:image" content="https://old.comicserver.org/img/Muncie 3.png">
+ <meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1982">
+<meta property="og:image:height" content="1982">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ComicServer" />
+<meta property="og:description" content="ComicServer is a service that keeps you up to date with the fun part of the newspaper." />
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<head>
+</head>
+<p style="font-size:3em;font-weight:300;text-align:center;font-family:Magnolia Script;color:var(--ba)">Comicserver Sync</p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 75%;
+}
+</style>
+<link rel="shortcut icon" href="https://old.comicserver.org/img/core.png" />
+</head>
+<body>
+</body>
+</html>
+<%- include('theme') %><h2 id="haitchpea" style="font-size: 2vw;text-align:center;padding:1px"
+class="profd"><span style="padding-left:10px">Welcome Back, <%= uname %></span></h2>
+<p class="proft" style="font-size:1vw" id="txt">Comics &copy Andrews McMeel and King Features Syndicate</p>
+<p class="proft" style="font-size:3vw" id="txt">Bookmark this page!</p>
+<br><br>
+<div style="margin-left:25%;margin-right:25%" id="favs">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<%- include('script') %>
+<script>
+const unamee = "<%= uname %>".replaceAll(/&#34;/ig, `"`)
+console.log(unamee)
+const uname = JSON.parse(unamee)
+document.getElementById('haitchpea').innerHTML = `<span style="padding-left:10px">Welcome Back, ${uname[0]} </span>`
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('txt').style.fontSize = "3vw";
+document.getElementById('haitchpea').style.fontSize = "4vw"
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+document.getElementById('editmenu').style.marginLeft = "auto";
+document.getElementById('editmenu').style.marginRight = "auto";
+}
+</script>

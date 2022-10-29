@@ -1,0 +1,21 @@
+    <form class="cents" method="get" onsubmit="return submitcheck(this);" name="selected" id="name">
+        <input class="input" style="font-size:3vw" type="text" name="thingy" id="comiccer" placeholder="Start with a Comic" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="clik(thingy);">
+      </form>
+      <script>
+      function clik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/tour/${element.value}`;
+        window.location.replace(urlstring);
+      }
+      </script>
+<%- include('iheader') %>

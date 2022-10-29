@@ -1,0 +1,119 @@
+<%- include('header') %>
+<meta property="og:image" content="<%= csImage %>">
+<meta property="og:image:type" content="image/png">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="<%= csDate %>" />
+<meta property="og:description" content="Comics are seamless and clean when using ComicServer." />
+<title><%= csDate %></title>
+<style>
+.comic {
+object-fit: contain;
+width: 90%;
+height:auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+</style>
+<br></br>
+<div style="margin-left:10%;margin-right:10%" id="favs">
+<img class="comic" src="<%= csImage %>"/>
+</div>
+<input type="text" style="font-size:2vw;width:100%;text-align:center" name="SelectedDate" placeholder="Comic date" value="<%= csDate %>" id="txtDate" required readonly="readonly">
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/jquery-touchswipe@latest/jquery.touchSwipe.min.js"></script>
+<script>
+const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+minDate: '<%= csParamsStart %>',
+maxDate: '<%= csParamsEnd %>',
+onSelect: function(dateText, inst) { 
+let ts = Date.now();
+let da = new Date(ts);
+utc = da.getTime() + da.getTimezoneOffset() * 60000;
+offset = -6;
+const date = new Date(utc + 3600000 * offset);
+window.location = '/<%= comic %>/' + dateText;
+}
+});
+});
+//if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+//document.getElementById("parler").innerHTML = "<div id='parentcolor'><div id='yellowisnotacolor' class='swipe'></div></div>";
+//}
+//$("#yellowisnotacolor").swipe( {
+//swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+//if(direction === "left") {
+//window.location.replace("/<%= comic %>/<%= prevstring %>")
+//}         
+//if(direction === "right") {
+//window.location.replace("/<%= comic %>/<%= nextstring %>")
+//}
+//if(direction === "down") {
+//window.location.replace("/<%= comic %>/random")
+//}
+//if(direction === "up" && "<%= comic %>" === "garfield") {
+//window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+//}
+//},
+//threshold:0
+//});
+var wowowo = "<%= comic %>/<%= nextstring %>"
+function nextStrip() {
+  if(wowowo !== "") {
+  window.location.replace("/" + wowowo)
+  } else {
+  alert('You\'ve reached the end. Come back tomorrow!')
+  }
+}
+function shufStrip() {
+window.location.replace("/<%= comic %>/random")
+}
+function prevStrip() {
+window.location.replace("/<%= comic %>/<%= prevstring %>")
+}
+document.onkeydown = checkKey;
+function checkKey(e) {
+e = e || window.event;
+if (e.keyCode == '40') {
+  window.location.replace("/<%= comic %>/random")
+}
+else if (e.keyCode == '37') {
+  window.location.replace("/<%= comic %>/<%= prevstring %>")
+}
+else if (e.keyCode == '39') {
+  if(wowowo !== "") {
+  window.location.replace("/" + wowowo)
+  } else {
+  alert('You\'ve reached the end. Come back tomorrow!')
+  }
+}
+else if (e.keyCode == '38' && "<%= comic %>" === "garfield") { window.open("https://garfield.fandom.com/wiki/U.S._Acres,_November_1987_comic_strips")
+}
+}
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+document.getElementById('prev').style.display = null;
+document.getElementById('random').style.display = null;
+document.getElementById('next').style.display = null;
+}
+if("<%= nextstring %>" === "") {
+wowowo = ""
+}
+</script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('txtDate').style.fontSize = "4vw";
+document.getElementById('haitchpea').style.fontSize = "4vw"
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+}
+</script>
+<%- include('iheader') %>
