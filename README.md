@@ -1,2 +1,2 @@
-# ComicServer Legacy
-Legacy is officially discontinued, source code of Legacy and other ComicServer services shown here.
+# ComicServer Direct
+With Legacy officially discontinued, Direct still serves ComicServer App with links to assets and more here on GitHub.
