@@ -1,0 +1,44 @@
+  <title>ComicServer</title>
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<div class="mydiv" id="myDiv" style="border:solid 5px var(--ba);border-radius:5px;margin:center;width:50%">
+<p style="padding: 10px"><h1 style="text-align:center;font-family:Magnolia Script">Sign Up for Comicserver</h1>
+<form action="/signup" method="post">
+    <section>
+        <input id="username" name="username" type="text" autocomplete="username" placeholder="Username" style="width:100%;text-align:center" required autofocus>
+    </section>
+    <section>
+        <input id="new-password" name="password" type="password" autocomplete="new-password" placeholder="Password" style="width:100%;text-align:center" required>
+    </section>
+    <!-- <button disabled class="button" id="signinbutton" type="submit">Sign up</button> -->
+</form>
+<p style="padding: 10px;">This website is an easy and minimalistic way to view comic strips, anywhere, anytime. You can view comics of almost any date with our comic viewer. You can add favorites that are displayed at login on the homepage with our redesigned personalization menu to make ComicServer uniquely yours. All this and more logged in.</p><a href="/" style="padding: 10px;"> Maybe Log In!</a>
+<br>
+<br>
+<i style="padding-left: 10px;padding-right: 10px;">Last Updated with Muncie 6 (v6.5.0)</i>
+</div>
+
+<style>
+body {
+  display:flex;
+  margin:0;
+  flex-direction:column;
+}
+
+.mydiv {
+  margin:auto;
+}
+</style>
+      <script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('myDiv').style.width = "100%"
+document.getElementById('myDiv').style.fontSize = "5vw"
+document.getElementById('myDiv').style.border = "none"
+document.getElementById('myDiv').style.padding = "10px"
+document.getElementById('new-password').style.fontSize = "5vw"
+document.getElementById('username').style.fontSize = "5vw"
+document.getElementById('signinbutton').style.fontSize = "4vw"
+}
+      </script>
+<%- include('theme') %>
+<%- include('iheader') %>
+</div>
