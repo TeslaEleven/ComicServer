@@ -1,0 +1,208 @@
+<div class="halfsies" id='favs'>
+<div style='border-radius:5px;border:medium solid var(--ba)'><h1 style="padding-left: 10px;padding-right: 10px;">Add a Slot</h1>
+<b style="padding: 10px;">Enter the name of comic or a complete RSS url.</b><br></br><form style="white-space:nowrap" method='get' onsubmit='return submitcheck(this);'><input type='text' id='comic' name='wiz' placeholder='Paste Here' style='width:90%;' name='sub' required><input type='submit' class='button' value='Add' style="text-align:left;width:auto" id='addc' onclick='slotAdd(wiz)'></form>
+</div>
+<br>
+<div style='border-radius:5px;border:medium solid var(--ba)'><h1 style="padding-left: 10px;padding-right: 10px;">Make a Theme</h1>
+<b style="padding: 10px;">Background, Text, Accent Color</b><br><br></br>
+<div style="padding:10px">
+<input type='color' value="#ed6868" onchange="backSet(this)" class='bar' id='colour'><input type='color' onchange="textSet(this)" value="#ed6868" class='bar' id='colour'><input type='color' value="#ed6868" onchange="secSet(this)" class='bar' id='colour'>
+</div>
+<br>
+<p style='padding:10px'>Or choose from the menu:</p>
+  <select id="selectBox" class="hello" onchange="changeFunc();" style="width:100%;text-align:center;-webkit-appearance: none;padding-left:5px;background-color:var(--ba);color:var(--basic);border-radius:0px">
+    <option disabled selected>Theme</option>
+    <option value="basic">Light</option>
+    <option value="blackout">Dark</option>
+    <option value="auto">Automatic</option>
+   </select>
+</div>
+<br>
+<div style='border-radius:5px;border:medium solid var(--ba)'>
+<h1 style="padding-left: 10px;padding-right: 10px;">Delete Slot</h1>
+<b style="padding: 10px;">Click on the item to delete or <span style='color:green;' onclick='window.location="/del"'>delete all</span></b><br><br><div id='favs'></div>
+<br>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid var(--ba);
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: transparent;
+}
+</style>
+</head>
+<body>
+<table id="mytable" style="width:100%">
+</table>
+</div>
+</div>
+<br>
+<div class="halfsies" id='accs'>
+<div style='border-radius:5px;border:medium solid var(--ba)'><h1 style="padding-left: 10px;padding-right: 10px;">Account Settings</h1>
+<b style="padding: 10px;">Only one option.</b><br></br>
+<p onclick="window.location.replace('./logout')">Sign Out</p>
+<br>
+<p onclick="window.location.replace(`./delete?uname=<%= token %>`)">Delete Account</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+window.addEventListener("load", () => {
+  var qrc = new QRCode(document.getElementById("qrcode"), "https://www.comicserver.org/sync/<%= token %>");
+});
+</script>
+<script>
+if(localStorage.getItem('back') !== null) {
+const sell = document.getElementById('selectBox')
+const div = document.createElement('option');
+div.value = "custom"
+div.innerHTML = "Custom"
+sell.appendChild(div);
+} else if(localStorage.getItem('back') !== null) {
+const sell = document.getElementById('selectBox')
+const div = document.createElement('option');
+div.value = "custom"
+div.innerHTML = "Custom"
+sell.appendChild(div);
+} else if(localStorage.getItem('sec') !== null) {
+const sell = document.getElementById('selectBox')
+const div = document.createElement('option');
+div.value = "custom"
+div.innerHTML = "Custom"
+sell.appendChild(div);
+}
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('addc').style.fontSize = "5vw"
+}
+var aa = "<%= len %>"
+const a = aa.split(',')
+console.log(a)
+a.forEach(runFunction)
+function runFunction(index, item) {
+const data = a
+const tableData = data.map(function(index, item){
+return (
+`<tr>
+<td onclick="window.location.replace('/del/${item}')">${index}</td>
+</tr>`
+);
+}).join('');
+const tabelBody = document.querySelector("#mytable");
+tabelBody.innerHTML = tableData;
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('addc').style.fontSize = "3vw"
+}
+}
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('addc').style.fontSize = "3vw"
+}
+</script>
+      <script>
+      function slotDel(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/del/${element.value}`;
+        console.log(urlstring)
+        window.location.replace(urlstring);
+      }
+      function slotAdd(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        const emm = element.value
+        var urlstring = `/add?url=${emm}`;
+        console.log(urlstring)
+        window.location.replace(urlstring);
+      }
+      function submitcheck(element)
+      {
+        return false;
+      }
+      function backSet(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        localStorage.setItem('back', element.value)
+        window.location.reload();
+        localStorage.setItem('theme', 'custom')
+      }
+      function textSet(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        localStorage.setItem('text', element.value)
+        window.location.reload();
+        localStorage.setItem('theme', 'custom')
+      }
+      function secSet(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        localStorage.setItem('sec', element.value)
+        window.location.reload();
+        localStorage.setItem('theme', 'custom')
+      }
+      function changeFunc() {
+   var selectBox = document.getElementById("selectBox");
+   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   localStorage.setItem('theme', selectedValue)
+        window.location.reload();
+}
+      </script>
+<script src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js'></script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('txt').style.fontSize = "3vw";
+document.getElementById('haitchpea').style.fontSize = "5vw"
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+document.getElementById('accs').style.marginLeft = "auto";
+document.getElementById('accs').style.marginRight = "auto";
+}
+</script>
+<%- include('iheader') %>
+  </div>
