@@ -1,0 +1,13 @@
+<title>You're offline!</title><style>body { background-color:#E3EBF8 } </style><p id="bodycont" style="font-family:verdana;position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);">You're offline. Reconnect to the network to see more of your favorites!</p>
+<script>
+window.addEventListener('online', () => {
+  window.location.replace('https://www.comicserver.org/')
+});
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('bodycont').style.fontSize = '5vw'
+}
+</script>
