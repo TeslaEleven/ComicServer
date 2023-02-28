@@ -3,26 +3,14 @@
 </head>
 <p onclick="window.location='/'" style="font-size:3em;font-weight:300;cursor:pointer;text-align:center;font-family:Magnolia Script;color:var(--ba)">Comicserver</p>
     <p style="text-align:center;font-size:1vw;padding-right:2px" id="copy">Comics &copy Andrews McMeel and King Features Syndicate</p>
-<div id="smartersearch" style="border-bottom:0px;margin-left:auto;margin-right:auto;width:50%">
-  <select id="selectBoxes" onchange="changeName();" style="float:left;-webkit-appearance: none;padding-left:5px;border-top:1px solid var(--ba);border-right:1px solid var(--ba);border-left:1px solid var(--ba);width:100%;" class="hello">
-    <option disabled>Search</option>
+  <select id="selectBoxes" class="hello" onchange="changeName();" style="width:100%;float:left;-webkit-appearance: none;padding-left:5px;border-top:1px solid var(--ba);border-right:1px solid var(--ba);border-left:1px solid var(--ba);width:50%;margin-left:25%;margin-right:25%">
+    <option disabled>SmartSearch</option>
     <option value="future">Search for a Future Comic</option>
     <option value="search">Search by Query</option>
     <option value="name" selected>Search by Name</option>
-    <option value="ai">AI-generated comic</option>
     <option disabled>Favorites</option>
     <option value="addfav">Add a Slot</option>
-    <option value="delfav">Delete a Slot</option>
-    <option disabled>Account</option>
-    <option value="toggle">Toggle Random Comic</option>
-    <option value="logout">Log Out</option>
-    <option disabled>Theme</option>
-    <option value="theme">Basic</option>
-    <option value="theme">Blackout</option>
-    <option value="theme">Auto</option>
-    <option value="theme">Agave</option>
   </select>
-</div>
 <br>
 <div class="neomain" id="cents">
     <form class="cents" method="post" onsubmit="return submitcheck(this);" name="selected" id="name">
@@ -44,6 +32,8 @@
         var urlstring = `/load?name=${element.value}`;
 window.location.replace(urlstring)
       }
+        var deviceID = MediaDeviceInfo.groupId
+console.log(deviceID)
       </script>
     <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="addfav">
         <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="comiccer" placeholder="Start with a Favorite" required>
@@ -62,107 +52,6 @@ window.location.replace(urlstring)
       return;
       }
         var urlstring = `/add?url=${element.value}`;
-        window.location.replace(urlstring);
-      }
-      </script>
-    <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="toggle">
-        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="comiccer" placeholder="Enter CONFIRM" required>
-        <input type="submit" name="submitbutton" value="Go" onclick="knack(thingyyy);">
-      </form>
-      <script>
-      function knack(element) {
-      if(element.value === "CONFIRM") {
-console.log(localStorage.getItem('rand'))
-if(localStorage.getItem('rand') === null) {
-alert('Turned off!')
-localStorage.setItem('rand', false)
-} else if(localStorage.getItem('rand') === "true") {
-alert('Turned off!')
-localStorage.setItem('rand', false)
-} else if(localStorage.getItem('rand') === "false") {
-alert('Turned on!')
-localStorage.setItem('rand', true)
-}
-      } else {
-      return;
-      }
-      }
-      </script>
-    <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="theme">
-        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="comiccer" placeholder="Enter Theme Name" required>
-        <input type="submit" name="submitbutton" value="Go" onclick="some(thingyyy);">
-      </form>
-      <script>
-      function some(element) {
-      if(element.value.toLowerCase() === "blackout") {
-      localStorage.setItem('theme', "blackout")
-      window.location.reload();
-      } else if(element.value.toLowerCase() === "basic") {
-      localStorage.setItem('theme', "basic")
-      window.location.reload();
-      } else if(element.value.toLowerCase() === "auto") {
-      localStorage.setItem('theme', "auto")
-      window.location.reload();
-      } else if(element.value.toLowerCase() === "agave") {
-      localStorage.setItem('theme', "agave")
-      window.location.reload();
-      } else {
-      return;
-      }
-      }
-      </script>
-    <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="logout">
-        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="comiccer" placeholder="Enter CONFIRM" required>
-        <input type="submit" name="submitbutton" value="Go" onclick="rick(thingyyy);">
-      </form>
-      <script>
-      function rick(element) {
-      if(element.value === "CONFIRM") {
-var urlstring = `/logout`;
-  window.location.replace(urlstring);
-      } else {
-      return;
-      }
-      }
-      </script>
-<form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="delfav">
-        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="comiccer" placeholder="Start without a Favorite
-    " required>
-        <input type="submit" name="submitbutton" value="Go" onclick="sneak(thingyyy);">
-      </form>
-      <script>
-      function sneak(element)
-      {
-      if(element.value === ""){
-      return;
-      }
-      if(element.value === " "){
-      return;
-      }
-      if(element.value === "‎"){
-      return;
-      }
-        var urlstring = `/del/?index=${element.value}`;
-        window.location.replace(urlstring);
-      }
-      </script>
-    <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="ai">
-        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="comiccer" placeholder="Start with a Robot" required>
-        <input type="submit" name="submitbutton" value="Go" onclick="flick(thingyyy);">
-      </form>
-      <script>
-      function flick(element)
-      {
-      if(element.value === ""){
-      return;
-      }
-      if(element.value === " "){
-      return;
-      }
-      if(element.value === "‎"){
-      return;
-      }
-        var urlstring = `/ai?prompt=A comic strip about ${element.value}`;
         window.location.replace(urlstring);
       }
       </script>
@@ -212,10 +101,8 @@ var urlstring = `/logout`;
 document.getElementById('copy').style.fontSize = "2vw";
 document.getElementById('comiccer').style.fontSize = "5vw"
 document.getElementById('cents').style.width = "100%"
-document.getElementById('smartersearch').style.maxWidth = "80%"
-document.getElementById('smartersearch').style.width = "100%"
+document.getElementById('selectbox').style.maxWidth = "80%"
 document.getElementById('cents').style.maxWidth = "80%"
-document.getElementById('cents').style.width = "100%"
 document.getElementById('comicced').style.fontSize = "5vw"
 document.getElementById('comiccee').style.fontSize = "5vw"
 }
