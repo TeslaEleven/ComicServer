@@ -1,0 +1,49 @@
+<title>add a Custom slot | dispatch</title>
+<link rel="apple-touch-icon" href="https://old.comicserver.org/img/sum logo.png">
+<link rel="shortcut icon" href="https://old.comicserver.org/img/sum logo.png" />
+</head>
+<p onclick="window.location='/'" style="font-size:3em;font-weight:300;cursor:pointer;text-align:center;font-family:Emblema One;color:var(--bt)">dispatch</p>
+<%- include ('theme') %>
+<div style='margin-left:25%;margin-right:25%' id='favs'>
+<div id='wizard'>
+<div id="innerwiz" style='border-radius:5px;border:medium solid var(--ba)'><form style="white-space:nowrap" action="javascript:void(0);" onsubmit='return submitcheck(this);'><input type='text' id='comic' name='wiz' placeholder='Enter a complete RSS URL' style='width:90%;' name='sub' required><input type='submit' class='button' value='Load' style="text-align:left;width:auto" id='addc' onclick='slotAdd(wiz)'></form><hr style='background-color:var(--ba);height:1px;border:0;'><div id="yay" style="padding:100px"><p style="text-align:center">Nothing to Display</p></div>
+</div>
+<br>
+<div id="add">
+<p id="editbtn" style="background-color:var(--bt);color:var(--basic);text-align:center;border-radius:10px;width: 19%;cursor:pointer;font-size:1vw;margin-right:auto;margin-left:auto" onclick="window.location =`/plzadd?url=${linkurl}`">Add to Favorites</p>
+<p style='color:var(--bt);text-align:center;cursor:pointer' onclick="window.location =`/edit`">Go Back</p>
+</div>
+<script>
+      function submitcheck(element)
+      {
+        return false;
+      }
+var linkurl = "wfv"
+function slotAdd(element) {
+let url = "https://dispatch.comicserver.org/rss?url=" + element.value;
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+var obj = JSON.parse(this.responseText);
+var div = `<b onclick='window.open("${obj.items[0].link}")' style="cursor:pointer">${obj.items[0].title} by ${obj.items[0].author}</b><hr style="background-color:var(--ba);height:1px;border:0;"><div class="r">${obj.items[0].description}</div><br><br>`
+document.getElementById("yay").innerHTML = div;
+linkurl = element.value
+}
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
+</script>
+<script src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js'></script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+}
+if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('editbtn').style.fontSize = "3.5vw"
+document.getElementById('editbtn').style.width = "40%"
+document.getElementById('yay').style.padding = "50px"
+}
+</script>
+</div>

@@ -1,0 +1,43 @@
+<title>dispatch</title>
+<link rel="shortcut icon" href="https://old.comicserver.org/img/sum logo.png" />
+<div class="mydiv" id="myDiv" style="border:5px solid var(--bt);border-radius:5px;margin:center;width:50%">
+<p style="padding: 10px"><h1 style="text-align:center;font-family:Emblema One;color:var(--ba)">sign up for dispatch</h1>
+<form action="/signup" method="post">
+    <section>
+        <input id="username" name="username" type="text" autocomplete="username" placeholder="Username" style="width:100%;text-align:center;color:var(--ba)" required autofocus>
+    </section>
+    <section>
+        <input id="new-password" placeholder="Password" name="password" style="width:100%;text-align:center;color:var(--ba)" type="password" autocomplete="new-password" required>
+    </section>
+    <button class="button" id="signinbutton" type="submit">Sign up</button>
+</form>
+<p style="padding: 10px;color:var(--ba)">dispatch is a companion website to the long standing ComicServer project. dispatch brings extra functionality that doesn't quite fit with ComicServer and builds on MuncieUI to bring a more refined experience for those wanting more than just comics.</p><a href="/" style="padding: 10px;color:var(--ba)"> Maybe Log In!</a>
+<br>
+<br>
+<i style="padding-left: 10px;padding-right: 10px;color:var(--ba)">Last Updated with dispatch one (v1.0.0)</i>
+</div>
+
+<style>
+body {
+  display:flex;
+  margin:0;
+  flex-direction:column;
+}
+
+.mydiv {
+  margin:auto;
+}
+</style>
+      <script>
+if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('myDiv').style.width = "100%"
+document.getElementById('myDiv').style.fontSize = "5vw"
+document.getElementById('myDiv').style.border = "none"
+document.getElementById('myDiv').style.padding = "10px"
+document.getElementById('new-password').style.fontSize = "5vw"
+document.getElementById('username').style.fontSize = "5vw"
+document.getElementById('signinbutton').style.fontSize = "4vw"
+}
+      </script>
+<%- include('theme') %>
+</div>
