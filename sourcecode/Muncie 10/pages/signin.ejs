@@ -1,0 +1,48 @@
+<title>ComicServer</title>
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<div class="mydiv" id="myDiv" style="border:1px solid var(--ba);border-radius:5px;margin:center;width:50%;color:var(--ba)">
+<%- html %>
+<p><h1 style="text-align:center;font-family:Lobster;color:var(--ba)" id="head">Sign into Comicserver</h1>
+<form action="/login/password" method="post">
+    <section>
+        <input id="username" name="username" placeholder="Username" style="width:100%;text-align:center;color:var(--ba)" type="text" autocomplete="username" required autofocus>
+    </section>
+    <section>
+        <input id="current-password" placeholder="Password" name="password" style="width:100%;text-align:center;color:var(--ba)" type="password" autocomplete="current-password" required>
+    </section>
+    <button class="button" id="signinbutton" style="color:var(--ba)" type="submit">Sign in</button>
+</form>
+<p style="padding: 10px;color:var(--ba);text-align:center" id="desc">ComicServer offers an archives database of over fourty years of comic history, a home screen full of your favorites, and even artificial intellegent comic strips. With almost every syndicated comic, webcomics, and decades of strips to go through, this is the funnies, made funnier.</p>
+<!-- <a style="padding-left: 10px;padding-right: 10px;" href="https://www.comicserver.org/signup">Sign up</a> -->
+<p style="padding-bottom: 10px;text-align:center;color:var(--ba);opacity:0.8">Last Updated with Muncie 10 (v6.8.0)</p>
+</div>
+<style>
+body {
+  display:flex;
+  margin:0;
+  flex-direction:column;
+}
+
+.mydiv {
+  margin:auto;
+}
+</style>
+      <script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('myDiv').style.width = "100%"
+document.getElementById('myDiv').style.fontSize = "5vw"
+document.getElementById('myDiv').style.border = ""
+document.getElementById('myDiv').style.color = "var(--batext)"
+document.getElementById('current-password').style.color = "var(--batext)"
+document.getElementById('username').style.color = "var(--batext)"
+document.getElementById('desc').style.color = "var(--batext)"
+document.getElementById('head').style.color = "var(--batext)"
+document.getElementById('myDiv').style.padding = "10px"
+document.getElementById('current-password').style.fontSize = "5vw"
+document.getElementById('username').style.fontSize = "5vw"
+document.getElementById('signinbutton').style.fontSize = "4vw"
+}
+      </script>
+<%- include('theme') %>
+<%- include('iheader') %>
+</div>
