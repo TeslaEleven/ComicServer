@@ -1,0 +1,76 @@
+<meta property="og:image" id="metafile" content="<%= csImage %>">
+<meta property="og:image:type" content="image/png">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="<%= csDate %>" />
+<meta property="og:description" content="Comics are seamless and clean when using ComicServer." />
+<title><%= csDate %></title>
+<link rel="shortcut icon" href="https://old.comicserver.org/img/core.png" />
+<%- include ("header") %>
+<style>
+.comic {
+object-fit: contain;
+width: 70%;
+height:auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+</style>
+<br></br>
+<img id="thing" class="comic">
+<div style="width: 100%">
+<input type="text" style="font-size:2vw;width:100%;text-align:center" name="SelectedDate" placeholder="Comic date" value="<%= csDate %>" id="txtDate" required readonly="readonly">
+</div>
+</div>
+</div>
+<%- include("theme") %>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/jquery-touchswipe@latest/jquery.touchSwipe.min.js"></script>
+<script>
+const docelename = document.getElementsByName("SelectedDate");
+$(function () {
+$("#txtDate").datepicker({
+changeMonth: true,
+changeYear: true,
+dateFormat: 'yy/mm/dd',
+minDate: '0m',
+maxDate: '+1m',
+onSelect: function(dateText, inst) { 
+window.location = '/tomorrow/<%= comic %>/' + dateText;
+}
+});
+const comic = '<%= csImage %>'.replace(/&amp;/g, '&');
+document.getElementById('thing').src = comic
+document.getElementById('metafile').content = comic
+});
+</script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('txtDate').style.fontSize = "4vw";
+}
+function themeClassic() {
+  r.style.setProperty('--batext', 'white');
+  r.style.setProperty('--basic', '#3699EC');
+  r.style.setProperty('--ba', 'white');
+  r.style.setProperty('--bont', 'Comic Sans MS');
+  r.style.setProperty('--back', "url('https://old.comicserver.org/img/b39571_48033a532a7f450d83cce11188edc23a~mv2.jpg')")
+document.getElementById('birthdaytheme').style.backgroundColor = "#3699EC"
+  document.getElementById('birthdaytheme').style.width = "70%"
+  document.getElementById('birthdaytheme').style.marginLeft = "auto"
+  document.getElementById('birthdaytheme').style.padding = "10px"
+  document.getElementById('cents').style.maxWidth = "70%"
+  document.getElementById('birthdaytheme').style.marginRight = "auto"
+document.getElementById('nameplate').style.fontFamily = "Comic Sans MS";
+document.getElementById('nameplate').style.fontWeight = "600";
+document.getElementById('nameplate').style.fontSize = "4em";
+document.getElementById('nameplate').innerText = "ComicServer";
+document.getElementById('imgsrc').width = "80%";
+document.getElementById('imgsrc').classList.remove('comic');
+}
+if(localStorage.getItem('theme') === 'welbdays') {
+themeClassic();
+}
+</script>
+<%- include('iheader') %>
+</div>

@@ -1,0 +1,66 @@
+<title>ComicServer</title>
+<meta property="og:image" content="https://old.comicserver.org/img/core.png">
+ <meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1982">
+<meta property="og:image:height" content="1982">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ComicServer" />
+<meta property="og:description" content="ComicServer is a service that keeps you up to date with the fun part of the newspaper." />
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<%- include ("header") %>
+<h2 id="haitchpea" style="font-size: 2vw;text-align:center;padding:1px"
+class="profd"><span style="padding-left:10px" id="hpuname">Welcome Back, <%= uname %></span></h2>
+<div id="admins"></div>
+<div id="featuredholder"></div>
+<br>
+<div class="halfsies" id="favs">
+</div>
+<p id="settings" style="color:#3799EB;text-align:center;text-align:center;cursor:pointer" onclick="window.location.replace('/edit')">Advanced</p>
+</div>
+</div>
+<script>
+// Greeting List
+const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const greetings = ["Good Morning", "Good Afternoon", "Good Evening"]
+const ddd = new Date()
+ddd.toLocaleString('en-US', { timeZone: tz })
+const hrs = ddd.getHours()
+if (hrs > 0 && hrs < 11) {
+document.getElementById("hpuname").innerHTML = greetings[0] + ", <%= uname %>";
+} else if (hrs > 11 && hrs < 16) {
+document.getElementById("hpuname").innerHTML = greetings[1] + ", <%= uname %>";
+} else if (hrs > 16 && hrs < 23) {
+document.getElementById("hpuname").innerHTML = greetings[2] + ", <%= uname %>";
+}
+//document.getElementById('admins').innerHTML = `<p class="proft" style="font-size:1vw" id="txt"><span style="color:red;cursor:pointer" onclick="localStorage.setItem('theme', 'welbdays');window.location.reload()">Enable Beta</span> or <span style="color:red;cursor:pointer" onclick="localStorage.setItem('theme', 'default');window.location.reload()">Opt out from Beta</span></p>`
+function themeClassic() {
+  r.style.setProperty('--batext', 'white');
+  r.style.setProperty('--basic', '#3699EC');
+  r.style.setProperty('--ba', 'white');
+  r.style.setProperty('--bont', 'Comic Sans MS');
+  r.style.setProperty('--back', "url('https://old.comicserver.org/img/b39571_48033a532a7f450d83cce11188edc23a~mv2.jpg')")
+document.getElementById('birthdaytheme').style.backgroundColor = "#3699EC"
+  document.getElementById('birthdaytheme').style.width = "70%"
+  document.getElementById('birthdaytheme').style.marginLeft = "auto"
+  document.getElementById('birthdaytheme').style.padding = "10px"
+  document.getElementById('cents').style.maxWidth = "70%"
+  document.getElementById('birthdaytheme').style.marginRight = "auto"
+document.getElementById('favs').classList.remove("halfsies");
+document.getElementById('favs').style.width = "100%";
+document.getElementById('nameplate').style.fontFamily = "Comic Sans MS";
+document.getElementById('nameplate').style.fontWeight = "600";
+document.getElementById('nameplate').style.fontSize = "4em";
+document.getElementById('nameplate').innerText = "ComicServer";
+document.getElementById('settings').style.color = "white";
+}
+if(localStorage.getItem('theme') === 'welbdays') {
+themeClassic();
+}
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('haitchpea').style.fontSize = "6vw"
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+}
+</script>
+<%- include('iheader') %>
+<%- include('script') %>

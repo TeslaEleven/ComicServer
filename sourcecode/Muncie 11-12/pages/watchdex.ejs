@@ -1,0 +1,38 @@
+<div id="container">
+<p>h</p>
+<p>e</p>
+
+<%- include('watchscr') %>
+</div>
+<style>
+#container {
+  display: flex;
+  overflow-x: scroll;
+  
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+#container p {
+  font-family: sans-serif;
+  
+  border-radius: 8px;
+  background: #ff6961;
+  color: white;
+  
+  padding: 2rem 3rem;
+  margin: 2rem 1rem;
+}
+</style>
+<script>
+const element = document.querySelector("#container");
+
+element.addEventListener('wheel', (event) => {
+  event.preventDefault();
+
+  element.scrollBy({
+    left: event.deltaY < 0 ? -30 : 30,
+    
+  });
+});
+</script>

@@ -1,0 +1,192 @@
+<head>
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="https://old.comicserver.org/img/core.png">
+</head>
+<div id="birthdaytheme">
+<p onclick="window.location='/'" style="margin:0;padding-bottom:2%;font-size:3em;cursor:pointer;text-align:center;font-family:Lobster;color:var(--ba);" id="nameplate">Comicserver</p>
+<div style="border-radius:5px;border: 1px solid var(--ba);margin-left:auto;margin-right:auto;width:37.5%;cursor:pointer" id="cdwn" onclick="   localStorage.setItem('theme', 'welbdays');window.location.reload();"><p style="padding-left:10px;text-align:center">Try out the new Classic theme <i class="bi bi-caret-right"></i></p></div>
+<br>
+<div class="main" id="cents">
+<span class="main">
+  <select id="selectBoxes" style="width:100%;-webkit-appearance:none" onchange="changeName();" class="hello">
+    <option value="future">Search for a Future Comic</option>
+    <option value="search">Search by Query</option>
+    <option value="name" selected="">Search by Name</option>
+    <option value="ai">Search for an AI Comic</option>
+  </select>
+</span>
+    <form class="cents" method="post" onsubmit="return submitcheck(this);" name="selected" id="name">
+        <input class="input" style="font-size:3vw" type="text" name="thingy" id="comiccee" placeholder="Start with a Comic" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="clik(thingy);">
+      </form>
+      <script>
+      function clik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/load?name=${element.value}`;
+window.location.replace(urlstring)
+      }
+      </script>
+    <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="addfav">
+        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="favad" placeholder="Start with a Favorite" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="lick(thingyyy);">
+      </form>
+      <script>
+      function lick(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/add?url=${element.value}`;
+        window.location.replace(urlstring);
+      }
+      </script>
+<form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="delfav">
+        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="favdel" placeholder="Start without a Favorite" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="sneak(thingyyy);">
+      </form>
+      <script>
+      function sneak(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/del/?index=${element.value}`;
+        window.location.replace(urlstring);
+      }
+      </script>
+    <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="ai">
+        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="aigen" placeholder="Start with a Robot" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="flick(thingyyy);">
+      </form>
+      <script>
+      function flick(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/ai?prompt=A comic strip about ${element.value}`;
+        window.location.replace(urlstring);
+      }
+      </script>
+    <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" id="future">
+        <input class="input" style="font-size:3vw" type="text" name="thingyyy" id="comiccer" placeholder="Start with Plutonium" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="klik(thingyyy);">
+      </form>
+      <script>
+      function klik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/tomorrow?name=${element.value}`;
+        window.location.replace(urlstring);
+      }
+      </script>
+          <form style="display:none" class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen" id="search">        <input class="input" style="font-size:3vw" type="text" name="thingyy" id="comicced" placeholder="Start with a Query" required>
+        <input type="submit" name="submitbutton" value="Go" onclick="elik(thingyy);">
+      </form>
+      <script>
+      function elik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/search?name=${element.value}`;
+        window.location.replace(urlstring);
+      }
+      function submitcheck(element)
+      {
+        return false;
+      }
+function changeName() {
+var selectBox = document.getElementById("selectBoxes");
+var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+document.getElementById(selectedValue).style.display = 'block'
+document.getElementsByName('selected')[0].style.display = 'none'
+document.getElementsByName('selected')[0].name = null
+document.getElementById(selectedValue).name = "selected"
+}
+const lsgi = localStorage.getItem('theme')
+if(lsgi === 'welbdays') {
+document.getElementById('cdwn').style.display = "none"
+}
+</script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('comiccer').style.fontSize = "5vw"
+document.getElementById('cdwn').style.display = "none"
+document.getElementById('birthdaytheme').style.display = "hidden"
+document.getElementById('cents').style.width = "100%"
+document.getElementById('cents').style.maxWidth = "80%"
+document.getElementById('cents').style.width = "100%"
+document.getElementById('cents').style.maxWidth = "80%"
+document.getElementById('cents').style.width = "100%"
+document.getElementById('cents').style.display = "none"
+document.getElementById('comicced').style.fontSize = "5vw"
+document.getElementById('comiccee').style.fontSize = "5vw"
+document.getElementById('favad').style.fontSize = "5vw"
+document.getElementById('favdel').style.fontSize = "5vw"
+document.getElementById('aigen').style.fontSize = "5vw"
+}
+</script>
+  <button class="mbutton" id="prev" onclick="prevStrip();" style="display:none">Previous</button>
+  <button id="random" class="mbutton" onclick="shufStrip();" style="display:none">Shu-ffle</button>
+  <button id="next" class="mbutton" onclick="nextStrip();" style="display:none">Next</button>
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 75%;
+}
+</style>
+<link rel="shortcut icon" href="https://old.comicserver.org/img/core.png" />
+</head>
+<body>
+</body>
+</html>
+<%- include('theme') %>

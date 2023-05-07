@@ -1,0 +1,45 @@
+<script>
+window.addEventListener("scroll", reveal);
+function reveal() {
+
+}
+const str = '<%= favs %>';
+if(str === '') {
+document.getElementById('favs').innerHTML = `<i class="bi bi-star"></i> Zero favorites here, <span onclick="window.location.replace('/add')" style="cursor:pointer">Start with a Favorite!</span>`
+} else if(str === '[]') {
+document.getElementById('favs').innerHTML = `<i class="bi bi-star"></i> Zero favorites here, <span onclick="window.location.replace('/add')" style="cursor:pointer">Start with a Favorite!</span>`
+}
+const favs = str.split(',')
+loadLoad([0])
+async function loadLoad(day) {
+favs.forEach(comicLoad)
+async function comicLoad(index, item) {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+var obj = JSON.parse(this.responseText)
+const croppedcdataa = obj.items[0].description
+var doc = new DOMParser().parseFromString(croppedcdataa, 'text/html');
+const croppedcdata = doc.querySelector('img').src
+var div = document.createElement("div");
+div.innerHTML = 
+`<span style="font-size:2em;padding-top:15px;padding-bottom:15px">${index}</span><div style="width:auto;margin-left: auto;margin-right: auto;"><img style="width: 100%;margin-left:auto;margin-right:auto" src="${croppedcdata}"/><br>`
+document.getElementById("favs").appendChild(div);
+} else if (this.readyState == 4 && this.status == 404) {
+if(str !== '') {
+var div = document.createElement("div");
+div.innerHTML = `<b onclick="window.location.replace('https://comicserver.org/del/?index=${index}')" style="cursor:pointer;text-align:center;color:red"><i class="bi bi-exclamation-triangle-fill"></i> A comic failed to load here. Click to delete.</b><br><br>`
+document.getElementById("favs").appendChild(div);
+} else if(str !== []) {
+var div = document.createElement("div");
+div.innerHTML = `<b onclick="window.location.replace('https://comicserver.org/del/?index=${index}')" style="cursor:pointer;margin-left:auto;margin-right:auto;color:red"><i class="bi bi-exclamation-triangle-fill"></i> A comic failed to load here. Click to delete.</b><br><br>`
+document.getElementById("favs").appendChild(div);
+}
+return;
+}
+}
+xmlhttp.open("GET", "https://dispatch.comicserver.org" + "/rss?url=https://www.comicsrss.com/rss/" + index.replace(/\s/g,"").toLowerCase() + ".rss", true);
+await xmlhttp.send();
+}
+}
+</script>
