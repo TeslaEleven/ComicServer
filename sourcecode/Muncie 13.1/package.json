@@ -1,0 +1,25 @@
+{
+  "name": "ComicServer",
+  "version": "6.11.0",
+  "description": "ComicServer is a service that keeps you up to date with the fun part of the newspaper.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Wel3Com",
+  "license": "ISC",
+  "dependencies": {
+    "@replit/database": "^2.0.2",
+    "body-parser": "^1.20.2",
+    "connect-sqlite3": "^0.9.13",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mkdirp": "^2.1.3",
+    "node-html-parser": "^6.1.4",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "request-promise-native": "^1.0.9",
+    "sqlite3": "^5.1.4",
+    "stable-diffusion-cjs": "^1.0.4"
+  }
+}
