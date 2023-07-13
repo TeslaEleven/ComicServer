@@ -1,0 +1,140 @@
+<title>ComicServer</title>
+<meta property="og:image" content="https://old.comicserver.org/img/core.png">
+ <meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1982">
+<meta property="og:image:height" content="1982">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ComicServer" />
+<meta property="og:description" content="ComicServer is a service that keeps you up to date with the fun part of the newspaper." />
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<%- include ("header") %>
+<h2 id="haitchpea" style="font-size: 2vw;text-align:center;padding:1px"
+class="profd"><span style="padding-left:10px" id="hpuname">Enable Javascript!</span></h2>
+<div id="admins"></div>
+<div id="featuredholder"></div>
+<br>
+<div class="halfsies" id="favs">
+</div>
+</div>
+</div>
+<%- include('theme/home') %>
+<script>
+// Greeting list once done with preloader
+const arrg1 = ["Live long and prosper"];
+const arrg2 = ["Greetings and salutations"];
+const arrg3 = ["Hello there"];
+const arrg4 = ["What's up, doc?"];
+const arrg5 = ["Cowabunga!"];
+const arrg6 = ["Make it so"];
+const arrg7 = ["Everything is awesome!"];
+const arrg8 = ["Namaste"];
+const arrg9 = ["Aloha"];
+const arrg10 = ["Yo"];
+const arrg11 = ["Hakuna Matata"];
+const arrg12 = ["Bazinga!"];
+const arrg13 = ["You shall not pass!"];
+const arrg14 = ["Howdy"];
+const arrg15 = ["Good day"];
+const arrg16 = ["G'day mate"]
+const arrg17 = ["Bonjour"];
+const arrg18 = ["Hola"];
+const arrg19 = ["Hello World!"];
+const arrg20 = ["Sup"];
+var items = [arrg1, arrg2, arrg3, arrg4, arrg5, arrg6, arrg7, arrg8, arrg9, arrg10, arrg11, arrg12, arrg13, arrg14, arrg15, arrg16, arrg17, arrg18, arrg19, arrg20]
+var toship = items[Math.floor(Math.random()*items.length)];
+document.getElementById("hpuname").innerHTML = toship;
+if("<%= uname %>" === "nathanielbenson") {
+document.getElementById("hpuname").innerHTML = `hi "co-owner" chubick`
+}
+if(localStorage.getItem('theme') === 'welbdays') {
+themeClassic();
+}
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('haitchpea').style.fontSize = "7vw"
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+}
+</script>
+<div style="display:float">
+<div id="editbtn" style="border:1px solid #3799EB;border-radius:20px;color:#3799EB;width:16.5px;padding:10px;cursor:pointer;float:center;margin-left:auto;margin-right:auto" onclick="window.location.replace('./edit')">
+  <i class="bi bi-pencil"></i>
+</div>
+</div>
+<%- include('iheader') %>
+<%- include('script') %>
+  <div id="main-preloader" class="main-preloader semi-dark-background">
+<div class="main-preloader-inner center">
+<p style='font-size:3em;text-align:center;margin:0;' id="wbs">Welcome Back,</p>
+<p style="border-radius:5px;  background: linear-gradient(to right, #3d7eaa, teal);-webkit-background-clip: text;-webkit-text-fill-color: transparent;margin-left:auto;margin-right:auto;min-width:37.5%;width:auto;font-size:5em;font-weight:900;text-align:center;margin-top:0" id="ssuname"><%= uname %></p>
+<div class="preloader-bar-outer">
+          <div class="preloader-bar"></div> 
+      </div>
+</div>
+</div><script src="//code.jquery.com/jquery.min.js"></script>
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Preload-Images-And-Web-Content-sPreLoader/js/sPreloader.js"></script>
+<script>
+var sswb = sessionStorage.getItem('wb')
+if(sswb === false) {
+// Greeting List
+const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const greetings = ["Good Morning,", "Good Afternoon,", "Good Evening,"]
+const ddd = new Date()
+ddd.toLocaleString('en-US', { timeZone: tz })
+const hrs = ddd.getHours()
+if (hrs > 00 && hrs < 11) {
+document.getElementById("wbs").innerHTML = greetings[0];
+} else if (hrs > 11 && hrs < 16) {
+document.getElementById("wbs").innerHTML = greetings[1];
+} else if (hrs > 16 && hrs < 24) {
+document.getElementById("wbs").innerHTML = greetings[2];
+}
+$('body').jpreLoader({
+  preMainSection: '#main-preloader',
+  prePerText: '.preloader-percentage-text',
+  preBar: '.preloader-bar',
+  showPercentage: false,
+  debugMode: false,
+})
+sessionStorage.setItem('wb', true)
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('ssuname').style.fontSize = "3em";
+document.getElementById('ssuname').style.width = "100%";
+}
+} else if(sswb === null) {
+// Greeting List
+const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const greetings = ["Good Morning,", "Good Afternoon,", "Good Evening,"]
+const ddd = new Date()
+ddd.toLocaleString('en-US', { timeZone: tz })
+const hrs = ddd.getHours()
+if (hrs > 00 && hrs < 11) {
+document.getElementById("wbs").innerHTML = greetings[0];
+} else if (hrs > 11 && hrs < 16) {
+document.getElementById("wbs").innerHTML = greetings[1];
+} else if (hrs > 16 && hrs < 24) {
+document.getElementById("wbs").innerHTML = greetings[2];
+}
+$('body').jpreLoader({
+
+  // default CSS classes for the preloader
+  preMainSection:     '#main-preloader',
+  prePerText:         '.preloader-percentage-text',
+  preBar:             '.preloader-bar',
+
+  // show percentage value
+  showPercentage: false,
+
+  // enable debug mode
+  debugMode: false,
+
+  // function  
+})
+sessionStorage.setItem('wb', true)
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('ssuname').style.fontSize = "3em";
+document.getElementById('ssuname').style.width = "100%";
+}
+} else {
+document.getElementById('main-preloader').style.display = "none"
+}
+</script>
