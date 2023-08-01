@@ -1,0 +1,629 @@
+<meta name="theme-color" content="#7FBFBF">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+:root {
+  --basic: #E3EBF8;
+  --batext: white;
+  --bont: 'Comfortaa';
+  --ba: white;
+}
+.r {
+width:auto
+}
+.r img {
+width: 100%;
+}
+.re {
+background-color: rgba(0,0,0,0.2);
+width:100%;
+height: 20%
+}
+
+.profile-cont {
+margin-left:10%;
+margin-right:10%;
+height:auto;
+max-height:30%
+}
+.profile {
+border-radius: 50%;
+border: 2px solid var(--batext);
+padding: .3%;
+width: 4%;
+}
+.profd {
+width:100%
+margin-left:auto;
+margin-right:auto;
+}
+.proft {
+color: var(--ba);
+text-align:center
+}
+body {
+background-image: url('https://passband.comicserver.repl.co/thumb.png');
+  padding: 1% 7px;
+  font-family: var(--bont);
+  color: var(--batext);
+  background-attachment: fixed;
+  background-position: center;
+}
+body:before {
+	content: "";
+	background: inherit;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+}
+a {
+color: rebeccapurple;
+}
+input[type=text] {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  border-radius: 10px;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+input[type=number] {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  border-radius: 10px;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+.favs {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  color: var(--batext);
+  height: auto;
+  vertical-align: middle;
+  border: 1px solid rgba(27, 31, 35, .15);
+  font-family: var(--bont);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	position: relative;
+	background-color: inherit;
+	overflow: hidden;
+  border-radius: 5px;
+}
+video {
+width: 100%
+}
+.favs:before {
+	content: "";
+	background: inherit;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+}
+.main-hide {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 8%;
+  vertical-align: middle;
+  border: 1px solid rgba(27, 31, 35, .15);
+  color: var(--batext);
+  font-family: var(--bont);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);	
+	position: relative;
+background-image: url('https://passband.comicserver.repl.co/thumb.png');
+
+	overflow: hidden;
+}
+.main-hide:before {
+	content: "";
+	background: inherit;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+}
+::placeholder {
+color: var(--ba)
+}
+.responsive {
+width: 100%;
+height: 100%;
+}
+p {
+font-family: var(--bont);
+color: var(--batext);
+}
+h1 {
+font-family: var(--bont);
+color: var(--batext);
+font-size: 2uw;
+}
+.logo {
+text-align: center;
+}
+a:hover { text-decoration: none; }
+a { text-decoration: none; }
+a:active {text-decoration: none; }
+.strip-p {
+  background-color: inherit;
+  float: middle;
+  border: none;
+  outline: none;
+  padding: 2px 14px;
+  border-radius: 10px;
+  color: var(--batext);
+  font-family: var(--bont);
+  font-size: 2em
+}
+
+.input {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  max-height: 8%;
+  font-weight: bold;
+  background-color: inherit;
+  background-image: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 4vw;
+  border-radius: 10px;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+
+.hidden {
+display: none;
+}
+
+.input-hide {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  font-weight: bold;
+  background-color: inherit;
+  background-image: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 3vw;
+  border-radius: 10px;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+
+textarea {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  border-radius: 10px;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+.mbutton {
+  width: 33.3333333334%;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 7px 8px;
+  font-size: 2vw;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+.mbutton:hover {
+  background-color: var(--bt);
+  color: var(--batext);
+  font-family: var(--bont);
+}
+.button {
+  width: 100%;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 7px 8px;
+  font-size: 1vw;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+.button:hover {
+  background-color: var(--bt);
+  color: var(--batext);
+  font-family: var(--bont);
+}
+input[type="submit"] {
+  width: auto;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 7px 8px;
+  font-size: 1em;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+.divvy {
+  display: inline-block
+}
+.halfbutton {
+  width: 50%;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 7px 8px;
+  font-size: 2vw;
+  color: var(--batext);
+  font-family: var(--bont);
+}
+.halfbutton:hover {
+  background-color: var(--bt);
+  color: var(--batext);
+  font-family: var(--bont);
+}
+
+.swipe {
+width: 25%;
+height: 15%;
+border: 5px solid var(--ba);
+border-radius: 5px;
+margin: auto
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.ui-datepicker,
+.ui-datepicker table,
+.ui-datepicker tr,
+.ui-datepicker td,
+.ui-datepicker th {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-spacing: 0;
+}
+:root {
+  --bag: #000;
+  --text: #000;
+}
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  max-width: 70%;
+  height: auto;
+  vertical-align: middle;
+  border: 1px solid rgba(27, 31, 35, .15);
+  color: var(--batext);
+  font-family: var(--bont);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	position: relative;
+	background-color: inherit;
+	overflow: hidden;
+}
+
+.main:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+	filter: blur(10px);
+	margin: -20px;
+}
+
+.ui-datepicker-header {
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.ui-datepicker-title {
+  text-align: center;
+}
+.ui-datepicker-month {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: var(--batext);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--bont);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 7px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+
+.ui-datepicker-month:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+	margin: -20px;
+}
+
+.ui-datepicker-year {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: var(--batext);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--bont);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 7px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+.ui-datepicker-year:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+	margin: -20px;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  position: absolute;
+  top: -2px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.ui-datepicker-prev {
+  left: 0;
+  padding-left: 0;
+  display: none;
+}
+
+.ui-datepicker-next {
+  right: 0;
+  padding-right: 0;
+  display: none;
+}
+
+.ui-datepicker-prev span,
+.ui-datepicker-next span {
+  display: none;
+  width: 5px;
+  height: 10px;
+  text-indent: -9999px;
+}
+
+.ui-datepicker-prev span {
+  background-position: 0px 0px;
+  display: none;
+}
+
+.ui-datepicker-next span {
+  background-position: -5px 0px;
+}
+
+.ui-datepicker-prev-hover span {
+  background-position: 0px -10px;
+}
+
+.ui-datepicker-next-hover span {
+  background-position: -5px -10px;
+}
+
+.ui-datepicker-calendar th {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-weight: normal;
+  color: #a8a8a8;
+}
+
+.ui-datepicker-calendar td {
+  padding: 0 7px;
+  text-align: center;
+  line-height: 26px;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+  display: block;
+  width: 29px;
+  height: 22px;
+  outline: none;
+  text-decoration: none;
+  color: var(--batext);
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+  color: #7ba5f0;
+  border: 1px solid #7ba5f0;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+  color: #a8a8a8;
+  border: 1px solid #a8a8a8;
+}
+
+.ui-datepicker-other-month .ui-state-default {
+  color: #ccc;
+}
+
+.ui-datepicker table {
+  margin: 0 auto;
+}
+.formbtn {
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  box-sizing: border-box;
+  color: var(--batext);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--bont);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 7px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+.formbtn:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+	filter: blur(15px);
+	margin: -20px;
+}
+.itms {
+width: 50%
+}
+img {
+width: 100%;
+height: auto;
+}
+.itms img {
+width: 100%
+}
+.hello {
+margin-left: auto;
+margin-right: auto;
+background-color: inherit;
+border: none;
+outline: none;
+font-family: var(--bont);
+color: var(--batext)
+}
+input[type='radio'] {
+padding-left: 15px;
+}
+</style>
+<script>
+if (navigator.userAgent.indexOf("Win") != -1) {
+  r.style.setProperty('--bont', 'Comfortaa');
+}
+</script>

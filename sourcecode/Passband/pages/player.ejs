@@ -1,0 +1,41 @@
+<title>Passband</title>
+<link rel="shortcut icon" href="/logo.png" />
+<meta name="theme-color" content="#7FBFBF">
+<body id="body">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&display=swap');
+body {
+background-image: url('https://passband.comicserver.repl.co/thumb.png');
+background-size: 100% 100%;
+}
+p {
+font-size: 6vw;
+font-family: 'Edu VIC WA NT Beginner', cursive;
+color: white;
+  position: fixed; /* or absolute */
+  top: 35%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+</style>
+<script>
+const body = document.getElementById('body')
+body.addEventListener('click', clickHandler);
+const audio = new Audio("<%= url %>");
+function clickHandler() {
+audio.play();
+body.addEventListener('click', pauseHandler);
+document.getElementById('play').innerHTML = "Click to Stop"
+}
+function pauseHandler() {
+audio.pause();
+body.addEventListener('click', returnHome);
+document.getElementById('play').innerHTML = "Return Home"
+}
+function returnHome() {
+window.location.replace('./')
+}
+</script>
+<p id="play">Click to Play</p>
+</body>

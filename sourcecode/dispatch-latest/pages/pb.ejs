@@ -1,0 +1,69 @@
+<title>add a Passband slot | dispatch</title>
+<link rel="apple-touch-icon" href="https://old.comicserver.org/img/sum logo.png">
+<link rel="shortcut icon" href="https://old.comicserver.org/img/sum logo.png" />
+</head>
+<p onclick="window.location='/'" style="font-size:3em;font-weight:300;cursor:pointer;text-align:center;font-family:Emblema One;color:var(--bt)">dispatch</p>
+<%- include ('theme') %>
+<div style='margin-left:25%;margin-right:25%' id='favs'>
+<div id='wizard'>
+<div id="innerwiz" style='border-radius:5px;border:medium solid var(--ba)'><form style="white-space:nowrap" action="javascript:void(0);" onsubmit='return submitcheck(this);'><input type='text' id='comic' name='wiz' placeholder='Enter a radio station name' style='width:90%;' name='sub' required><input type='submit' class='button' value='Load' style="text-align:left;width:auto" id='addc' onclick='slotAdd(wiz)'></form><hr style='background-color:var(--ba);height:1px;border:0;'><div id="yay" style="padding:100px"><p style="text-align:center">Nothing to Display</p></div>
+</div>
+<br>
+<div id="add">
+<p id="editbtn" style="background-color:var(--bt);color:var(--basic);text-align:center;border-radius:10px;width: 19%;cursor:pointer;font-size:1vw;margin-right:auto;margin-left:auto" onclick="window.location =`/plzadd?url=${url}`">Add to Favorites</p>
+<p style='color:var(--bt);text-align:center;cursor:pointer' onclick="window.location =`/edit`">Go Back</p>
+</div>
+<script>
+      function submitcheck(element)
+      {
+        return false;
+      }
+function slotAdd(element) {
+const elem = element.value
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+var obj = JSON.parse(this.responseText)
+var div = 
+`<div id="pb"><span id="spans" style="float:left;padding-left:5px;padding-top:1px;color:#fff;font-size:2vw">${obj[0].name}</span><span id="spans2" style="float:right;padding-right:5px;padding-top:5px;font-family:Courier;color:#fff;font-size:2vw">Passband</span><br><br><br><img style="width:10%;height:auto;float:left" src="${obj[0].favicon}"/>
+	<audio controls="controls" style="padding-top:10px;min-width:88%;width:auto;background:none;height:auto;padding-left:10px" src="${obj[0].url_resolved}">
+        Your browser does not support the HTML5 audio element.
+    </audio></div><style>
+#pb {
+  height: 150px;
+  width: 100%;
+  background-color: #A6CDCB; /* For browsers that do not support gradients */
+  background-image: linear-gradient(#66B0AD, #A6CDCB);
+  border-radius:10px
+}
+</style>`
+document.getElementById("yay").innerHTML = div;
+url = elem
+} else {
+document.getElementById("yay").innerHTML = `<p style="text-align:center">Couldn't Load</p>`;
+}
+};
+xmlhttp.open("GET", "https://at1.api.radio-browser.info/json/stations/search?limit=10&name=" + elem + "&hidebroken=true&order=clickcount&reverse=true");
+xmlhttp.send();
+}
+</script>
+<script src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js'></script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('favs').style.marginLeft = "auto";
+document.getElementById('favs').style.marginRight = "auto";
+}
+if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('editbtn').style.fontSize = "3.5vw"
+document.getElementById('editbtn').style.width = "40%"
+document.getElementById('yay').style.padding = "50px"
+}
+setInterval(spanS, 1000)
+function spanS() {
+if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('spans').style.fontSize = "5vw"
+document.getElementById('spans2').style.fontSize = "5vw"
+}
+}
+</script>
+</div>

@@ -1,0 +1,120 @@
+<title>editing dispatch</title>
+ <meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1982">
+<meta property="og:image:height" content="1982">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="dispatch" />
+<meta property="og:description" content="An expansion of ComicServer." />
+<head>
+<link rel="apple-touch-icon" href="https://old.comicserver.org/img/sum logo.png">
+<link rel="shortcut icon" href="https://old.comicserver.org/img/sum logo.png" />
+</head>
+<p onclick="window.location='/'" style="font-size:3em;font-weight:300;cursor:pointer;text-align:center;font-family:Emblema One;color:var(--bt)">dispatch</p>
+<h2 id="haitchpea" style="font-size: 2vw;text-align:center;padding:1px"
+class="profd"><span style="padding-left:10px">Editor View</span></h2>
+<br>
+<div style='right:2px;border: 1px solid grey;float:right;border-radius:5px;color:grey;text-align:center;width:10%;margin-left:25%;margin-right:45%;cursor:pointer;border-bottom-left-radius:0px;border-bottom-right-radius:0px' onclick="window.location.replace('/passband')" id="addsl">Passband Slot</i></div>
+<br>
+<div style='right:2px;border: 1px solid grey;float:right;border-radius:5px;color:grey;text-align:center;width:10%;margin-left:25%;margin-right:45%;cursor:pointer;border-top:none;border-top-left-radius:0px;border-top-right-radius:0px' onclick="window.location.replace('/cust')" id="addsl">Custom Slot</i></div>
+<br><br><br><br>
+<script>
+        function changeFunc() {
+   var selectBox = document.getElementById("selectBox");
+   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   localStorage.setItem('theme', selectedValue)
+        window.location.reload();
+}
+</script>
+<br><br>
+<div class="halfsies" id="items">
+</div>
+<div class="mydiv" id="myDiv" style="margin-left:auto;margin-right:auto">
+<p style="color:red;text-align:center;padding:5px;cursor:pointer" onclick="window.location.replace('./logout')">Sign Out</p>
+<p style="color:red;text-align:center;padding:5px;cursor:pointer" onclick="window.location.replace(`./delete?uname=<%= token %>`)">Delete Account</p>
+</div>
+<p id="editbtn" onclick="window.location.replace('/')"style="background-color:var(--bt);color:var(--basic);text-align:center;border-radius:10px;width: 8%;cursor:pointer;font-size:1vw;margin-right:auto;margin-left:auto">Save Changes</p>
+<script>
+if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('items').style.width = "100%"
+document.getElementById('editbtn').style.fontSize = "3.5vw"
+document.getElementById('editbtn').style.width = "30%"
+document.getElementById('editbtn').style.width = "30%"
+document.getElementById('items').classList.remove("halfsies");
+document.getElementById('haitchpea').style.fontSize = "5vw"
+document.getElementById('txt').style.fontSize = "3vw"
+}
+setInterval(spanS, 1000)
+function spanS() {
+if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('spans').style.fontSize = "5vw"
+document.getElementById('spans2').style.fontSize = "5vw"
+}
+}
+</script>
+<script>
+var arr = JSON.parse('<%- items %>')
+const isValidUrl = url => {
+  const regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+  return regexp.test(url);
+}
+function not(predicate) {
+  return function() {
+    return !predicate.apply(this, arguments);
+  };
+}
+function makeComics() {
+const fRes = arr.filter(not(isValidUrl))
+}
+makeComics()
+const validUrl = arr.filter(isValidUrl);
+const validString = arr.filter(not(isValidUrl));
+validString.forEach(placeBand)
+validUrl.forEach(backLoad)
+if(arr === "[]") placeHold()
+async function placeBand(index, element) {
+const elem = index
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+var obj = JSON.parse(this.responseText)
+var div = document.createElement("div");
+div.innerHTML = `<div id="pb"><span id="spans" style="float:left;padding-left:10px;padding-top:1px;color:#fff;font-size:2vw">${obj[0].name}</span><div style='float:right;border-radius:5px;width:auto;color:red;text-align:center;cursor:pointer' onclick="window.location.replace('/del/?index=${index}')"><i class="bi bi-trash3-fill" style="padding:1px"></i></div><span id="spans2" style="float:right;padding-right:10px;padding-top:10px;font-family:Courier;color:#fff;font-size:2vw">Passband</span><br><br><br><img style="width:10%;height:auto;float:left" src="${obj[0].favicon}"/>
+	<audio controls="controls" style="padding-top:10px;min-width:88%;width:auto;background:none;padding-left:10px" src="${obj[0].url_resolved}">
+        Your browser does not support the HTML5 audio element.
+    </audio></div><br><br><style>
+#pb {
+  height: 150px;
+  width: 100%;
+  background-color: #A6CDCB; /* For browsers that do not support gradients */
+  background-image: linear-gradient(#66B0AD, #A6CDCB);
+  border-radius:10px
+}
+</style>`
+document.getElementById("items").appendChild(div);
+}
+};
+await xmlhttp.open("GET", "https://at1.api.radio-browser.info/json/stations/search?limit=10&name=" + elem + "&hidebroken=true&order=clickcount&reverse=true");
+xmlhttp.send();
+}
+function placeHold() {
+var div = document.createElement("div");
+div.innerHTML = `<p style="text-align:center"><i class="bi bi-star"></i> You have no summary. Add some items below!</p>`
+document.getElementById("items").appendChild(div);
+}
+async function backLoad(index, item) {
+let url = "https://dispatch.comicserver.org/rss?url=" + index;
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+var obj = JSON.parse(this.responseText);
+var div = document.createElement("div");
+div.innerHTML = `<b onclick='window.open("${obj.items[0].link}")' style="cursor:pointer" name="${index}">${obj.items[0].title} by ${obj.items[0].author}</b><div style='float:right;border-radius:5px;width:auto;color:red;text-align:center;cursor:pointer' onclick="window.location.replace('/del/?index=${index}')"><i class="bi bi-trash3-fill" style="padding-top:10px;padding-right:2px;"></i></div><hr style="background-color:var(--ba);height:1px;border:0;"><div class="r">${obj.items[0].description}</div><br><br>`
+console.log(obj)
+document.getElementById("items").appendChild(div);
+}
+};
+xmlhttp.open("GET", url, true);
+await xmlhttp.send();
+}
+</script>
+<%- include('theme') %>

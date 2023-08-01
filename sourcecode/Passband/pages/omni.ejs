@@ -1,0 +1,47 @@
+<title><%= parms %> | Passband</title>
+<link rel="shortcut icon" href="/logo.png" />
+<p onclick="window.location='/'" style="font-size:3em;font-weight:300;text-align:center;text-shadow:.5px .5px #000;font-family:courier"><span style="color:white">passband</span></p>
+<%- include('partials/header') %>
+</div>
+<div class="res" style="margin-left:25%;margin-right:25%" id="favs"></div>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid var(--ba);
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: transparent;
+}
+</style>
+<br>
+<table class="main" style="width:100%">
+  <tr>
+    <th>Results</th>
+  </tr>
+</table>
+<table id="mytable" class="main" style="width:100%">
+</table>
+<script>
+const data = JSON.parse(`<%-JSON.stringify(data)%>`)
+data.forEach(runFunction)
+function runFunction(index, item) {
+const tableData = data.map(function(index, item){
+const url = index.url_resolved
+return (
+`<tr>
+<td onclick="window.location.replace('/play/${url.replace(/\//g, '<')}')"><img src="${index.favicon}" style="width:auto;height:50px;float:left"><p>${index.name}</p><p >${index.country} <span style="color:#eee">${index.state}</span></p></td>
+</tr>`
+);
+}).join('');
+const tabelBody = document.querySelector("#mytable");
+tabelBody.innerHTML = tableData;
+}
+document.getElementById('comiccer').value = "<%= parms %>"
+</script>

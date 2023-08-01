@@ -1,0 +1,74 @@
+<div class="main">
+    <form class="cents" method="post" onsubmit="return submitcheck(this);" name="viewgen">
+        <input class="input" style="font-size:3vw" type="text" name="thingy" id="comiccer" placeholder="Search for a Station" required>
+      <b class="divvy">
+        <input type="submit" name="submitbutton" value="Search Name" onclick="clik(thingy)">
+        <input type="submit" name="submitbutton" value="Search Genre" onclick="elik(thingy)">
+      </b>
+      </form>
+      <script>
+            function elik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/genre/${element.value}`;
+        window.location.replace(urlstring);
+      }
+      function clik(element)
+      {
+      if(element.value === ""){
+      return;
+      }
+      if(element.value === " "){
+      return;
+      }
+      if(element.value === "‎"){
+      return;
+      }
+        var urlstring = `/name/${element.value}`;
+        window.location.replace(urlstring);
+      }
+      function submitcheck(element)
+      {
+        return false;
+      }
+            function changeFunc() {
+   var selectBox = document.getElementById("selectBox");
+   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   localStorage.setItem('theme', selectedValue)
+        window.location.reload();
+}
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('copy').style.fontSize = "2vw";
+document.getElementById('comiccer').style.fontSize = "7vw"
+}
+      </script>
+  <button class="mbutton" id="prev" onclick="prevStrip();" style="display:none">Previous</button>
+  <button id="random" class="mbutton" onclick="shufStrip();" style="display:none">Shu-ffle</button>
+  <button id="next" class="mbutton" onclick="nextStrip();" style="display:none">Next</button>
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 75%;
+}
+</style>
+<link rel="shortcut icon" href="https://old.comicserver.org/img/core.png" />
+</head>
+<body>
+</body>
+</html>
+<%- include('theme') %>
