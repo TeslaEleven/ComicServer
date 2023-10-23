@@ -1,0 +1,228 @@
+  <title>Preferences | ComicServer</title>
+  <meta property="og:image" content="https://old.comicserver.org/img/core.png">
+   <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1982">
+  <meta property="og:image:height" content="1982">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ComicServer" />
+  <meta property="og:description" content="ComicServer is a service that keeps you up to date with the fun part of the newspaper." />
+  <link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+  <%- include ("header") %>
+  <h2 id="haitchpea" style="font-size: 2vw;text-align:center;padding:1px;margin:0"
+  class="profd"><span style="padding-left:10px" id="hpuname">Preferences</span></h2>
+  <br>
+  <div id="birthdaytheme">
+  <div id="nav" class="halfsies" style="display:flex;align-items: center;justify-content: center;">
+  <select id="selectBox" onchange="changeFunc();" title="Theme">
+      <optgroup label="Themes">
+      <option value="basic">Basic</option>
+      <option value="blackout">Blackout</option>
+      <option value="auto">Both</option>
+      <option value="dispatch">Moonlight</option>
+      <option value="dispatchdark">Midnight</option>
+      <option value="autourb">Mechanized</option>
+      <option value="sketch">Retro</option>
+      <option value="fifties">Vintage</option>
+      <option value="bttfiii">Western</option>
+      <optgroup label="Discontinued">
+      <option value="blast" disabled>Blast</option>
+      <option value="birch" disabled>Birch</option>
+      <option value="agave" disabled>Agave</option>
+      <option value="custom" disabled>Custom</option>
+      <option value="weldays" disabled>WelDays 2022</option>
+      <option value="welbdays" disabled>Classic</option>
+     </select>
+  <div class="pref-button" onclick="window.location.replace('./explore?add=true')" class="halfsies" id="addsl" title="Add Comics">
+    <i class="bi bi-plus-lg"></i>
+  </div>
+  <div class="pref-button" onclick="forceRefresh()" class="halfsies" title="Refresh Favorites">
+    <i class="bi bi-arrow-repeat"></i>
+  </div>
+  <div class="pref-button" onclick="manageDaily('')" class="halfsies" title="Connect Daily">
+    <i class="bi bi-envelope"></i>
+  </div>
+  </div>
+  </div><br>
+  <div id="addslwin"></div><br>
+  <script>
+  var wls = window.location.search
+  if(wls.includes("?daily=")) {
+  var wlss = wls.split('=')
+  if(wlss[1] === "true") {
+  manageDaily('')
+  } else {
+  manageDaily(wlss[1])
+  }
+  }
+  function manageDaily(er) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+  console.log(this.responseText)
+  var re = this.responseText
+  if(re.includes("no!")) {
+  var ree = re.split('!')
+  alert('You have already connected your email: ' + ree[1].split('-')[0])
+  } else {
+  let person = prompt("Enter your email address associated with ComicServer Daily. \n Sign up for Daily is available by request.", er);
+  if (person == null || person == "") {
+    return;
+  } else {
+      const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      console.log(this.responseText)
+      if(this.responseText === 'toobad!') {
+      alert('You do not have a ComicServer Daily account!')
+      } else if(this.responseText === 'already!') {
+      alert('Somebody has already connected with this account!')
+      } else if(this.responseText === "no!") {
+      alert('Your accounts are already synced!')
+      } else {
+      alert('We\'ve synced your ComicServer accounts')
+      }
+      }
+    xhttp.open("GET", `./sync?email=${person.toLowerCase()}&name=<%= uname %>`, true);
+        xhttp.setRequestHeader('csclient', 'app');
+    xhttp.send();
+  }
+  }
+  }
+    xhttp.open("GET", `./chsync?name=<%= uname %>`, true);
+        xhttp.setRequestHeader('csclient', 'app');
+    xhttp.send();
+  }
+  function forceRefresh() {
+  let ts = Date.now();
+  let da = new Date(ts);
+  utc = da.getTime() + da.getTimezoneOffset() * 60000;
+  offset = -6;
+  const date = new Date(utc + 3600000 * offset);
+  const dayed = date.getDate()
+  localStorage.removeItem('sheet-<%= uname %>' + dayed)
+  window.location.reload()
+  }
+  if(localStorage.getItem('theme') !== null) {
+  document.getElementById('selectBox').value = localStorage.getItem('theme')
+  } else {
+  document.getElementById('selectBox').value = 'basic'
+  }
+  function decide() {
+  console.log(localStorage.getItem('rand'))
+  if(localStorage.getItem('rand') === null) {
+  alert('Turned off!')
+  localStorage.setItem('rand', false)
+  } else if(localStorage.getItem('rand') === "true") {
+  alert('Turned off!')
+  localStorage.setItem('rand', false)
+  } else if(localStorage.getItem('rand') === "false") {
+  alert('Turned on!')
+  localStorage.setItem('rand', true)
+  }
+  }
+          function changeFunc() {
+     var selectBox = document.getElementById("selectBox");
+     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+     localStorage.setItem('theme', selectedValue)
+          window.location.reload();
+  }
+  </script>
+  <div class="halfsies" id="prefv"></div>
+  <script>
+        function submitcheck(element)
+        {
+          return false;
+        }
+  var url = "<%= name %>"
+  if(url !== "") {
+  slotAdd(url)
+  }       
+  function slotAdd(url) {
+  const elem = url
+  const regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+  const t = regexp.test(elem);
+  console.log(t)
+  if(t === false) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+  var obj = this.responseText
+  var parser, xmlDoc;
+  parser = new DOMParser();
+  xmlDoc = parser.parseFromString(obj,"text/xml");
+  const croppedcdataa = xmlDoc.querySelector("item description").childNodes[0].nodeValue
+  var parsee, xmlDoc;
+  parsee = new DOMParser();
+  xmlDocs = parser.parseFromString(croppedcdataa,"text/html");
+  var tst = xmlDocs.getElementsByTagName('img')[0].src
+  console.log(tst)
+  const croppedcdata = `<img style="width: 100%;margin-left:auto;margin-right:auto;padding-top:2%" src="${tst}"/>`
+  var title = xmlDoc.querySelector("item title").childNodes[0].nodeValue
+  const [first] = title.split(' by');
+  var div = 
+  `<span style="margin:0;font-family:var(--bont);font-size:1.5em;padding-bottom:2%;" >${first}</span><span style="cursor:help;margin:0;padding:none;font-family:var(--bont);font-size:1em;opacity:.8;color:var(--ba);padding-left:5px" title="You are currently previewing this slot. Click the check to confirm your selection, or the X icon to cancel.">Preview</span>
+  <div id="btns" style="float:right">
+  <span style='font-size:190%;color:red;text-align:center;cursor:pointer' title="Cancel" onclick="document.getElementById('prefv').innerHTML = ''"><i class="bi bi-x" style="outline-style:solid;outline-color:transparent;padding:1px"></i></span>
+  <span style='font-size:150%;color:green;text-align:center;cursor:pointer;padding:1px' title="Add to Favorites" onclick="window.location.replace('/plzadd?url=${elem}')"><i class="bi bi-check-lg"></i></span>
+  </div>${croppedcdata}<br>`
+  document.getElementById("prefv").innerHTML = div;
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.getElementById('prefv').classList.remove('halfsies');
+  }
+  } else {
+  document.getElementById("prefv").innerHTML = `<p title="Name: ${url} Status: ${this.status}" style="text-align:center;color:red;cursor:help"><i class="bi bi-exclamation-triangle-fill" ></i> That comic is unavailable!</p><br><br>`;
+  }
+  };
+  xmlhttp.open("GET", "https://www.comicsrss.com/rss/" + elem.replace(/\s/g,"").toLowerCase() + ".rss", true);
+  xmlhttp.send();
+  } else {
+  document.getElementById("prefv").innerHTML = `<p title="Name: ${url} Status: Not a comic" style="text-align:center;color:red;cursor:help"><i class="bi bi-exclamation-triangle-fill" ></i> That is not a comic!</p><br><br>`;
+  document.getElementById("prefv").innerHTML = div;
+  }
+  }
+  </script>
+  <script src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js'></script>
+  <div class="halfsies" id="favs">
+  </div>
+  <div id="demo" style="display:flex;align-items: center;justify-content: center;" class="halfsies">
+  <div class="danger-buttons" onclick="sessionStorage.removeItem('wb');window.location.replace('./logout')" title="Sign Out">
+    <i class="bi bi-box-arrow-left"></i>
+  </div>
+  <!-- <div style="border:1px solid red;border-radius:20px;color:red;width:16.5px;padding:10px;cursor:pointer;margin:5" onclick="window.location.replace('./delete?uname=<%= token %>')" title="Delete Account">
+    <i class="bi bi-trash"></i>
+  </div> -->
+  </div>
+  <%- include('theme/edit') %>
+  <script>
+  if(localStorage.getItem('theme') === 'welbdays') {
+  themeClassic();
+  }
+  if("<%= uname %>" === "csadmin124") {
+  var dives = document.createElement('div')
+  dives.innerHTML = `<div id="daily" style="border:1px solid var(--ba);border-radius:20px;color:var(--ba);width:16.5px;padding:10px;cursor:pointer;margin:5" onclick="window.open('https://comicserver-daily.comicserver.repl.co');" title="Add a user to csDaily">
+    <i class="bi bi-envelope-plus"></i>
+  </div>`
+  document.getElementById("demo").appendChild(dives)
+  $("#selectBox option").prop('disabled', false);
+  }
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.getElementById('nav').classList.remove('halfsies');
+  document.getElementById('nav').style.width = "80%";
+  document.getElementById('nav').style.marginRight = "auto";
+  document.getElementById('nav').style.marginLeft = "auto";
+  document.getElementById('hpuname').style.fontSize = "7vw";
+  document.getElementById('favs').style.marginLeft = "auto";
+  document.getElementById('favs').style.marginRight = "auto";
+  document.getElementById('selectBox').style.marginLeft = 'auto';
+  document.getElementById('selectBox').style.marginRight = 'auto';
+  document.getElementById('selectBox').style.width = "100%";
+  }
+  </script>
+  <script>
+  setTimeout(doLater, 4000)
+  function doLater() {
+  const boxes = document.getElementsByClassName('trashbin');
+  for (const box of boxes) {
+    box.style.display = 'block';
+  }
+  }
+  </script>
+  <%- include('script') %>

@@ -1,0 +1,42 @@
+  <head>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="https://old.comicserver.org/img/core.png">
+  </head>
+  <div id="birthdaytheme">
+  <p onclick="window.location='/'" style="font-size:3em;cursor:pointer;text-align:center;font-family:Lobster;color:var(--ba);margin:0" id="nameplate">Comicserver</p>
+  <div style="border-radius:5px;background-image: linear-gradient(to right top, pink, purple);-webkit-background-clip: text;-webkit-text-fill-color: transparent;margin-left:auto;margin-right:auto;width:37.5%;cursor:pointer" id="cdwn" onclick="window.location.replace('https://comicserver.org/explore');"><p style="padding-left:10px;text-align:center"><i class="bi bi-compass"></i> Try Explore!</p></div>
+  <script>
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.getElementById('cdwn').style.width = "100%"
+  document.getElementById('cdwn').style.fontSize = "1.3em"
+  document.getElementById('birthdaytheme').style.display = "hidden"
+  }
+  if(localStorage.getItem('theme') === 'sketch') {
+  document.getElementById('nameplate').style.fontFamily = "Chicago";
+  document.getElementById('nameplate').innerText = "ComicServer";
+  }  
+  if(localStorage.getItem('theme') === 'fifties') {
+  document.getElementById('nameplate').style.fontFamily = "MidTitle";
+  }  
+  if(localStorage.getItem('theme') === 'bttfiii') {
+  document.getElementById('nameplate').style.fontFamily = "Smokum";
+  }  
+  </script>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 75%;
+  }
+  </style>
+  <link rel="shortcut icon" href="https://old.comicserver.org/img/core.png" />
+  </head>
+  <body>
+  </body>
+  </html>
+  <%- include('theme') %>

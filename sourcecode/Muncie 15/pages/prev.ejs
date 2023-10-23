@@ -1,0 +1,20 @@
+<title>ComicServer</title>
+<link rel='shortcut icon' href='https://old.comicserver.org/img/core.png' />
+<%- include ('theme') %>
+<div style='white-space:nowrap;width:15.5%;display:none' id='wundow'>
+<div id='wizard'>
+<div id="innerwiz" style='border-radius:5px;border:1px solid var(--ba);margin:0;background-color:var(--basic)'><form style="white-space:nowrap;color:white;width:100%;margin:0" action="javascript:void(0);" onsubmit='return submitcheck(this);'><input type='text' id='comic' name='wiz' placeholder='Enter a comic name' name='sub' style="width:100%;text-align:center" required><input type='submit' class='button' value='Load' style="text-align:left;color:var(--basic)" id='addc' onclick='slotAdd(wiz)'></form>
+</div>
+<br>
+<div id="add" style="display:flex;align-items: center;justify-content: center;" class="halfsies">
+<div style="border:1px solid var(--ba);border-radius:20px;color:var(--ba);width:16.5px;padding:10px;cursor:pointer;margin:5" onclick='document.getElementById("wundow").innerHTML = ""' title="Go Back">
+  <i class="bi bi-x-lg"></i>
+</div>
+</div>
+</div>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+document.getElementById('wundow').style.marginLeft = "auto";
+document.getElementById('wundow').style.marginRight = "auto";
+}
+</script>
