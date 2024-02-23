@@ -1,0 +1,47 @@
+  <%- include('header') %>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI on ComicServer" />
+  <meta property="og:description" content="Generate an AI authored comic strip!" />
+  <title><%= prompt %></title>
+  <style>
+  .comic {
+  object-fit: contain;
+  width: 50%;
+  height:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  }
+  </style>
+  <p style="font-size:2em;text-align:center">Generated Comic</p>
+  <p style="font-size:1.15em;text-align:center">Prompt: <%= prompt %></p>
+  </br>
+  <div style="margin-left:10%;margin-right:10%" id="favs">
+      <img oncontextmenu="return false;" id="imgsrc" class="comic" src="<%= one %>"/>
+      <img oncontextmenu="return false;" id="imgsrc" class="comic" src="<%= two %>"/>
+      <img oncontextmenu="return false;" id="imgsrc" class="comic" src="<%= three %>"/>
+      <img oncontextmenu="return false;" id="imgsrc" class="comic" src="<%= four %>"/>
+  </div>
+  </div>
+  </div>
+  <%- include('theme/ai') %>
+  <script>
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.getElementById('favs').style.marginLeft = "auto";
+  document.getElementById('favs').style.marginRight = "auto";
+  }
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.getElementById('haitchpea').style.fontSize = "4vw"
+  document.getElementById('favs').style.marginLeft = "auto";
+  document.getElementById('favs').style.marginRight = "auto";
+  }
+  document.getElementById('imgsrc').ondragstart = function() { return false; };
+  if(localStorage.getItem('theme') === 'welbdays') {
+  themeClassic();
+  }
+  if(localStorage.getItem('theme') === 'blastrem') {
+  themeSmokebomb();
+  }
+  </script>
+  </div>

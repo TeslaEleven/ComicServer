@@ -1,0 +1,50 @@
+  <head>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="https://old.comicserver.org/img/core.png">
+  </head>
+  <div id="birthdaytheme">
+  <p onclick="window.location='/'" style="font-size:3em;cursor:pointer;text-align:center;font-family:Lobster;color:var(--ba);margin:0;width:max-content;margin-left:auto;margin-right:auto" id="nameplate">Comicserver</p>
+    <div id="nav">
+    <div id="edit" title="Preferences" onclick="window.location.replace('https://comicserver.org/edit');"><p style="padding-left:10px;text-align:center"><i class="bi bi-pencil"></i></p></div>
+      <div id="exp" title="Explore" onclick="window.location.replace('https://comicserver.org/explore');"><p style="padding-left:10px;text-align:center"><i class="bi bi-compass"></i></p></div>
+      <div title="Force-Refresh Favorites" id="ref" onclick="forceRefresh()"><p style="padding-left:10px;text-align:center"><i class="bi bi-arrow-repeat"></i></p></div>
+      <div id="featred"></div>
+    </div>
+  <script>
+    var wls = window.location.search
+    if(!(window.location.pathname === "/" || window.location.pathname === "/edit") || wls.includes('summary')) {
+    document.getElementById('ref').style.cursor = "not-allowed"
+      document.getElementById('ref').setAttribute('onclick', null)
+    }
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.getElementById('birthdaytheme').style.display = "hidden"
+  }
+  if(localStorage.getItem('theme') === 'sketch') {
+  document.getElementById('nameplate').style.fontFamily = "Chicago";
+  document.getElementById('nameplate').innerText = "ComicServer";
+  }  
+  if(localStorage.getItem('theme') === 'fifties') {
+  document.getElementById('nameplate').style.fontFamily = "MidTitle";
+  }  
+  if(localStorage.getItem('theme') === 'bttfiii') {
+  document.getElementById('nameplate').style.fontFamily = "Smokum";
+  }  
+  </script>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 75%;
+  }
+  </style>
+  <link rel="shortcut icon" href="https://old.comicserver.org/img/core.png" />
+  </head>
+  <body>
+  </body>
+  </html>
+  <%- include('theme') %>

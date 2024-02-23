@@ -1,0 +1,10 @@
+<script>
+let ts = Date.now();
+let da = new Date(ts);
+utc = da.getTime() + da.getTimezoneOffset() * 60000;
+offset = -6;
+const date = new Date(utc + 3600000 * offset);
+const dayed = date.getDate()
+localStorage.removeItem('sheet-<%= token %>' + dayed)
+window.location.replace('/')
+</script>
