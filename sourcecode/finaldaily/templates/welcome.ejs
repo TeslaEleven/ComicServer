@@ -1,0 +1,28 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Lobster&display=swap" rel="stylesheet">
+<body id="email" style="background-image: 
+    radial-gradient(rgb(146, 151, 174) 10%, transparent 10%),
+    radial-gradient(rgb(146, 151, 174) 10%, transparent 10%);
+  background-position: 0px 0px, 4px 4px;
+  background-size: 8px 8px;
+  background-color: rgb(227, 228, 229);font-family: Averia Sans Libre, Arial, Helvetica, sans-serif;padding: 1% 7px;">
+<a href="https://comicserver.org" style="font-size:3em;font-weight:300;text-align:center;font-family:Lobster, Arial, Helvetica, sans-serif;color:#162a72								;display: block;text-decoration:none;">Comicserver</a>
+  <div style="
+    padding-top:20px">
+  <div title="Sync your Favorites!"><a href="https://comicserver.org/edit?daily=<%= email %>" style="padding-left:10px;text-align:center;display: block;font-size: 1em;padding: 3px;padding-bottom:0;cursor:pointer;text-decoration:none;color:#545A69">Sync your Favorites!</a></div>
+
+</div>
+<div id="content">
+<h2 style="font-size: 2em;text-align:center;padding:1px;width:100%;margin-left:auto;margin-right:auto"><span style="padding-left:10px;color:#405685		
+    "><%- toship -%></span></h2>
+<br><br>
+<div id="favs" style="padding:auto">
+<%- comics -%>
+</div>
+<div title="Help & Unsubscribing"><a href="https://blog.comicserver.org/faq" style="padding-left:10px;text-align:center;display: block;font-size: 1em;padding-bottom:0;cursor:pointer;text-decoration:none;color:#545A69;">Help</a></div>
+<br>
+<br>
+</div>
+</body>
+curl $REPLIT_DB_URL/agave@comicserver.org
