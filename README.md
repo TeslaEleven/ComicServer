@@ -1,3 +1,2 @@
 # ComicServer Direct
-With Legacy officially discontinued, Direct still serves ComicServer App with links to assets and more here on GitHub.
-We also host the source code for each of our monthly updates right here. Some documentation for these updates is provided <a href="https://blog.comicserver.org/legacy" target="_blank">here!</a>
+This project is finally useless because it has been deprecated along with ComicServer on January 23, 2024. Can't believe it took this long.
