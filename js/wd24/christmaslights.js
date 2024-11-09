@@ -309,7 +309,7 @@ function XLSF(oTarget,urlBase) {
     }
 
     this.explode = function(e) {
-      self.oExplosion.trigger(0,1); // boooom!
+      //self.oExplosion.trigger(0,1); // boooom!
     }
 
     this.smash = function(e) {
