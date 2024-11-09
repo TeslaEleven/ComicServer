@@ -26,10 +26,10 @@ function XLSF(oTarget,urlBase) {
   var animDuration = 1;
   this.oFrag = document.createDocumentFragment();
   this.oTarget = (oTarget?oTarget:document.documentElement);
-  this.oExplosionBox = document.createElement('div');
-  this.oExplosionBox.className = 'xlsf-fragment-box';
-  this.oExplosionFrag = document.createElement('div');
-  this.oExplosionFrag.className = 'xlsf-fragment';
+  //this.oExplosionBox = document.createElement('div');
+  //this.oExplosionBox.className = 'xlsf-fragment-box';
+  //this.oExplosionFrag = document.createElement('div');
+  //this.oExplosionFrag.className = 'xlsf-fragment';
   this.lights = [];
   this.lightClasses = {
     pico: 32,
