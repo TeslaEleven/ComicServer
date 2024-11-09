@@ -26,10 +26,10 @@ function XLSF(oTarget,urlBase) {
   var animDuration = 1;
   this.oFrag = document.createDocumentFragment();
   this.oTarget = (oTarget?oTarget:document.documentElement);
-  //this.oExplosionBox = document.createElement('div');
-  //this.oExplosionBox.className = 'xlsf-fragment-box';
-  //this.oExplosionFrag = document.createElement('div');
-  //this.oExplosionFrag.className = 'xlsf-fragment';
+  this.oExplosionBox = document.createElement('div');
+  this.oExplosionBox.className = 'xlsf-fragment-box';
+  this.oExplosionFrag = document.createElement('div');
+  this.oExplosionFrag.className = 'xlsf-fragment';
   this.lights = [];
   this.lightClasses = {
     pico: 32,
@@ -352,7 +352,7 @@ function XLSF(oTarget,urlBase) {
       self.o.onclick = self.smash;
       self.flickr();
       xlsf.oFrag.appendChild(self.o);
-      self.oExplosion = new Explosion(self.nType,self.sClass,self.x,self.y);
+      self.oExplosion = console.log("hi")
     }
 
     this.init();
