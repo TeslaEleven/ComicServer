@@ -38,39 +38,47 @@ const easeOutStrong = t => 1 - Math.pow(1 - t, 3);
 
 function XLSF(oTarget, urlBase) {
   const url = urlBase || 'lights/';
-  this.oFrag = document.createDocumentFragment();
   this.oTarget = oTarget || document.documentElement;
+
+  // Single DocumentFragment to contain lights
+  this.oFrag = document.createDocumentFragment();
+
+  // Initialize the explosion box template and lights array
   this.oExplosionBox = document.createElement('div');
   this.oExplosionBox.className = 'xlsf-fragment-box';
   this.oExplosionFrag = document.createElement('div');
   this.oExplosionFrag.className = 'xlsf-fragment';
   this.lights = [];
-  this.lightClasses = { pico: 32, tiny: 50, small: 64, medium: 72, large: 96 };
 
-  // Determine screen size and light class
-  const screenX = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  const screenY = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-  this.lightClass = screenX > 1800 ? 'small' : 'pico';
-  this.lightXY = this.lightClasses[this.lightClass];
-
-  this.lightGroups = { left: [], top: [], right: [], bottom: [] };
-  this.lightSmashCounter = 0;
-  this.lightIndex = 0;
-  this.lightInterval = 500;
-  this.timer = null;
-
-  // Sounds setup
-  this.initSounds = function () {
-    for (let i = 0; i < 6; i++) {
-      soundManager.createSound({
-        id: `smash${i}`,
-        url: `${url}sound/glass${i}.mp3`,
-        autoLoad: true,
-        multiShot: true,
-        volume: 50
-      });
+  // Append lights to the target container
+  this.appendLights = function () {
+    // Only append if there are lights in the fragment
+    if (this.oFrag.childNodes.length > 0) {
+      this.oTarget.appendChild(this.oFrag);
     }
   };
+
+  // Light class and creation logic here...
+  
+  // Example of adding lights to the fragment
+  this.createLight = function (sClass, nType, x, y) {
+    const light = new Light(sClass, nType, x, y);
+    this.lights.push(light);
+    this.oFrag.appendChild(light.o);  // Add each light directly to the fragment
+  };
+
+  // Add and display lights
+  for (let j = 0; j < Math.floor(window.innerWidth / this.lightClasses[this.lightClass]); j++) {
+    this.createLight('top', j % 4, j * this.lightClasses[this.lightClass], 0);
+  }
+
+  // Call appendLights once all lights are added
+  this.appendLights();
+
+  // Start light sequence
+  this.startSequence();
+}
+
 
   // Helper for appending lights
   this.appendLights = function () {
