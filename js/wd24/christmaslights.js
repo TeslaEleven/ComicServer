@@ -216,7 +216,7 @@ function XLSF(oTarget,urlBase) {
     }
 
     this.trigger = function(boxVX,boxVY) {
-      self.o.style.display = 'block';
+      self.o.style.display = 'flex';
       self.boxVX = boxVX;
       self.boxVY = boxVY;
       // boundary checks
@@ -424,7 +424,7 @@ function XLSF(oTarget,urlBase) {
   var i=0;
   var j=0;
 
-  $('lights').style.display = 'block';
+  $('lights').style.display = 'flex';
 
   // start lights to the right of <h1>
   var offset = 0; // parseInt(document.getElementsByTagName('h1')[0].offsetWidth)+16;
