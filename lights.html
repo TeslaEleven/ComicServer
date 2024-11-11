@@ -1,0 +1,24 @@
+<script src="https://old.comicserver.org/js/csnow.js"></script>
+<script src="https://old.comicserver.org/js/wd24/yahooscript.js"></script>
+<script src="https://old.comicserver.org/js/wd24/soundmanager2-nodebug-jsmin.js"></script>
+<script src="https://old.comicserver.org/js/wd24/christmaslights.js"></script>
+<div id="lights">
+  <!-- Lights for WelDays 2024 -->
+</div>
+<script>
+var urlBase = 'https://old.comicserver.org/js/wd24/';
+soundManager.url = 'https://old.comicserver.org/js/wd24/';
+var lights = document.getElementById('lights');
+if(window.addEventListener) {
+  lights.addEventListener('DOMSubtreeModified', contentChanged, false);
+} else if(window.attachEvent) {
+  lights.attachEvent('DOMSubtreeModified', contentChanged);
+}
+
+function contentChanged() {
+   lights.style.display = "flex"
+   lights.style.paddingLeft = "var(--wp--preset--spacing--50)"
+   lights.style.paddingRight = "var(--wp--preset--spacing--50)"
+}
+snowStorm.toggleSnow()
+</script>
